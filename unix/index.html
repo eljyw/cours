@@ -1,0 +1,3586 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="http://gitlab-ci-templates.pages.forge.orange-labs.fr/doc/unix/">
+      
+      
+        <meta name="author" content="eljyw">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>Unix - Support de cours Informatique</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2196f3">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" id="__gitlab"><path fill="currentColor" d="M93.667 473.347l90.684-279.097H2.983l90.684 279.097z" transform="translate(156.198 1.16)"/><path fill="currentColor" d="M221.333 473.345L130.649 194.25H3.557l217.776 279.095z" transform="translate(28.531 1.16)" opacity=".7"/><path fill="currentColor" d="M32 195.155L4.441 279.97a18.773 18.773 0 0 0 6.821 20.99l238.514 173.29L32 195.155z" transform="translate(.089 .256)" opacity=".5"/><path fill="currentColor" d="M2.667-84.844h127.092L75.14-252.942c-2.811-8.649-15.047-8.649-17.856 0L2.667-84.844z" transform="translate(29.422 280.256)"/><path fill="currentColor" d="M2.667 473.345L93.351 194.25h127.092L2.667 473.345z" transform="translate(247.198 1.16)" opacity=".7"/><path fill="currentColor" d="M221.334 195.155l27.559 84.815a18.772 18.772 0 0 1-6.821 20.99L3.557 474.25l217.777-279.095z" transform="translate(246.307 .256)" opacity=".5"/><path fill="currentColor" d="M130.667-84.844H3.575l54.618-168.098c2.811-8.649 15.047-8.649 17.856 0l54.618 168.098z" transform="translate(336.974 280.256)"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#systeme-unix-niveau-1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://gitlab-ci-templates.pages.forge.orange-labs.fr/doc" title="Support de cours Informatique" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Support de cours Informatique
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Unix
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://gitlab.forge.orange-labs.fr/gitlab-ci-templates" title="Go to repository" class="md-source" data-md-source="gitlab">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__gitlab" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Gitlab
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="http://gitlab-ci-templates.pages.forge.orange-labs.fr/doc" title="Support de cours Informatique" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Support de cours Informatique
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://gitlab.forge.orange-labs.fr/gitlab-ci-templates" title="Go to repository" class="md-source" data-md-source="gitlab">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__gitlab" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Gitlab
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Domaines
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Domaines
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../langC/" title="langage C" class="md-nav__link">
+      langage C
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Unix
+      </label>
+    
+    <a href="./" title="Unix" class="md-nav__link md-nav__link--active">
+      Unix
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preface" class="md-nav__link">
+    Préface
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notations" class="md-nav__link">
+    Notations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avertissement" class="md-nav__link">
+    Avertissement.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quest-ce-que-unix" class="md-nav__link">
+    Qu'est ce que UNIX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historique" class="md-nav__link">
+    Historique
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description-generale" class="md-nav__link">
+    Description générale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principales-caracteristiques-du-systeme-unix" class="md-nav__link">
+    Principales caractéristiques du système UNIX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portabilite" class="md-nav__link">
+    Portabilité
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#premier-contact-avec-unix" class="md-nav__link">
+    Premier contact avec UNIX
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#session-utilisateur" class="md-nav__link">
+    Session utilisateur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedure-dentree-sous-unix" class="md-nav__link">
+    Procédure d'entrée sous UNIX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manipulations-des-commandes-unix" class="md-nav__link">
+    Manipulations des commandes UNIX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedure-darret-dune-commande" class="md-nav__link">
+    Procédure d'arrêt d'une commande
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedure-de-sortie-dunix" class="md-nav__link">
+    Procédure de sortie d'UNIX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#premieres-commandes" class="md-nav__link">
+    Premières Commandes.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-systeme-de-fichiers" class="md-nav__link">
+    Le système de fichiers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quest-ce-quun-fichier" class="md-nav__link">
+    Qu'est ce qu'un fichier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#presentation-generale" class="md-nav__link">
+    Présentation générale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-des-fichiers-et-repertoire-de-travail" class="md-nav__link">
+    Référence des fichiers et répertoire de travail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-protection-des-fichiers" class="md-nav__link">
+    La protection des fichiers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-commandes-de-manipulations-de-fichiers" class="md-nav__link">
+    Les commandes de manipulations de fichiers.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modification-des-caracteristiques-dun-i-node" class="md-nav__link">
+    Modification des caractéristiques d'un i-node
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-entrees-sorties-mecanismes-de-redirection" class="md-nav__link">
+    Les entrées-sorties, Mécanismes de redirection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fichiers-et-processus" class="md-nav__link">
+    Fichiers et processus
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generalites-et-presentation" class="md-nav__link">
+    Généralités et présentation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-shell" class="md-nav__link">
+    Le Shell
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lancement-dun-processus-en-arriere-plan" class="md-nav__link">
+    Lancement d'un processus en arrière plan
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#destruction-dun-processus" class="md-nav__link">
+    Destruction d'un processus
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editeur-de-texte-vi" class="md-nav__link">
+    Editeur de texte vi
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction-a-vi" class="md-nav__link">
+    Introduction à vi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appel-de-lediteur" class="md-nav__link">
+    Appel de l'éditeur.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-commandes-de-vi" class="md-nav__link">
+    Les commandes de vi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusions" class="md-nav__link">
+    Conclusions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipelines-tubes" class="md-nav__link">
+    Pipelines (tubes)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction_1" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-filtres" class="md-nav__link">
+    Les filtres.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tubes-et-redirections-dio" class="md-nav__link">
+    tubes et redirections d'I/O
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quelques-filtres-usuels" class="md-nav__link">
+    Quelques filtres usuels
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-shellprogrammation-et-environnement" class="md-nav__link">
+    Le Shell,Programmation et Environnement
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lenvironnement" class="md-nav__link">
+    L'environnement.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-caracteres-speciaux" class="md-nav__link">
+    Les caractères spéciaux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-noms-implicites-de-fichiers" class="md-nav__link">
+    Les noms implicites de fichiers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-fichier-profile" class="md-nav__link">
+    Le fichier .profile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#introduction-a-la-programmation-en-shell" class="md-nav__link">
+    Introduction à la programmation en shell
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communications-entre-utilisateurs" class="md-nav__link">
+    Communications entre utilisateurs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction_2" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#messagerie" class="md-nav__link">
+    Messagerie.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-journal-de-bord" class="md-nav__link">
+    Le journal de bord.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sauvegarde-et-archivage-des-fichiers" class="md-nav__link">
+    Sauvegarde et archivage des fichiers.
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sauvegarde-des-fichiers" class="md-nav__link">
+    Sauvegarde des fichiers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archivage-des-fichiers" class="md-nav__link">
+    Archivage des fichiers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commandes-additionnelles" class="md-nav__link">
+    Commandes additionnelles
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commandes-sur-les-fichiers" class="md-nav__link">
+    Commandes sur les fichiers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1111-la-commande-crypt" class="md-nav__link">
+    11.1.1 La commande "crypt"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-commandes-dadministration-du-systeme" class="md-nav__link">
+    Les commandes d'administration du système.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-commande-de-configuration-du-terminal-stty" class="md-nav__link">
+    La commande de configuration du terminal "stty"
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preface" class="md-nav__link">
+    Préface
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notations" class="md-nav__link">
+    Notations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avertissement" class="md-nav__link">
+    Avertissement.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quest-ce-que-unix" class="md-nav__link">
+    Qu'est ce que UNIX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historique" class="md-nav__link">
+    Historique
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description-generale" class="md-nav__link">
+    Description générale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principales-caracteristiques-du-systeme-unix" class="md-nav__link">
+    Principales caractéristiques du système UNIX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portabilite" class="md-nav__link">
+    Portabilité
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#premier-contact-avec-unix" class="md-nav__link">
+    Premier contact avec UNIX
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#session-utilisateur" class="md-nav__link">
+    Session utilisateur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedure-dentree-sous-unix" class="md-nav__link">
+    Procédure d'entrée sous UNIX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manipulations-des-commandes-unix" class="md-nav__link">
+    Manipulations des commandes UNIX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedure-darret-dune-commande" class="md-nav__link">
+    Procédure d'arrêt d'une commande
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedure-de-sortie-dunix" class="md-nav__link">
+    Procédure de sortie d'UNIX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#premieres-commandes" class="md-nav__link">
+    Premières Commandes.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-systeme-de-fichiers" class="md-nav__link">
+    Le système de fichiers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quest-ce-quun-fichier" class="md-nav__link">
+    Qu'est ce qu'un fichier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#presentation-generale" class="md-nav__link">
+    Présentation générale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-des-fichiers-et-repertoire-de-travail" class="md-nav__link">
+    Référence des fichiers et répertoire de travail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-protection-des-fichiers" class="md-nav__link">
+    La protection des fichiers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-commandes-de-manipulations-de-fichiers" class="md-nav__link">
+    Les commandes de manipulations de fichiers.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modification-des-caracteristiques-dun-i-node" class="md-nav__link">
+    Modification des caractéristiques d'un i-node
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-entrees-sorties-mecanismes-de-redirection" class="md-nav__link">
+    Les entrées-sorties, Mécanismes de redirection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fichiers-et-processus" class="md-nav__link">
+    Fichiers et processus
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generalites-et-presentation" class="md-nav__link">
+    Généralités et présentation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-shell" class="md-nav__link">
+    Le Shell
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lancement-dun-processus-en-arriere-plan" class="md-nav__link">
+    Lancement d'un processus en arrière plan
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#destruction-dun-processus" class="md-nav__link">
+    Destruction d'un processus
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editeur-de-texte-vi" class="md-nav__link">
+    Editeur de texte vi
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction-a-vi" class="md-nav__link">
+    Introduction à vi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appel-de-lediteur" class="md-nav__link">
+    Appel de l'éditeur.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-commandes-de-vi" class="md-nav__link">
+    Les commandes de vi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusions" class="md-nav__link">
+    Conclusions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipelines-tubes" class="md-nav__link">
+    Pipelines (tubes)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction_1" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-filtres" class="md-nav__link">
+    Les filtres.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tubes-et-redirections-dio" class="md-nav__link">
+    tubes et redirections d'I/O
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quelques-filtres-usuels" class="md-nav__link">
+    Quelques filtres usuels
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-shellprogrammation-et-environnement" class="md-nav__link">
+    Le Shell,Programmation et Environnement
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lenvironnement" class="md-nav__link">
+    L'environnement.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-caracteres-speciaux" class="md-nav__link">
+    Les caractères spéciaux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-noms-implicites-de-fichiers" class="md-nav__link">
+    Les noms implicites de fichiers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-fichier-profile" class="md-nav__link">
+    Le fichier .profile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#introduction-a-la-programmation-en-shell" class="md-nav__link">
+    Introduction à la programmation en shell
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communications-entre-utilisateurs" class="md-nav__link">
+    Communications entre utilisateurs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction_2" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#messagerie" class="md-nav__link">
+    Messagerie.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-journal-de-bord" class="md-nav__link">
+    Le journal de bord.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sauvegarde-et-archivage-des-fichiers" class="md-nav__link">
+    Sauvegarde et archivage des fichiers.
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sauvegarde-des-fichiers" class="md-nav__link">
+    Sauvegarde des fichiers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archivage-des-fichiers" class="md-nav__link">
+    Archivage des fichiers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commandes-additionnelles" class="md-nav__link">
+    Commandes additionnelles
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commandes-sur-les-fichiers" class="md-nav__link">
+    Commandes sur les fichiers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1111-la-commande-crypt" class="md-nav__link">
+    11.1.1 La commande "crypt"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-commandes-dadministration-du-systeme" class="md-nav__link">
+    Les commandes d'administration du système.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-commande-de-configuration-du-terminal-stty" class="md-nav__link">
+    La commande de configuration du terminal "stty"
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="systeme-unix-niveau-1">Système UNIX niveau 1</h1>
+<p>SUIVI DES VERSIONS DU DOCUMENT</p>
+<p>Creation : 1988/01/20</p>
+<p>Last changes : </p>
+<ul>
+<li>2019/10/07 corrections mineures</li>
+<li>2018/09/07 passage en markdown</li>
+</ul>
+<div class="toc">
+<ul>
+<li><a href="#systeme-unix-niveau-1">Système UNIX niveau 1</a><ul>
+<li><a href="#preface">Préface</a><ul>
+<li><a href="#notations">Notations</a></li>
+<li><a href="#avertissement">Avertissement.</a></li>
+</ul>
+</li>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#quest-ce-que-unix">Qu'est ce que UNIX</a></li>
+<li><a href="#historique">Historique</a></li>
+<li><a href="#description-generale">Description générale</a></li>
+<li><a href="#principales-caracteristiques-du-systeme-unix">Principales caractéristiques du système UNIX</a></li>
+<li><a href="#portabilite">Portabilité</a></li>
+</ul>
+</li>
+<li><a href="#premier-contact-avec-unix">Premier contact avec UNIX</a><ul>
+<li><a href="#session-utilisateur">Session utilisateur</a></li>
+<li><a href="#procedure-dentree-sous-unix">Procédure d'entrée sous UNIX</a></li>
+<li><a href="#manipulations-des-commandes-unix">Manipulations des commandes UNIX</a></li>
+<li><a href="#procedure-darret-dune-commande">Procédure d'arrêt d'une commande</a></li>
+<li><a href="#procedure-de-sortie-dunix">Procédure de sortie d'UNIX</a></li>
+<li><a href="#premieres-commandes">Premières Commandes.</a></li>
+</ul>
+</li>
+<li><a href="#le-systeme-de-fichiers">Le système de fichiers</a><ul>
+<li><a href="#quest-ce-quun-fichier">Qu'est ce qu'un fichier</a></li>
+<li><a href="#presentation-generale">Présentation générale</a></li>
+<li><a href="#reference-des-fichiers-et-repertoire-de-travail">Référence des fichiers et répertoire de travail</a></li>
+<li><a href="#la-protection-des-fichiers">La protection des fichiers</a></li>
+<li><a href="#les-commandes-de-manipulations-de-fichiers">Les commandes de manipulations de fichiers.</a></li>
+<li><a href="#modification-des-caracteristiques-dun-i-node">Modification des caractéristiques d'un i-node</a></li>
+<li><a href="#les-entrees-sorties-mecanismes-de-redirection">Les entrées-sorties, Mécanismes de redirection</a></li>
+</ul>
+</li>
+<li><a href="#fichiers-et-processus">Fichiers et processus</a><ul>
+<li><a href="#generalites-et-presentation">Généralités et présentation</a></li>
+<li><a href="#le-shell">Le Shell</a></li>
+</ul>
+</li>
+<li><a href="#lancement-dun-processus-en-arriere-plan">Lancement d'un processus en arrière plan</a><ul>
+<li><a href="#destruction-dun-processus">Destruction d'un processus</a></li>
+</ul>
+</li>
+<li><a href="#editeur-de-texte-vi">Editeur de texte vi</a><ul>
+<li><a href="#introduction-a-vi">Introduction à vi</a></li>
+<li><a href="#appel-de-lediteur">Appel de l'éditeur.</a></li>
+<li><a href="#les-commandes-de-vi">Les commandes de vi</a></li>
+<li><a href="#conclusions">Conclusions</a></li>
+</ul>
+</li>
+<li><a href="#pipelines-tubes">Pipelines (tubes)</a><ul>
+<li><a href="#introduction_1">Introduction</a></li>
+<li><a href="#les-filtres">Les filtres.</a></li>
+<li><a href="#tubes-et-redirections-dio">tubes et redirections d'I/O</a></li>
+<li><a href="#quelques-filtres-usuels">Quelques filtres usuels</a></li>
+</ul>
+</li>
+<li><a href="#le-shellprogrammation-et-environnement">Le Shell,Programmation et Environnement</a><ul>
+<li><a href="#lenvironnement">L'environnement.</a></li>
+<li><a href="#les-caracteres-speciaux">Les caractères spéciaux</a></li>
+<li><a href="#les-noms-implicites-de-fichiers">Les noms implicites de fichiers</a></li>
+<li><a href="#le-fichier-profile">Le fichier .profile</a></li>
+<li><a href="#introduction-a-la-programmation-en-shell">Introduction à la programmation en shell</a></li>
+</ul>
+</li>
+<li><a href="#communications-entre-utilisateurs">Communications entre utilisateurs</a></li>
+<li><a href="#introduction_2">Introduction</a><ul>
+<li><a href="#messagerie">Messagerie.</a></li>
+<li><a href="#le-journal-de-bord">Le journal de bord.</a></li>
+</ul>
+</li>
+<li><a href="#sauvegarde-et-archivage-des-fichiers">Sauvegarde et archivage des fichiers.</a><ul>
+<li><a href="#sauvegarde-des-fichiers">Sauvegarde des fichiers</a></li>
+<li><a href="#archivage-des-fichiers">Archivage des fichiers</a></li>
+</ul>
+</li>
+<li><a href="#commandes-additionnelles">Commandes additionnelles</a><ul>
+<li><a href="#commandes-sur-les-fichiers">Commandes sur les fichiers</a></li>
+<li><a href="#1111-la-commande-crypt">11.1.1 La commande "crypt"</a></li>
+<li><a href="#les-commandes-dadministration-du-systeme">Les commandes d'administration du système.</a></li>
+<li><a href="#la-commande-de-configuration-du-terminal-stty">La commande de configuration du terminal "stty"</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="preface">Préface</h2>
+<h3 id="notations">Notations</h3>
+<p>Durant tout ce cours nous utiliserons les notations suivantes :</p>
+<p>Pour indiquer qu'il faut appuyer sur la touche "retour chariot" ou "Enter" nous noterons " &lt;cr&gt; " .</p>
+<p>Pour indiquer "control d" : Appui simultané de la touche "Control" et de la touche " d " nous noterons " &lt;Ctrl-d&gt; ".</p>
+<p>Pour la description de la syntaxe d'une commande, les termes optionnels seront placés entre crochets :" [Termes optionnels] ".</p>
+<p>Les noms des fichiers seront mis entre guillemets.</p>
+<h3 id="avertissement">Avertissement.</h3>
+<p>Ce cours ne constitue pas un manuel UNIX, nous ne présenterons pas toutes les commandes UNIX, mais uniquement les plus utilisées .</p>
+<p>Nous ne ferons pas une description exhaustive des commandes, mais donnerons uniquement la syntaxe et les options les plus couramment utilisées.</p>
+<p>Pour tout complément d'information, se reporter aux manuels d'Unix fournis avec le matériel.</p>
+<h2 id="introduction">Introduction</h2>
+<h3 id="quest-ce-que-unix">Qu'est ce que UNIX</h3>
+<p>UNIX est un système d'exploitation, multi-taches, multi-utilisateurs. Il se situe entre l'utilisateur et la machine.</p>
+<p>Utilisateur
+  Système d'exploitation
+  Hardware de la machine</p>
+<p>Le système est chargé du partage équitable des ressources de la machine entre chaque utilisateur.</p>
+<p>Le système d'exploitation négocie entre les désirs de l'utilisateur et les ressources ou les performances de la machine.</p>
+<p>Les demandes :</p>
+<ul>
+<li>
+<p>exécuter des commandes.</p>
+</li>
+<li>
+<p>créer des fichiers.</p>
+</li>
+<li>
+<p>entrer dans un réseau.</p>
+</li>
+<li>
+<p>etc ...</p>
+</li>
+</ul>
+<p>Les ressources :</p>
+<ul>
+<li>l'unité centrale,</li>
+<li>la mémoires,</li>
+<li>les Disques,</li>
+<li>le réseau,</li>
+<li>etc...</li>
+</ul>
+<h3 id="historique">Historique</h3>
+<p>Le système d'exploitation UNIX a été développé par les laboratoires BELL, dépendant de AT&amp;T (American Telephone &amp; Telegraph), l'un des plus grands centres de recherche au monde. Son créateur est KEN THOMPSON, il en a assuré la conception en 1969. Depuis cette date, beaucoup de chercheurs, d'ingénieurs ont contribué à son enrichissement, à son évolution. Le développement du langage C par DENNIS RITCHIE a permis l'écriture d'une version dans ce langage de haut niveau, par conséquent portable à priori sur tout type de machine disposant d'un compilateur C.</p>
+<p>*"SYSTEM 3" est apparu en 1981, et marque la double volonté de AT&amp;T de:</p>
+<ul>
+<li>
+<p>Se lancer dans une action commerciale de grande envergure,</p>
+</li>
+<li>
+<p>réagir contre les dérives des différents portages d'UNIX, et conduisant à certaines incompatibilités.</p>
+</li>
+</ul>
+<p>* La dernière version, "SYSTEM V", est le fruit d'efforts importants durant plusieurs années, entrepris par AT&amp;T et par l'université de BERKELEY, en Californie, principalement. Les domaines concernés sont avant tout la gestion des fichiers et la fiabilité d'Unix.</p>
+<p>"SYSTEM V" apparu en 1983, marque la volonté de AT&amp;T d'imposer cette version, tant aux constructeurs d'ordinateurs qu'aux sociétés de logiciels qui se rallient massivement à ce standard, tout en réalisant un certain nombre d'ajouts liés à des équipements particuliers et/ou à des logiciels existants. Ces différences sont validées par AT&amp;T.</p>
+<p>Il existe une quarantaine de "versions différentes" du système UNIX... Ce nombre, inquiétant de prime abord lorsque l'on a des soucis de portabilité, de compatibilité, que signifie-t-il au juste? pourquoi toutes ces versions? Qu'est-ce-que cela cache?</p>
+<p>Pourquoi toutes ces versions ?</p>
+<p>Il convient d'aborder ce point selon deux axes: historique et commercial.</p>
+<h4>Historique</h4>
+<p>De nos jours, Unix est plutôt connu via Linux et ses multiples distributions.</p>
+<p>UNIX est apparu en 1969. UNIX a évolué dans le temps et les différentes versions de référence (dénommées dans tout ce qui suit AT&amp;T-UNIX), ont marqué les grandes étapes de cette évolution:</p>
+<ul>
+<li>
+<p>Version 5 (1973)</p>
+</li>
+<li>
+<p>Version 6 (1975)</p>
+</li>
+<li>
+<p>Version 7 (1979)</p>
+</li>
+<li>
+<p>Système III (1981)</p>
+</li>
+<li>
+<p>Système V (1983)</p>
+</li>
+</ul>
+<p>Chacune de ces versions techniques au-delà de la "Version 7" a donné naissance à des versions commerciales.</p>
+<p>AT&amp;T, qui est propriétaire de la marque UNIX (UNIX est une marque déposée) passe des contrats avec des constructeurs, des sociétés de développement, qui adaptent AT&amp;T UNIX, en y intégrant souvent tout ou partie des utilitaires développés par l'université de BEKELEY, aux caractéristiques des matériels. Les versions ainsi adaptées doivent obligatoirement avoir un nom commercial différent d'UNIX, d'ou les nombreuses appellations. En voici une liste non exhaustive:</p>
+<ul>
+<li>
+<p>XENIX de MICROSOFT (1)</p>
+</li>
+<li>
+<p>VENIX de VENTURE COM's (1)</p>
+</li>
+<li>
+<p>ZEUS de ZILOG (1)</p>
+</li>
+<li>
+<p>UNIPLUS de UNISOFT SYSTEMS (1)</p>
+</li>
+<li>
+<p>IDRIS de WHITE SMITHS (2)</p>
+</li>
+<li>
+<p>SOL de ADI INRIA ET SYSECA (2)</p>
+</li>
+<li>
+<p>INITY de DIGITAL EQUIPEMENT CORPORATION (3)</p>
+</li>
+<li>
+<p>IS/WB de INTERACTIVE SYSTEMS (3)</p>
+</li>
+</ul>
+<p>(1) Authentique versions issues de BELL et comportant des variantes adaptées en général, pour tenir compte des différences de matériels.</p>
+<p>(2) Systèmes d'exploitation, de type UNIX, entièrement réécrits et offrant des possibilités identiques ou très proches de celles d'UNIX.</p>
+<p>(3) Systèmes d'exploitation, de type UNIX, fonctionnant sous le contrôle du système d'exploitation de l'ordinateur hôte, offrant un environnement quasi-identique à celui de AT&amp;T UNIX.</p>
+<h3 id="description-generale">Description générale</h3>
+<p>UNIX est un système d'exploitation multi-tâche, multi- utilisateur fonctionnant en temps partagé.</p>
+<p>Les programmes dont il assure le contrôle peuvent être lancés en mode interactif ou en traitement batch. L'une des caractéristiques principales d'UNIX par rapport au système d'exploitation traditionnel est la gestion de tout périphérique d'entrée-sorties sous la forme d'un fichier.</p>
+<p>La gestion de l'ensemble de ces fichiers représente un système de gestion de fichiers hiérarchisés sous la forme d'un arbre. Cette possibilité permet ainsi de rediriger tous les résultats issus d'un programme comme paramètre d'entrée d'un autre programme. De plus UNIX est fourni avec un ensemble d'utilitaires de base ainsi que d'une documentation en ligne.</p>
+<p>UNIX est aussi un système de développement, donnant aux utilisateurs tous les outils permettant d'écrire, de mettre au point et de documenter leurs programmes.</p>
+<p>Le système UNIX est composé :</p>
+<ul>
+<li>
+<p>d'un noyau assurant la gestion de la mémoire et des entrées sorties de bas niveau ainsi que de l'enchaînement des différentes tâches .</p>
+</li>
+<li>
+<p>d'un (ou plusieurs suivant les versions) interpréteur de commandes.</p>
+</li>
+<li>
+<p>d'un système de messageries assez complet (courrier, conversation en temps réel )</p>
+</li>
+<li>
+<p>d'un grand nombre d'utilitaires, dont un compilateur de langage C, un générateur d'analyseur syntaxique lex, un générateur d'analyseur sémantique yakk, etc ...</p>
+</li>
+</ul>
+<h3 id="principales-caracteristiques-du-systeme-unix">Principales caractéristiques du système UNIX</h3>
+<p>Ses principales caractéristiques sont :</p>
+<ul>
+<li>
+<p>Son système de fichiers hiérarchisés (voir Chap 3)</p>
+</li>
+<li>
+<p>L'aspect multi-tâches pour chaque utilisateur.</p>
+</li>
+<li>
+<p>La possibilités d'écrire des applications faisant directement appel au noyau par l'intermédiaire du langage C.</p>
+</li>
+<li>
+<p>Ses langages de commandes qui sont de véritables langages de programmation interprétés, permettant l'écriture de programmes complexes.</p>
+</li>
+<li>
+<p>Son mécanisme de re-directions des entrées sorties. En effet tout processus prend normalement ses données depuis le clavier du terminal par lequel il a été lancé, de même que ses sorties se font normalement sur l'écran, il est possible d'associer aux entrées sorties des fichiers quelconques ( UNIX considérant toutes les entrées-sorties comme des fichiers sur lesquels il peut lire ou écrire ). UNIX allant plus loin puisque les sorties d'un programme peuvent être considérés comme les entrées d'un autre programme.(communication entre processus par l'intermédiaire de tube, "pipe" en anglais).</p>
+</li>
+</ul>
+<h3 id="portabilite">Portabilité</h3>
+<p>Un certain nombre de constructeurs ont porté UNIX sur leurs matériels : Digital, Bull, Hewlett Packard, Thompson, Cray, Apple..., ceci dans une gamme variant du micro-ordinateur au plus gros système.</p>
+<p>L'une des facilités de la portabilité d'UNIX est le fait que 95% environ du système est écrit dans un langage de haut niveau : Le langage C, les 5% restant étant écrit en assembleur, ceci pour gérer les drivers d'entrée-sortie dans les couches les plus basses.</p>
+<p>Avec l'arrivée de "SYSTEM V", l'utilisateur a pu modifier certains paramètres système auxquels il n'avait pas accès sous "System III". </p>
+<p>Les logiciels serveur sont donc portables sur toutes les machines implémentées avec le système d'exploitation UNIX system V.</p>
+<h2 id="premier-contact-avec-unix">Premier contact avec UNIX</h2>
+<h3 id="session-utilisateur">Session utilisateur</h3>
+<p>Une session utilisateur commence par un "login" (entrée dans le système) et se termine par un "login off" (sortie du système), entre les deux on peut exécuter des commandes, obtenir des réponses de la part de l'ordinateur.</p>
+<p>Une commande étant le seul moyen d'effectuer quelque chose sur l'ordinateur.</p>
+<p>Une commande est un programme que l'on utilise pour faire une tâche désirée. La commande est exécutée en entrant son nom au clavier suivi de &lt;cr&gt;.</p>
+<h3 id="procedure-dentree-sous-unix">Procédure d'entrée sous UNIX</h3>
+<p>Pour démarrer une session utilisateur il faut posséder un "login id" (id pour identificateur) et éventuellement un mot de passe.</p>
+<p>Au message "login:" envoyé par le système, l'utilisateur doit saisir son "login-id". Ensuite au message "password:" il doit saisir son mot de passe. Si le nom et le mot de passe sont corrects l'utilisateur peut alors démarrer sa session de travail sur la machine.</p>
+<p>Il est recommandé d'entrer son "login-id" en minuscules, sinon UNIX (qui fait la différence entre majuscules et minuscules) considérera que votre console ne reconnaît pas les minuscules et vous affichera tout en majuscules.</p>
+<p>Exemple :</p>
+<div class="codehilite"><pre><span></span>login :daniel<span class="p">&amp;</span>lt<span class="p">;</span>cr<span class="p">&amp;</span>gt<span class="p">;</span>
+password : xxxxxxxxxx le mot de passe n<span class="s1">&#39;est pas affiché à l&#39;</span>écran pour des raisons évidentes de sécurité.
+
+Bienvenue sous 3B15 &lt;<span class="o">==</span> Message de bienvenue.
+$
+</pre></div>
+
+<p>A l'entrée sur le système on obtient un prompt (par défaut le caractère "\$") indiquant que UNIX est prêt à accéder à tous vos désirs (ou presque).</p>
+<p>Un certain nombre de noms d'utilisateurs sont requis par le système pour gérer des taches particulières. Ces taches sont avant tout des taches systèmes et administratives, ex : root est le super-utilisateur du système, il a tous les droits (d'où la nécessité de protéger son utilisation par l'intermédiaire d'un mot de passe).</p>
+<h3 id="manipulations-des-commandes-unix">Manipulations des commandes UNIX</h3>
+<p>Pour exécuter une commande sous UNIX, il suffit d'entrer son nom (Premier mot de la ligne entrée) ainsi que des options dont elle a éventuellement besoin.</p>
+<p>Format d'une ligne de commande :</p>
+<p>cmd [arg ...] &lt;cr&gt;</p>
+<p><strong>cmd</strong> est le nom de la commande.</p>
+<p><strong>arg</strong> représente les paramètres optionnels de la commandes. Chaque paramètre étant séparé par un espace.</p>
+<h4>3.3.1 La commande "date"</h4>
+<p>La commande date permet d'afficher la date et l'heure du système sur lequel vous êtes connectés.</p>
+<p>Il y a une option pour date permettant de changer la date du système mais elle n'est accessible que pour le super-utilisateur.</p>
+<div class="codehilite"><pre><span></span>$ date
+Mon Jan <span class="m">11</span> <span class="m">14</span>:55:15 GMT <span class="m">1988</span>
+$
+</pre></div>
+
+<h3 id="procedure-darret-dune-commande">Procédure d'arrêt d'une commande</h3>
+<p>Il est possible d'arrêter le déroulement d'une commande avant son terme. Par défaut il s'agit de la combinaison de touches "Ctrl-C" la touche <code>Control</code> avec la touche <code>C</code> . L'utilisateur a la possibilité de changer cette touche.</p>
+<h3 id="procedure-de-sortie-dunix">Procédure de sortie d'UNIX</h3>
+<p>Pour terminer une session de travail il suffit d'envoyer le caractère fin de fichier qui est par défaut le caractère "<Ctrl-D>".</p>
+<p>Une autre possibilité est d'entrer la commande exit.</p>
+<p>Exemple :</p>
+<div class="codehilite"><pre><span></span>login :daniel
+password : xxxxxxxxx
+
+Bienvenue sous 3B15
+
+$ date 
+Mon Jan <span class="m">11</span> <span class="m">14</span>:55:15 GMT <span class="m">1988</span>
+&lt;Ctrl-d&gt;
+login :
+</pre></div>
+
+<h3 id="premieres-commandes">Premières Commandes.</h3>
+<h4>3.6.1 La commande "banner"</h4>
+<p>Imprime ses arguments en gros caractères. Elle est utilisée pour l'étiquetage, ou le titrage en sortie.</p>
+<div class="codehilite"><pre><span></span>$ banner h
+<span class="c1">##     #</span>
+<span class="c1">##     #</span>
+<span class="c1">########</span>
+<span class="c1">##     #</span>
+<span class="c1">##     #</span>
+$
+</pre></div>
+
+<h4>3.6.2 La commande "logname"</h4>
+<p>La commande <code>logname</code> vous donne votre nom d'utilisateur.</p>
+<h4>3.6.3 La commande "who"</h4>
+<p>La commande who permet de savoir qui est connecté sur le système.</p>
+<p>Avec les options "<code>am i</code>" ou "<code>am I</code>" permet de savoir qui on est.</p>
+<div class="codehilite"><pre><span></span>$ who am i
+daniel tty Tue <span class="m">17</span>:44
+</pre></div>
+
+<h4>3.6.4 La commande "passwd"</h4>
+<p>Permet de changer son mot de passe. Entrer la commande <code>passwd</code>, elle vous demandera votre nouveau mot de passe et de le confirmer; si tout se passe bien votre nouveau mot de passe sera valide pour votre prochaine session.</p>
+<h4>3.6.5 La commande "echo"</h4>
+<p>Ecrit ses arguments et passe a la ligne suivante. Passe à la ligne si elle n'a aucun argument.</p>
+<p>La commande reconnaît quelques caractères spéciaux:</p>
+<table>
+<thead>
+<tr>
+<th align="center">caractères</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>\b</code></td>
+<td>backspace : retour arrière</td>
+</tr>
+<tr>
+<td align="center"><code>\c</code></td>
+<td>Affiche la ligne sans passer à la ligne</td>
+</tr>
+<tr>
+<td align="center"><code>\f</code></td>
+<td>form feed : efface l'écran</td>
+</tr>
+<tr>
+<td align="center"><code>\n</code></td>
+<td>New line: passe à la ligne</td>
+</tr>
+<tr>
+<td align="center"><code>\t</code></td>
+<td>tabulation</td>
+</tr>
+<tr>
+<td align="center"><code>\v</code></td>
+<td>tabulation verticale</td>
+</tr>
+<tr>
+<td align="center"><code>\</code></td>
+<td>le caractère</td>
+</tr>
+</tbody>
+</table>
+<p>Sur les versions de linux il faut activer les caractères spéciaux via l'option <code>-e</code>.</p>
+<h4>3.6.6 La commande "man"</h4>
+<p>Si l'on n'a pas le manuel sous la main. <code>man</code> permet de savoir ce que fait tel ou tel commande, ainsi que les options de la commande.</p>
+<p>l'option "-k" suivi de mots clés affiche un résumé des commandes passées en arguments.</p>
+<p>Pour savoir comment marche la commande <code>man</code> entrer :</p>
+<div class="codehilite"><pre><span></span>$ man man
+</pre></div>
+
+<h4>3.6.7 Le shell</h4>
+<p>Le shell est l'interpréteur de commandes. Il existe plusiseurs interpréteur de commandes : <code>sh</code>, <code>ksh</code>, <code>csh</code>, <code>bash</code>, <code>bash</code>étant le plus répandu de jours. Il interprète ce que vous tapez au clavier pour l'exécuter. Lorsque vous tapez un retour-chariot il interprète le texte que vous avez écrit et exécute la commande dont le nom est le premier mot de la ligne. C'est lui qui vous affiche le prompt (par défaut "\$") vous invitant à taper quelque chose.</p>
+<h2 id="le-systeme-de-fichiers">Le système de fichiers</h2>
+<h3 id="quest-ce-quun-fichier">Qu'est ce qu'un fichier</h3>
+<p>Un fichier est un lieu de stockage d'informations, c'est un nom et des données associées. Par exemple la commande date est un nom et un fichier programme associé. Un terminal est un fichier sur lequel on peut écrire : l'écran, et sur lequel on peut lire : le clavier.</p>
+<p>UNIX considère toutes les entrées/sorties comme des fichiers, donc: les programmes, les périphériques, les données sont tous considérés comme des fichiers.</p>
+<p>Sous unix un fichier peut avoir plusieurs noms (Voir la commande  <a href="#la-commande-ln">ln</a>  ).</p>
+<h3 id="presentation-generale">Présentation générale</h3>
+<p>Un fichier sous unix est une chaîne de caractères non structurée du point de vue du système. UNIX ne possède aucune notion d'organisation de fichiers telle que les fichiers séquentiels, indexés, partitionnés.</p>
+<p>A tout fichier est associé un bloc d'information : le i-node contenant un certain nombre d'informations sur celui-ci :</p>
+<ul>
+<li>
+<p>sa taille.</p>
+</li>
+<li>
+<p>l'adresse des blocs sur le disque où les données sont réellement écrites.</p>
+</li>
+<li>
+<p>l'identification du propriétaire.</p>
+</li>
+<li>
+<p>Un compteur de référence dans le système.</p>
+</li>
+<li>
+<p>un certains nombre de dates relatives au fichier.</p>
+</li>
+</ul>
+<p>On remarquera que ce bloc ne contient aucun nom d'identification pour le fichier. Les noms sont gardés dans des fichiers spécifiques : Les catalogues (ou répertoires ou encore directories).</p>
+<p>Sous UNIX il existe <strong>trois types</strong> de fichiers :</p>
+<ul>
+<li>
+<p>Les fichiers ordinaires ( type data, texte, ou binaire).</p>
+</li>
+<li>
+<p>Les fichiers directory (répertoire ou catalogue en français).</p>
+</li>
+<li>
+<p>Les fichiers spéciaux. Il s'agit des fichiers drivers (exemple le disque, le terminal).</p>
+</li>
+</ul>
+<p>Il existe deux types de fichiers spéciaux :</p>
+<ul>
+<li>
+<p>Les fichiers spéciaux de type caractères (Le terminal)</p>
+</li>
+<li>
+<p>Les fichiers spéciaux de type blocs (Le disque)</p>
+</li>
+</ul>
+<p>Un fichier est référencé par un nom dans une directory. Un même fichier peut être référencé plusieurs fois dans différents catalogues. Le catalogue étant lui même référencé dans un autre catalogue. Cette architecture nécessite l'existence d'un répertoire spécial dont le système connaît l'emplacement, il s'agit du répertoire racine noté "<code>/</code>".</p>
+<p>La structure des fichiers sous UNIX est donc une arborescence, on trouvera sous celui-ci des répertoires commun à tous les systèmes UNIX.</p>
+<h3 id="reference-des-fichiers-et-repertoire-de-travail">Référence des fichiers et répertoire de travail</h3>
+<p>Architecture de l'arborescence des fichiers sous UNIX.</p>
+<div class="codehilite"><pre><span></span><span class="o">/</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span>
+<span class="o">/</span><span class="n">etc</span>
+<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">tty1</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">daniel</span>
+</pre></div>
+
+
+<p>Le système de fichiers forme une arborescence, les noeuds sont des catalogues et les feuilles des fichiers ou des catalogues vides. Nous pouvons nous déplacer dans cette arborescence au moyen de certaines commandes.</p>
+<p>Le nom d'un fichier peut être donné soit par sa référence absolue c'est à dire son nom complet depuis la racine, soit par sa référence relative c'est à dire par rapport au répertoire sur lequel on se trouve.</p>
+<p>Par convention une référence relative est une référence ne commençant pas par le caractère "<code>/</code>".</p>
+<p>Le repérage des fichiers est facilité par l'existence dans toutes les directories de deux références particulieres qui sont : <code>.</code> et <code>..</code> point et point point, ils désignent respectivement le répertoire courant et le répertoire au dessus ou précédent avec une exception pour le répertoire racine qui désigne alors lui même.</p>
+<p>Exemple , si nous sommes dans le répertoire /home/daniel</p>
+<table>
+<thead>
+<tr>
+<th>référence</th>
+<th>designation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/home/daniel/toto.c</td>
+<td>Référence <strong>absolue</strong> au fichier toto.c se trouvant dans le répertoire /home/daniel</td>
+</tr>
+<tr>
+<td>../daniel/toto.c</td>
+<td>Référence <strong>relative</strong> par rapport au répertoire courant (on remonte d'un cran et on redescend)</td>
+</tr>
+<tr>
+<td>toto.c</td>
+<td>Référence relative par rapport au répertoire courant</td>
+</tr>
+<tr>
+<td>.</td>
+<td>désigne /home/daniel</td>
+</tr>
+<tr>
+<td>..</td>
+<td>désigne le répertoire parent : /home</td>
+</tr>
+</tbody>
+</table>
+<p>Tous les fichiers commençant par le caractère <code>.</code> n'apparaissent pas avec les commandes normales d'affichage des fichiers, ils sont considérés comme des fichiers cachés.</p>
+<p>Tous les utilisateurs possédent leur propre répertoire de travail qui est par défaut le repertoire courant au moment du "login".</p>
+<p>Il existe quelques répertoires communs à tous les systèmes UNIX.</p>
+<table>
+<thead>
+<tr>
+<th>répertoire</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>La racine du système</td>
+</tr>
+<tr>
+<td>/usr</td>
+<td>Contient ce qui est utilisé par l'utilisateur : compilateurs, librairies, etc.</td>
+</tr>
+<tr>
+<td>/bin et /usr/bin</td>
+<td>Contient les programmes associés aux commandes UNIX</td>
+</tr>
+<tr>
+<td>/dev</td>
+<td>contient les fichiers spéciaux</td>
+</tr>
+<tr>
+<td>/etc</td>
+<td>contient les fichiers systèmes</td>
+</tr>
+<tr>
+<td>/tmp</td>
+<td>tous les fichiers temporaires</td>
+</tr>
+</tbody>
+</table>
+<h3 id="la-protection-des-fichiers">La protection des fichiers</h3>
+<p>Sous UNIX tout utilisateur possède, associé à son identification un numéro de compte et appartient à un groupe d'utilisateur. Ainsi pour un fichier donné les utilisateurs peuvent être classés en trois catégories :</p>
+<ul>
+<li>
+<p>Le propriétaire du fichier (Celui qui l'a créé).</p>
+</li>
+<li>
+<p>Les membres du groupe du propriétaire.</p>
+</li>
+<li>
+<p>tous les autres.</p>
+</li>
+</ul>
+<p>Sans oublier le super-utilisateur root, qui lui, a tous les droits.</p>
+<p>Trois contrôles élémentaires sont faits par le système:</p>
+<ul>
+<li>
+<p>Les droits de lecture (représenté par <code>r</code> pour <strong>r</strong>ead)</p>
+</li>
+<li>
+<p>Les droits d'écriture ( représenté par <code>w</code> pour <strong>w</strong>rite)</p>
+</li>
+<li>
+<p>Les droits d'exécution(représenté par <code>x</code> pour e<strong>x</strong>ecution</p>
+</li>
+</ul>
+<p>Pour un répertoire :</p>
+<ul>
+<li>
+<p>Le droit d'exécution signifie la possibilité pour un utilisateur de se positionner sur ce répertoire (en fait plutôt de le traverser).</p>
+</li>
+<li>
+<p>Le droit de lecture étant de lire le contenu du répertoire.</p>
+</li>
+<li>
+<p>Le droit d'écriture donne la possibilité de créer des fichiers dans celui-ci ainsi que d'effacer des fichiers dans ce répertoire même si l'on n'a pas les droits d'écriture sur ces fichiers.</p>
+</li>
+</ul>
+<p>Il existe aussi trois autres bits de contrôles sur les fichiers qui ont un rôle spécial:</p>
+<ul>
+<li>
+<p>le set-uid : Lorsqu'il est positionné donne à l'utilisateur du programme les droits du créateur du programme et non ceux de l'utilisateur du programme.</p>
+</li>
+<li>
+<p>le set-guid : Idem à set-uid mais au niveau du groupe.</p>
+</li>
+<li>
+<p>le sticky-bit : qui permet au contrôleur de processus de garder ce programme en mémoire (RAM) même si d'autres en ont besoin.</p>
+</li>
+</ul>
+<h3 id="les-commandes-de-manipulations-de-fichiers">Les commandes de manipulations de fichiers.</h3>
+<p>Nous allons voir ici les principales commandes permettant de manipuler les fichiers et les répertoires.</p>
+<h4>4.5.1 La commande "pwd"</h4>
+<p>Affiche le nom du repertoire courant à partir de la racine.</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">pwd</span>
+/home/daniel
+$
+</pre></div>
+
+<h4>4.5.2 La commande "cd"</h4>
+<p>Permet de changer de répertoire de travail courant. Sans paramétre permet de revenir au répertoire par défaut du login (attention, celui-ci peut être changé).</p>
+<p>Exemple:</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">pwd</span>
+/home/daniel
+$ <span class="nb">cd</span> /usr/bin <span class="c1"># Positionnement absolu</span>
+$ <span class="nb">pwd</span>
+/usr/bin
+$ <span class="nb">cd</span> ../include <span class="c1"># Positionnement relatif</span>
+$ <span class="nb">pwd</span>
+/usr/include
+$ <span class="nb">cd</span> <span class="c1"># Sans paramètre retour au pwd : HOME directory</span>
+/u1/daniel
+$
+</pre></div>
+
+<h4>4.5.3 La commande "ls"</h4>
+<p>Format : <code>ls [-options] [arg]</code></p>
+<p>Permet d'afficher la liste des fichiers dans le répertoire courant ou le répertoire passé en argument.</p>
+<p>quelques options:</p>
+<p><code>-l</code> affiche en format long (donne plus d'informations) donnant:</p>
+<ul>
+<li>
+<p>le mode du fichier et le type.</p>
+</li>
+<li>
+<p>le nombre de liens.(nombre de références du fichier)</p>
+</li>
+<li>
+<p>le propriétaire.</p>
+</li>
+<li>
+<p>le groupe du propriétaire.</p>
+</li>
+<li>
+<p>la taille (en octets)</p>
+</li>
+<li>
+<p>la date de dernière modification.</p>
+</li>
+<li>
+<p>le nom</p>
+</li>
+</ul>
+<p><code>-o</code> identique à -l mais sans le groupe.</p>
+<p><code>-g</code> identique à -l mais sans le propriétaire.</p>
+<p><code>-t</code> impression avec tri dans l'ordre des modifications</p>
+<p>(dernières en tête)</p>
+<p><code>-a</code> tout les noms des fichiers sont imprimés alors que par défaut les fichiers commençant par le caractère "." ne sont pas affichés.</p>
+<p><code>-d</code> si l'argument est un répertoire seul son nom est affiché.</p>
+<p><code>-r</code> l'ordre d'impression est inversé (quelque soit le tri )</p>
+<p><code>-u</code> le tri est fait selon les dates de consultation.</p>
+<p><code>-i</code> pour chaque fichier affiche son numéro d'i-node</p>
+<p>Avec l'option <code>-l</code> la commande <code>ls</code> affiche les protections appliquées aux entrées (répertoire, fichiers, fichiers spéciaux) dans l'ordre suivant:</p>
+<ul>
+<li>
+<p>type de fichier (un caractère)</p>
+</li>
+<li>
+<p>un groupe de 3 caractère pour le propriétaire</p>
+</li>
+<li>
+<p>un groupe de 3 caractères pour le groupe</p>
+</li>
+<li>
+<p>un groupe de 3 caractères pour le reste du monde</p>
+</li>
+</ul>
+<p>les protections sont positionnées de la manière et dans l'ordre suivant, ceci pour chaque type d'utilisateur :</p>
+<ul>
+<li>
+<p>r autorise la lecture- sinon</p>
+</li>
+<li>
+<p>w autorise l'écriture- sinon</p>
+</li>
+<li>
+<p>x autorise l'exécution - sinon</p>
+</li>
+</ul>
+<p>type de fichiers</p>
+<ul>
+<li>fichier normal</li>
+<li><code>d</code> fichier directory</li>
+<li><code>l</code> lien symbolique</li>
+<li><code>c</code> fichier spécial de type caractères</li>
+<li><code>b</code> fichier spécial de type blocs</li>
+<li>
+<p><code>p</code> sur UNIX system III et V indique les tubes nommés</p>
+</li>
+<li>
+<p>Si le set-uid est positionné le caractère "<code>s</code>" sera écrit au lieu de "<code>x</code>" dans les droits d'exécution du propriétaire.</p>
+</li>
+<li>
+<p>Si le set-guid est positionné le caractère "<code>s</code>" sera écrit au lieu de "<code>x</code>" dans les droits d'exécution du groupe.</p>
+</li>
+<li>
+<p>Si le sticky-bit est positionné le caractère "<code>t</code>" sera écrit au lieu de "<code>x</code>" dans les droits d'exécution des autres.</p>
+</li>
+</ul>
+<h4>4.5.4 La commande "cat"</h4>
+<p>Format : <code>cat \[arg ...\]</code></p>
+<p>Permet d'afficher à l'écran le contenu des fichiers passés en arguments.</p>
+<h4>4.5.5 La commande "cp"</h4>
+<p>Format : <code>cp fichier-source fichier-dest</code></p>
+<p>Permet de dupliquer des fichiers. "cp" effectue la copie physique du premier argument dans le second. Il y a création d'un nouvel i-node et recopie effective des données.</p>
+<p>Exemple :</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">pwd</span> <span class="c1"># affiche le répertoire courant</span>
+/home/daniel
+$ ls <span class="c1"># pas de fichier dans le repertoire</span>
+$ cat &gt;toto
+un contenu dans le fichier
+&lt;Ctrl-d&gt; <span class="c1"># appui sur la touche Control et sur la touche D </span>
+$ ls
+toto
+$ cp  toto tutu
+$ ls
+toto
+tutu
+$
+</pre></div>
+
+<h4>4.5.6 La commande "ln"</h4>
+<p>Format : <code>ln fichier-source fichier-dest</code></p>
+<p>Permet de créer des liens. Nous avons vu qu'un même fichier peut avoir plusieurs noms mais correspondre au même bloc de données sur le disque. Il n'y a pas création d'un nouvel i-node. il n'y a pas de de duplication des données.</p>
+<p>Exemple:</p>
+<div class="codehilite"><pre><span></span>$ ls -il
+<span class="m">8122435</span> -rw------- <span class="m">1</span>    daniel  daniel  <span class="m">27</span>  Janv <span class="m">13</span> <span class="m">18</span>:04 toto
+$ cp toto tata
+$ ls -il
+<span class="m">8122489</span> -rw------- <span class="m">1</span>    daniel  daniel  <span class="m">27</span>  Janv <span class="m">13</span> <span class="m">18</span>:14 tata
+<span class="m">8122435</span> -rw------- <span class="m">1</span>    daniel  daniel  <span class="m">27</span>  Janv <span class="m">13</span> <span class="m">18</span>:04 toto
+$ ln tata tatalinked
+$ ls -il
+<span class="m">8122489</span> -rw------- <span class="m">1</span>    daniel  daniel  <span class="m">27</span>  Janv <span class="m">13</span> <span class="m">18</span>:14 tata
+<span class="m">8122489</span> -rw------- <span class="m">1</span>    daniel  daniel  <span class="m">27</span>  Janv <span class="m">13</span> <span class="m">18</span>:14 tatalinked
+<span class="m">8122435</span> -rw------- <span class="m">1</span>    daniel  daniel  <span class="m">27</span>  Janv <span class="m">13</span> <span class="m">18</span>:04 toto
+$ <span class="c1"># le fichier tatalinked est une référence au fichier tata,</span>
+$ <span class="c1"># il n&#39;y a pas duplication de données</span>
+$
+</pre></div>
+
+<h4>4.5.7 La commande "mv"</h4>
+<p>Format : <code>mv fichier-source fichier-dest</code></p>
+<p>Change le nom d'un lien. il n'y a pas recopie physique mais uniquement modification du nom.</p>
+<h4>4.5.8 La commande "rm"</h4>
+<p>Format : <code>rm [-options] arg [arg...]</code></p>
+<p>Efface les fichiers spécifiés par les arguments passés en paramétre.</p>
+<p>Les options :</p>
+<p><code>-i</code> affiche chaque nom des fichiers demandés et demande la confirmation de la suppression (appui sur "y" pour oui)</p>
+<p><code>-r</code> provoque la suppression de tous les fichiers dans toutes les directories et sous directories spécifiées de manière recursive ( attention trés dangereux, à manier avec précautions !)</p>
+<blockquote>
+<p>On ne peut pas effacer un répertoire avec la commande "rm" sans l'option <code>-r</code>.</p>
+</blockquote>
+<h4>4.5.9 La commande "mkdir"</h4>
+<p>Format : <code>mkdir arg [arg...]</code></p>
+<p>Permet de créer des répertoires.</p>
+<h4>4.5.10 La commande "rmdir"</h4>
+<p>Format : <code>rmdir arg [arg...]</code></p>
+<p>Permet de supprimer des répertoires. Les répertoires ne seront supprimés que si ils sont vides.</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">pwd</span>
+/home/daniel
+$ ls -d
+$ mkdir dir1 dir2
+$ ls
+toto
+tata
+dir1
+dir2
+$ mv tata dir1
+$ ls
+toto
+dir1
+dir2
+<span class="nv">$ls</span> dir1
+tata
+$ rmdir dir2 dir1
+dir1 : directory not empty
+$ rm dir1/*
+$ rmdir dir1
+$ ls
+toto
+$ 
+</pre></div>
+
+<h3 id="modification-des-caracteristiques-dun-i-node">Modification des caractéristiques d'un i-node</h3>
+<p>Le propriétaire d'un fichier peut modifier le nom du propriétaire, du groupe, et des droits d'accés des différents utilisateurs de ce fichier et lui seul (Avec le super-utilisateur).</p>
+<p>Les commandes sont : chmod, chown, chgrp.</p>
+<h4>4.6.1 La commande "chgrp"</h4>
+<p>Format : <code>chgrp group file [file...]</code></p>
+<p>Change le groupe pour les fichiers spécifiés. le groupe peut être donné par son numéro ou par son nom.</p>
+<h4>4.6.2 La commande "chown"</h4>
+<p>Format : <code>chown nom file [file...]</code></p>
+<p>Change le propiétaire des fichiers spécifiés.le nom peut être donné par son numéro ou par son nom litéral.</p>
+<h4>4.6.3 La commande "chmod"</h4>
+<p>Format : <code>chmod mod file [file...]</code></p>
+<p>Permet de modifier les bits de protection des fichiers. Les modes peuvent être décrits en octal ou en symbolique.</p>
+<p>format de mode en symbolique: <code>[&lt;qui&gt;] &lt;perm&gt; &lt;op&gt;</code>&gt;</p>
+<p>&lt;qui&gt;</p>
+<ul>
+<li>
+<p>u propriétaire (user)</p>
+</li>
+<li>
+<p>g groupe</p>
+</li>
+<li>
+<p>o autres (other)</p>
+</li>
+<li>
+<p>a pour tous (all)</p>
+</li>
+</ul>
+<p>&lt;perm&gt;</p>
+<ul>
+<li>
+<p>+ rajoute la permision</p>
+</li>
+<li>
+<p>- enleve la permission</p>
+</li>
+<li>
+<p>= impose les permission (absolu)</p>
+</li>
+</ul>
+<p>&lt;op&gt;</p>
+<ul>
+<li>
+<p><code>r</code> lecture</p>
+</li>
+<li>
+<p><code>w</code> écriture</p>
+</li>
+<li>
+<p><code>x</code> exécution</p>
+</li>
+<li>
+<p><code>t</code> pour le "sticky-bit"</p>
+</li>
+<li>
+<p><code>s</code> pour le "set-uid" bit (associé à u) ou le "set-guid" (associé à g)</p>
+</li>
+</ul>
+<h3 id="les-entrees-sorties-mecanismes-de-redirection">Les entrées-sorties, Mécanismes de redirection</h3>
+<p>Certaines commandes ne produisent pas de sortie, comme la commande cp sauf s'il y a une erreur, d'autres font uniquement des sorties sur l'écran du terminal telles que <code>date</code>, <code>who</code>, <code>ls</code> ... Certaines font des lectures en entrée. En fait tout programme sous UNIX connait TROIS types de fichiers qui sont :</p>
+<ul>
+<li>
+<p>stdin : Fichier standard d'entrée (par défaut le clavier du terminal)</p>
+</li>
+<li>
+<p>stdout : Fichier standard de sortie (par défaut l'écran du terminal)</p>
+</li>
+<li>
+<p>stderr : Fichier standard d'affichage des erreurs (Par défaut l'écran du terminal)</p>
+</li>
+</ul>
+<p>Les entrées sorties étant des fichiers il est possible de les rediriger vers d'autres fichiers ( fichiers data, fichiers devices ) de telle sorte qu'au lieu d'utiliser le terminal les programmes peuvent aller lire ou écrire leurs données sur des fichiers. La redirection des entrées sorties est gérée par le shell.</p>
+<p>Les commandes de redirection, <em>file</em> désignant le nom d'un fichier :</p>
+<table>
+<thead>
+<tr>
+<th>symbole</th>
+<th>entrée/sortie</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&gt;</code><em>file</em></td>
+<td>stdout</td>
+<td>redirige vers le fichier spécifié, si ce dernier existe il est tronqué à zéro caractère sinon il est créée.</td>
+</tr>
+<tr>
+<td><code>&gt;&gt;</code><em>file</em></td>
+<td>stdout</td>
+<td>Idem &gt; sauf si le fichier existe les données sont rajoutées en fin de celui-ci.</td>
+</tr>
+<tr>
+<td><code>2&gt;</code><em>file</em></td>
+<td>stderr</td>
+<td>Idem à <code>&gt;</code> pour la sortie d'erreur</td>
+</tr>
+<tr>
+<td><code>2&gt;&gt;</code><em>file</em></td>
+<td>stderr</td>
+<td>Idem à <code>&gt;&gt;</code> pour la sortie d'erreur</td>
+</tr>
+<tr>
+<td><code>&lt;</code><em>file</em></td>
+<td>stdin</td>
+<td>les données sont lues depuis le fichier spécifié</td>
+</tr>
+<tr>
+<td><code>&lt;&lt;</code>TOTO</td>
+<td>stdin</td>
+<td>lit depuis l'entrée standard courante jusqu'à trouver la chaîne TOTO, TOTO pouvant être remplacé par les caractères de votre choix.</td>
+</tr>
+<tr>
+<td>cmd1 <code>|</code>cmd2</td>
+<td>stdout vers stdin</td>
+<td>Permet d'enchainer 2 commandes, la sortie standard de la commande cmd1 devenant l'entrée standard de cmd2</td>
+</tr>
+</tbody>
+</table>
+<h4>4.7.1 La commande "wc"</h4>
+<p>Format : <code>wc [option]</code></p>
+<p>Permet suivant l'option de compter le nombre de mots,de lignes, de caractéres lus au clavier jusqu'à rencontrer le caractère de fin de fichier &lt;Ctrl-d&gt;.</p>
+<p>Les options :</p>
+<ul>
+<li>
+<p><code>-l</code> compte le nombres de lignes.</p>
+</li>
+<li>
+<p><code>-w</code> compte le nombre de mots</p>
+</li>
+<li>
+<p><code>-c</code> compte le nombre de caractéres.</p>
+</li>
+</ul>
+<p>sans option c'est <code>-lwc</code> qui est pris.</p>
+<p>Exemple:</p>
+<div class="codehilite"><pre><span></span>$ ls
+toto
+$ date &gt;fich1
+$ ls
+toto
+fich1
+$ cat fich1
+Mon Jan <span class="m">11</span> <span class="m">17</span>:38 GMT <span class="m">1988</span>
+wc -l &lt;fich1
+<span class="m">1</span>
+$
+</pre></div>
+
+<h2 id="fichiers-et-processus">Fichiers et processus</h2>
+<h3 id="generalites-et-presentation">Généralités et présentation</h3>
+<p>Un processus est l'exécution d'un programme à un instant donné, le fichier programme étant un objet inerte rangé sur disque. On peut distinguer deux types de processus :</p>
+<ul>
+<li>
+<p>Les processus systèmes qui ne sont attachés à aucun type de terminal, qui sont créés au lancement du système ou à des dates fixes. Les premiers ne s'arrêtant qu'avec l'arrêt du système.</p>
+</li>
+<li>
+<p>Les processus lancés par un utilisateur particulier depuis un terminal donné. Le fait de se 'loguer' crée un processus correspondant à l'exécution d'un programme déterminé à l'avance pour chaque utilisateur. La plupart du temps il s'agit de l'exécution de l'interpréteur de commande : le shell.</p>
+</li>
+</ul>
+<p>Un point fondamental pour un processus est l'environnement. Chaque processus a un environnement dont il hérite du processus qui l'a lancé : le processus père.</p>
+<p>Par exemple vous lancez la commande "rm", votre shell génère un nouveau processus qui sera créé pour exécuter le programme qui effectue la tache d'effacement de fichiers. Ce nouveau processus hérite de l'environnement de votre shell en particulier du répertoire courant où vous vous trouvez au moment du lancement de la commande.</p>
+<p>Chaque processus est identifié par son "process-id" (PID) le numéro du processus père étant identifié par le PPID. La différence entre le processus père et le fils est que l'âge a effet sur sa priorité; en particulier la destruction du processus père entraîne la destruction de tous ses processus fils (par défaut).</p>
+<h4>5.1.1 La commande "ps"</h4>
+<p>Format : <code>ps [options]</code></p>
+<p>Permet d'avoir la liste des processus en cours dans le système. "<code>ps</code>" sans argument donne la liste des processus attachés à votre terminal.</p>
+<p>Quelques options:</p>
+<p><code>-e</code> informations sur tous les processus en cours sur la machine.</p>
+<p><code>-a</code> information sur les processus associés aux terminaux.</p>
+<p><code>-f</code> liste toutes les informations sur les processus.</p>
+<p><code>-l</code> liste longue des informations.</p>
+<p><code>-t</code> suivi d'une liste de numéro donne la liste des processus associés à ces terminaux.</p>
+<p>Ex: <code>ps -t tty05,tty10</code> donne la liste des processus attachés aux terminaux tty05 et tty10.</p>
+<p>Détails sur les informations fournies par ps.</p>
+<ul>
+<li>
+<p>PID numéro du processus.</p>
+</li>
+<li>
+<p>PPID numéro du processus père.</p>
+</li>
+<li>
+<p>TTY Terminal auquel est rattaché le processus.</p>
+</li>
+<li>
+<p>TIME Durée cumulée d'exécution.</p>
+</li>
+<li>
+<p>COMMAND Commande qui a été exécutée.</p>
+</li>
+<li>
+<p>UID numéro du propriétaire du processus.</p>
+</li>
+<li>
+<p>CT aux d'utilisation de la CPU (Utilisé pour le calcul de la priorité du processus).</p>
+</li>
+<li>
+<p>PRI Priorité du processus, les chiffres les plus hauts correspondants aux priorités les plus faibles.</p>
+</li>
+<li>
+<p>STIME Heure de lancement du processus.</p>
+</li>
+</ul>
+<h3 id="le-shell">Le Shell</h3>
+<p>Le shell est un processus important, tout utilisateur qui se connecte a sa copie du programme "sh" qui s'exécute dans son environnement. On peut Empiler plusieurs shells pour travailler sous différents environnements. Si l'on tape "sh" on lance un nouveau processus.</p>
+<p>Exemple :</p>
+<div class="codehilite"><pre><span></span>login: daniel
+
+password:
+
+Bienvenue sous UNIX
+$ ps
+PID TTY TIMECOMMAND
+<span class="m">745</span> <span class="m">4500</span>:06 sh
+<span class="m">850</span> <span class="m">4500</span>:01 ps
+$ sh
+$ ps
+PID TTY TIMECOMMAND
+<span class="m">745</span> <span class="m">4500</span>:08 sh
+<span class="m">860</span> <span class="m">4500</span>:06 sh
+<span class="m">865</span> <span class="m">4500</span>:01 ps
+$
+</pre></div>
+
+<p>On a deux shells qui s'exécutent en même temps. Si l'on se délogue en entrant <code>&lt;Ctrl-d&gt;</code> on obtient :</p>
+<div class="codehilite"><pre><span></span>$ &lt;Ctrl-d&gt;
+$ ps
+PID TTY TIMECOMMAND
+<span class="m">745</span> <span class="m">4501</span>:10 sh
+<span class="m">956</span> <span class="m">4500</span>:01 ps
+
+$ &lt;Ctrl-d&gt;
+login:
+</pre></div>
+
+<p>Autre exemple : Environnement d'un processus.</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">pwd</span>
+/home/daniel
+$ sh
+$ <span class="nb">pwd</span>
+/home/daniel <span class="c1"># On hérite de l&#39;environnement du père.</span>
+$ <span class="nb">cd</span> /usr/include
+$ <span class="nb">pwd</span>
+/usr/include
+$ &lt;Ctrl-d&gt;<span class="p">;</span>
+$ <span class="nb">pwd</span>
+/home/daniel <span class="c1"># Mais pas l&#39;inverse : l&#39;environnement du fils n&#39;est pas transmis au père.</span>
+$
+</pre></div>
+
+<h2 id="lancement-dun-processus-en-arriere-plan">Lancement d'un processus en arrière plan</h2>
+<p>Le shell qui crée un processus en arrière plan reprend la main sans attendre que celui-ci soit terminé.</p>
+<div class="codehilite"><pre><span></span><span class="nv">$ps</span>
+PID TTY TIMECOMMAND
+<span class="m">745</span> <span class="m">4500</span>:06 sh
+<span class="m">850</span> <span class="m">4500</span>:01 ps
+
+$ ls -al &gt;fich1 <span class="p">&amp;</span>
+<span class="m">800</span>
+
+$ ps -edf
+PID TTY TIMECOMMAND
+<span class="m">745</span> <span class="m">4500</span>:06 sh
+<span class="m">800</span> <span class="m">4500</span>:01 ls -al &gt;fich1 <span class="p">&amp;</span>
+<span class="m">850</span> <span class="m">4500</span>:01 ps
+
+$
+</pre></div>
+
+<p>C'est le caractère "&amp;" qui permet de lancer des processus en arrière plan. Quand un processus est lancé en arrière plan le shell renvoie le numéro de process qui lui a été attribué.</p>
+<p>Attention un processus lancé en arrière-plan (background) est quand même détruit en cas de déconnexion car il reste attaché au terminal d'où il a été lancé.</p>
+<p>De plus un processus en arrière plan a les mêmes entrées-sorties que le processus père, il est donc conseillé de rediriger les sorties, sinon les messages apparaîtront au fur et à mesure sur le terminal.</p>
+<h4>5.3.1 La Commande "nohup"</h4>
+<p>Format : <code>nohup commande [args]</code></p>
+<p>La commande "<code>nohup</code>" permet de détacher un processus du terminal.On pourra donc lancer de longs travaux sans monopoliser le terminal puisque les processus lancés par l'intermédiaire de la commande "nohup" seront détachés du terminal, on pourra se déconnecter, nos processus continuerons à tourner. Si l'on ne redirige pas les sorties la commande les redirigera vers un fichier nommé "nohup.out".</p>
+<div class="codehilite"><pre><span></span>$ nohup ps -efl &gt;fich1 <span class="p">&amp;</span>
+<span class="m">850</span>
+
+$ ps
+PID TTY TIMECOMMAND
+<span class="m">745</span> <span class="m">4500</span>:06 sh
+<span class="m">850</span> <span class="m">4500</span>:01 nohup ps -efl &gt;fich1 <span class="p">&amp;</span>
+<span class="m">980</span> <span class="m">4500</span>:01 ps
+
+$
+</pre></div>
+
+<h4>5.3.2 La commande "wait"</h4>
+<p>La commande wait attend la fin des processus lancés en arrière plan.</p>
+<h4>5.3.3 La commande "nice"</h4>
+<p>Format : <code>nice [-increment] &amp; commande &amp; [args...]</code></p>
+<p>Permet de changer artificiellement la priorité d'un processus. On ne peut pas augmenter sa priorité, mais seulement la baisser (sauf le super-utilisateur). Cela permet d'effectuer des travaux non-urgents en arrière-plan. La priorité par défaut est 10. La valeur d'incrément est comprise entre 1 et 19 (plus faible).</p>
+<h4>5.3.4 La commande "at"</h4>
+<p>Format : <code>at &lt;heure&gt; &lt;jour&gt; [&lt;fichier&gt;]</code></p>
+<p>Permet de lancer une commande en arrière plan à une date et une heure fixées. La commande n'est pas attaché à un terminal (comme pour la commande "nohup".</p>
+<p>&lt;heure&gt; formé de 1 à 4 chiffres peut être suivi des lettres :</p>
+<ul>
+<li>
+<p>a : am</p>
+</li>
+<li>
+<p>p : pm</p>
+</li>
+<li>
+<p>n : midi</p>
+</li>
+<li>
+<p>m : minuit</p>
+</li>
+</ul>
+<p>&lt;jour&gt;est optionnel (par défaut le jour courant)</p>
+<div class="codehilite"><pre><span></span>$ <span class="c1"># Lance la commande &quot;ls -l &gt;fich&quot; à 18:00h le 15 janvier.</span>
+$ at <span class="m">18</span> jan <span class="m">15</span> ls -l &gt;fich
+$
+</pre></div>
+
+<h3 id="destruction-dun-processus">Destruction d'un processus</h3>
+<p>Le fait de se déconnecter tue tous les processus attachés au terminal. Autrement il faut utiliser la commande <code>kill</code>. Si l'on n'a plus la main sur son terminal pour une raison ou une autre on peut toujours se connecter par l'intermédiaire d'un autre terminal.</p>
+<h4>5.4.1 La commande "kill"</h4>
+<p>Format : <code>kill [-numéro] PID [PID...]</code></p>
+<p>Permet de tuer des processus. Le numéro de signal est compris entre 1 et 15.</p>
+<p>Le signal n° 2 correspond à &lt;INTR&gt;</p>
+<p>Le signel n° 3 correspond à &lt;QUIT&gt;</p>
+<p>L'arme absolue contre les processus récalcitrants est : <code>kill -9 PID</code></p>
+<p>Ceci à condition d'être le propriétaire du processus ou d'être le super-utilisateur.</p>
+<h2 id="editeur-de-texte-vi">Editeur de texte vi</h2>
+<h3 id="introduction-a-vi">Introduction à vi</h3>
+<p>Vi est un éditeur de texte pleine page. Il à été développé à l'Université de Berkeley, mais est néanmoins disponible sur la plupart des versions de UNIX.</p>
+<p>Ces principales caractéristiques sont :</p>
+<ul>
+<li>
+<p>Un système de récupération et de sauvegarde sophistiqué.</p>
+</li>
+<li>
+<p>Possède les mêmes possibilités que l'éditeur ligne ed.</p>
+</li>
+<li>
+<p>Possède un jeu de commandes puissant.</p>
+</li>
+<li>
+<p>Travaille sur une image mémoire du fichier édité.</p>
+</li>
+</ul>
+<p>Vi étant un éditeur pleine page, il utilise les attributs vidéo du terminal, qu'il connaît par l'intermédiaire de la variable TERM de l'environnement. L'initialisation de la variable se fait par :</p>
+<div class="codehilite"><pre><span></span>$ <span class="nv">TERM</span><span class="o">=</span>&lt;valeur&gt;
+$ <span class="nb">export</span> TERM
+
+$
+</pre></div>
+
+<h3 id="appel-de-lediteur">Appel de l'éditeur.</h3>
+<p>Il existe plusieurs façon d'appeler l'éditeur:</p>
+<ul>
+<li>
+<p><code>vi &lt;nom&gt;</code> : édite le fichier et place le curseur sur la 1ere colonne de la 1ere ligne.</p>
+</li>
+<li>
+<p><code>vi +n &lt;nom&gt;</code> : édite le fichier et place le curseur sur la 1ere colonne de la ligne n.</p>
+</li>
+<li>
+<p><code>vi + &lt;nom&gt;</code> : édite le fichier et place le curseur sur la 1ere colonne de la dernière ligne.</p>
+</li>
+<li>
+<p><code>vi +/&lt;chaine&gt;/&lt;nom&gt;/</code> : édite le fichier et place le curseur sur le premier caractère de la ligne contenant la première occurrence de &lt;chaine&gt;</p>
+</li>
+</ul>
+<p>Il est possible de créer un fichier qui sera exécuté à chaque appel de vi ce fichier doit avoir comme nom ".exrc" dans le répertoire privé de l'utilisateur. Si ce fichier existe il sera considéré comme un ensemble de commandes à exécuter.</p>
+<h3 id="les-commandes-de-vi">Les commandes de vi</h3>
+<p>L'éditeur possède deux modes de travail :</p>
+<ul>
+<li>le mode insertion : tout ce qui entré au clavier est écrit dans le tampon en mémoire associé au fichier.</li>
+<li>Le mode commande : dans lequel tout ce qui est entré au clavier est interprété comme une commande de l'éditeur.</li>
+<li>mode commande étendue (commandes commençant par ':'</li>
+</ul>
+<h4>6.3.1 La touche <code>Esc</code></h4>
+<p>Permet de sortir du mode insertion et de passer en mode commande.</p>
+<h4>6.3.2 Pour sortir de l'éditeur</h4>
+<p><code>ZZ</code> sort de l'éditeur et sauvegarde les modifications (deux fois la touche  <Shift+Z> )</p>
+<h4>6.3.3 Commandes Générales</h4>
+<p>on commence toujours par appyer sur <code>&lt;Esc&gt;</code>, cela ne fait pas de mal et on est sur de sortir du mode insertion.</p>
+<table>
+<thead>
+<tr>
+<th>commande</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:f</td>
+<td>donne la référence du fichier en cours d'édition.</td>
+</tr>
+<tr>
+<td>ZZ ou :wq</td>
+<td>Sort de l'éditeur et sauvegarde les modifications.</td>
+</tr>
+<tr>
+<td>:w</td>
+<td>Sauvegarde du fichier sous son nom d'entrée.</td>
+</tr>
+<tr>
+<td>:w &lt;nom&gt;</td>
+<td>Sauvegarde le fichier sous le nom &lt;nom&gt;,le nom du tampon courant n'est pas modifié.</td>
+</tr>
+<tr>
+<td>:w!</td>
+<td>Force l'écriture (utile dans certains cas).</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>Sortie de l'éditeur,possible uniquement s'il n'y a pas eu modification.</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>Force la sortie sans modification.</td>
+</tr>
+<tr>
+<td>:e &lt;nom&gt;</td>
+<td>édite le fichier &lt;nom&gt; uniquement si l'ancien est sauvegardé.</td>
+</tr>
+<tr>
+<td>:e! &lt;nom&gt;</td>
+<td>force l'édition du nouveau fichier.</td>
+</tr>
+<tr>
+<td>:w &lt;n1&gt;,&lt;n2&gt; &lt;nom&gt;</td>
+<td>écrit uniquement les lignes comprises entre n1 et n2.</td>
+</tr>
+<tr>
+<td>:r &lt;nom&gt;</td>
+<td>introduit le fichier &lt;nom&gt; en dessous de la ligne courante.</td>
+</tr>
+<tr>
+<td>:r! &lt;commande&gt;</td>
+<td>introduit le résultat de la commande shell &lt;commande&gt; après la ligne courante.</td>
+</tr>
+<tr>
+<td>:!&lt;commande&gt;</td>
+<td>Exécute la commande du shell &lt;commande&gt;</td>
+</tr>
+<tr>
+<td>&lt;Ctrl-l&gt;</td>
+<td>Rafraîchissement de l'écran. Utile lorsque le résultat d'opération provoque des affichages parasites.</td>
+</tr>
+<tr>
+<td>:se nu</td>
+<td>Affiche les numéro de ligne en début de chaque... ligne (:se nonu pour les enlever)</td>
+</tr>
+</tbody>
+</table>
+<p>​                      </p>
+<h4>6.3.4 Déplacement du curseur</h4>
+<p>Dans les commandes qui suivent <code>&lt;n&gt;</code> désigne un facteur de répétition il peut être omis (de nos jours les flêches fonctionnent très bien).</p>
+<table>
+<thead>
+<tr>
+<th align="center">commande</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">&lt;n&gt; h</td>
+<td>déplace le curseur vers la gauche.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; &lt;espace&gt; ou &lt;n&gt; l</td>
+<td>(L minuscule) déplace le</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; &lt;Ctrl-n&gt; ou &lt;n&gt; j</td>
+<td>déplace le curseur vers le bas.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; &lt;Ctrl p&gt; ou &lt;n&gt; k</td>
+<td>déplace le curseur vers le haut.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; + ou &lt;n&gt; &lt;cr&gt;</td>
+<td>descend le curseur de &lt;n&gt; lignes.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; w</td>
+<td>déplace le curseur en début de mot suivant.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; b</td>
+<td>déplace le curseur en début de mot précédent.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; e</td>
+<td>déplace le curseur en fin de mot courant.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; G</td>
+<td>déplace le curseur à la ligne spécifié. (par défaut en fin de texte.)</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; &lt;Ctrl-u&gt;</td>
+<td>remonte de &lt;n&gt; lignes.(par défaut à une demi-page)</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; &lt;Ctrl-e&gt;</td>
+<td>descend de &lt;n&gt; lignes.(par défaut à une demi-page)</td>
+</tr>
+</tbody>
+</table>
+<h4>6.3.5 Commandes de suppression de texte.</h4>
+<p>Dans les commandes qui suivent <code>&lt;n&gt;</code> désigne un facteur de répétition il peut être omis.</p>
+<table>
+<thead>
+<tr>
+<th align="center">commande</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">&lt;n&gt; x</td>
+<td>supprime le caractère sous le curseur.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; X</td>
+<td>supprime le caractère précédent le curseur.</td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td>supprime la fin de la ligne.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; d w</td>
+<td>supprime le mot.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; d d</td>
+<td>supprime la ligne.</td>
+</tr>
+</tbody>
+</table>
+<h4>6.3.6 Commandes de recherche (chaîne de caractères)</h4>
+<table>
+<thead>
+<tr>
+<th align="center">commande</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">&lt;n&gt; f &lt;car&gt;</td>
+<td>recherche du premier &lt;car&gt; sur la fin de la ligne courante et se positionne dessus.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; F &lt;car&gt;</td>
+<td>recherche du premier &lt;car&gt; sur le début de la ligne courante et se positionne dessus.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; t &lt;car&gt;</td>
+<td>recherche du premier &lt;car&gt; sur la fin de la ligne courante et se positionne sur le caractère précèdent.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; T &lt;car&gt;</td>
+<td>recherche du premier &lt;car&gt; sur le début de la ligne courante et se positionne sur le caractère précèdent.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; ;</td>
+<td>répète l'une des opérations f , F , t ou T.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; ,</td>
+<td>répète l'une des opérations f , F , t ou T dans le sens opposé.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; / &lt;motif&gt;[/]&lt;cr&gt;</td>
+<td>Recherche la première occurrence de &lt;motif&gt;</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; ? &lt;motif&gt;[?]&lt;cr&gt;</td>
+<td>idem mais dans le sens opposé.</td>
+</tr>
+<tr>
+<td align="center">n</td>
+<td>répétition d'une opération /ou ? dans le sens courant</td>
+</tr>
+<tr>
+<td align="center">N</td>
+<td>répétition d'une opération ?ou / dans le sens opposé</td>
+</tr>
+</tbody>
+</table>
+<h4>6.3.7 Commandes d'insertion</h4>
+<p>Le caractère &lt;Escape&gt; permet de repasser en mode commande.</p>
+<table>
+<thead>
+<tr>
+<th align="center">commande</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">a</td>
+<td>passe en mode entrée après le caractère courant.</td>
+</tr>
+<tr>
+<td align="center">i</td>
+<td>passe en mode entrée avant le caractère courant.</td>
+</tr>
+<tr>
+<td align="center">A</td>
+<td>passe en mode entrée en fin de ligne.</td>
+</tr>
+<tr>
+<td align="center">I</td>
+<td>passe en mode entrée en début de ligne.</td>
+</tr>
+<tr>
+<td align="center">o</td>
+<td>passe en mode entrée après la ligne courante.</td>
+</tr>
+<tr>
+<td align="center">O</td>
+<td>passe en mode entrée avant la ligne courante.</td>
+</tr>
+</tbody>
+</table>
+<p>En mode insertion les caractères suivant ont un rôle privilégié</p>
+<table>
+<thead>
+<tr>
+<th align="center">commande</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">&lt;Escape&gt;</td>
+<td>passage en mode commande.</td>
+</tr>
+<tr>
+<td align="center">&lt;Ctrl-h&gt;</td>
+<td>effacement du caractère précédent. (même si la visualisation n'est pas</td>
+</tr>
+<tr>
+<td align="center">&lt;Ctrl-v&gt;</td>
+<td>Permet d'introduire dans le fichier tous les caractères.</td>
+</tr>
+</tbody>
+</table>
+<h4>6.3.8 Commandes de modification</h4>
+<table>
+<thead>
+<tr>
+<th align="center">commande</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">&lt;n&gt; cw &lt;chaine&gt;</td>
+<td>Remplace le mot par &lt;chaine&gt;</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; cc &lt;chaine&gt;</td>
+<td>Remplace les &lt;n&gt; lignes par &lt;chaine&gt;</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; J</td>
+<td>joint la ligne courante et la suivante.</td>
+</tr>
+<tr>
+<td align="center">&lt;n&gt; s &lt;chaine&gt;</td>
+<td>Substitue aux &lt;n&gt; caractères la chaine &lt;chaine&gt;.</td>
+</tr>
+<tr>
+<td align="center">R</td>
+<td>Substitution d'une chaine jusqu'à &lt;Escape&gt;</td>
+</tr>
+<tr>
+<td align="center">r</td>
+<td>Substitution du caractère courant.</td>
+</tr>
+</tbody>
+</table>
+<h4>6.3.9 Commandes de récupération</h4>
+<p>Chaque opération de suppression ou de modification est stocké dans un buffer spécial qu'il est possible de récupérer. Il existe plus de 26 buffers numérotés de a à z qu'il est possible d'utiliser. Ils sont notés <lettre> dans le tableau ci-dessous.</p>
+<table>
+<thead>
+<tr>
+<th align="center">commande</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">" &lt;lettre&gt; &lt;n&gt; yw</td>
+<td>mémorise &lt;n&gt; mots dans le buffer &lt;lettre&gt;</td>
+</tr>
+<tr>
+<td align="center">" &lt;lettre&gt; &lt;n&gt; yy</td>
+<td>mémorise &lt;n&gt; lignes dans le buffer &lt;lettre&gt;</td>
+</tr>
+<tr>
+<td align="center">" &lt;lettre&gt; p</td>
+<td>insère le buffer &lt;lettre&gt; après le curseur.</td>
+</tr>
+<tr>
+<td align="center">" &lt;lettre&gt; P</td>
+<td>insère le buffer &lt;lettre&gt; avant le curseur.</td>
+</tr>
+<tr>
+<td align="center">p</td>
+<td>insère le buffer spécial après le curseur.</td>
+</tr>
+<tr>
+<td align="center">P</td>
+<td>insère le buffer spécial avant le curseur.</td>
+</tr>
+<tr>
+<td align="center">u</td>
+<td>annulation de la commande précédente.</td>
+</tr>
+</tbody>
+</table>
+<h4>6.3.10 Quelques commandes particulières</h4>
+<table>
+<thead>
+<tr>
+<th align="center">commande</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">:se all &lt;cr&gt;</td>
+<td>Affiche l'état de l'éditeur.</td>
+</tr>
+<tr>
+<td align="center">:se ai&lt;cr&gt;</td>
+<td>auto-indentation</td>
+</tr>
+<tr>
+<td align="center">:se wm=&lt;valeur&gt;</td>
+<td>coupure des lignes à &lt;valeur&gt; de la droite de l'écran.</td>
+</tr>
+<tr>
+<td align="center">:se ts=&lt;chiffre&gt;</td>
+<td>la valeur des tabulations est positionné à &lt;chiffre&gt; caractères (valeur par défaut 8)</td>
+</tr>
+<tr>
+<td align="center">:se nu</td>
+<td>affichage des numérotations de lignes.</td>
+</tr>
+<tr>
+<td align="center">:syntax on</td>
+<td>pour aciver la coloration syntaxique (avec vi )</td>
+</tr>
+</tbody>
+</table>
+<p>Toutes ces commandes trouvent leur place dans le fichier d'initialisation de <code>vi</code> qui porte le nom ".exrc" ou ".vimrc" pour <code>vim</code>.</p>
+<h3 id="conclusions">Conclusions</h3>
+<p>Vi est un éditeur puissant demandant de la pratique pour être pleinement utilisé. Pour les allergiques à <code>vi</code>, il existe aussi un autre éditeur : <code>emacs</code>.</p>
+<p>Toutes les possibilités n'ont pas été abordées ici. Pour plus d'informations se reporter à la documentation de votre système UNIX.</p>
+<h2 id="pipelines-tubes">Pipelines (tubes)</h2>
+<h3 id="introduction_1">Introduction</h3>
+<p>Les <em>pipe</em> sont une fonctionnalité très puissantes dans unix et dans le shell. Ils permettent de créer des commandes sophistiquées à partir des commandes de base d'unix. Les sorties d'un processus peuvent être redirigées vers un fichier. Si un autre processus a besoin de ces données à l'entrée on peut les lui donner par l'intermédaire d'un fichier.</p>
+<p>Exemple :</p>
+<div class="codehilite"><pre><span></span>$ ls &gt;fich1
+$ wc -l fich1 <span class="c1"># Compte le nombre de lignes,donc le  nombre de fichier.</span>
+<span class="m">12</span>
+$
+</pre></div>
+
+<p>On peut aussi diriger directement les sorties d'un processus en entrée d'un autre processus par l'intermédiaire d'un tube. Le symbole '|' permet de le faire.</p>
+<div class="codehilite"><pre><span></span>$ ls
+toto
+tata
+tutu
+$  <span class="c1"># Nombre de fichiers dans le répertoire courant.</span>
+$ ls <span class="p">|</span> wc -l
+<span class="m">3</span>
+$
+</pre></div>
+
+<p>Le symbole '|' indique au shell de prendre le résultat de la commande "ls" et de l'envoyer non pas sur l'écran, mais sur l'entrée de la commande "<code>wc</code>". La sortie de la commande "<code>wc</code>" n'étant pas redirigé (dans cet exemple) le résultat s'affiche à l'écran.</p>
+<p>La redirection des entrées sorties permet d'orienter la commande vers un fichier. Les tubes (pipelines) permettent quand à eux de regiriger la sortie d'un processus vers l'entrée d'un autre processus.</p>
+<h3 id="les-filtres">Les filtres.</h3>
+<p>Les commandes se situant aprés le caractère '|' doivent être des filtres, c'est à dire qu'elles doivent prendre leurs données depuis stdin et afficher le résultat sur stdout.</p>
+<blockquote>
+<p>Toutes les commandes ne sont pas des filtres.</p>
+</blockquote>
+<p>Les commandes "<code>cp</code>", "<code>mv</code>", "<code>who</code>", "<code>date</code>" ne sont pas des filtres, elles ne peuvent donc être utilisées en bout de tubes. Par contre la commande "<code>wc</code>" est un filtre.</p>
+<h4>7.2.1 La commande sort</h4>
+<p>Format : <code>sort [-options] [ [&lt;n1&gt; [&lt;n2&gt;] [&lt;fich1&gt;..] [&lt;fich2&gt;]</code></p>
+<p>Tri les lignes sur l'entrée standard (ou &lt;fich1&gt;) et écrit le résultat sur la sortie standard (ou &lt;fich2&gt;). le tri est lexicographique sur l'ensemble des fichiers.</p>
+<table>
+<thead>
+<tr>
+<th>options</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-b</code></td>
+<td>les espaces de tête sont ignorés dans les comparaisons.</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>Seules les lettres,chiffres et espaces sont significatifs.</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>Confond les lettres majuscules et minuscules.</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>Ignore les caractères ASCII non compris entre 32 et 126</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>le début des lignes numériques sont triés numériquement.</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td>Inverse l'ordre.</td>
+</tr>
+<tr>
+<td><code>-t&lt;x&gt; +&lt;n&gt;</code></td>
+<td>Où &lt;x&gt;   est un caractères quelconque permettant de séparer des champs dans des lignes, le tri s'effectue à partir du &lt;n&gt;eme caractère &lt;x&gt; trouvé.</td>
+</tr>
+<tr>
+<td><code>&lt;n1&gt; -&lt;n2&gt;</code></td>
+<td>Limite la comparaisons entre les colonnes n1 et n2-1</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>La commande "sort" possède de nombreuses autres options, se reporter à la documentation de votre système UNIX.</p>
+<p>Exemple : Répertoire de numéro de postes.</p>
+<div class="codehilite"><pre><span></span><span class="nv">$cat</span> numpost
+gilbert:611:bureau de développement
+daniel:344:bureau d<span class="s1">&#39;études</span>
+<span class="s1">valérie:312:secétaire</span>
+<span class="s1">$</span>
+<span class="s1">$ sort numpost # tri alphabétique sur les lignes</span>
+<span class="s1">daniel:344:bureau d&#39;</span>études
+gilbert:611:bureau de développement
+valérie:312:secétaire
+$
+$ sort -n -t: +1 numpost <span class="p">;</span><span class="c1"># tri numérique sur le 2éme champ</span>
+valérie:312:secétaire
+daniel:344:bureau d<span class="err">&#39;</span>études
+gilbert:611:bureau de développement
+$
+</pre></div>
+
+<h4>7.2.2 La commande "grep"</h4>
+<p>Format : <code>grep [-options] '&lt;motif&gt;' [fich ...]</code></p>
+<p>La commande "<code>grep</code>" recherche dans les fichiers spécifiés (ou stdin) le motif spécifiéet affiche ces lignes. Si la recherche s'effectue sur plusieurs fichiers "grep" affiche en début de ligne le nom du fichier.</p>
+<table>
+<thead>
+<tr>
+<th>options</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-n</code></td>
+<td>Imprime le numéro de ligne et la ligne.</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>Affiche les lignes ne contenant pas le motif spécifié.</td>
+</tr>
+<tr>
+<td><code>-l</code></td>
+<td>Seuls les numéros de lignes sont spécifiés.</td>
+</tr>
+<tr>
+<td><code>-c</code></td>
+<td>Affiche uniquement le nombre de ligne contenant le motif le motif est écrit entre quotes " ' " .</td>
+</tr>
+</tbody>
+</table>
+<p>Exemple :</p>
+<div class="codehilite"><pre><span></span>$ grep -v <span class="s1">&#39;bureau&#39;</span> numpost
+valérie:312:secétaire
+$
+</pre></div>
+
+<h3 id="tubes-et-redirections-dio">tubes et redirections d'I/O</h3>
+<p>Les redirections permet d'orienter la sortie d'un processus (c'est à dire le resultat d'un programme), tandis que les tubes (pipelines) permettent de rediriger les sorties d'un processus vers l'entrée d'un autre processus; c'est donc une communication entre processus.</p>
+<p>Exemples de tubes :</p>
+<div class="codehilite"><pre><span></span>$ ls <span class="p">|</span> wc -l <span class="c1"># donne le nombre de fichier dans le répertoire courant</span>
+<span class="m">32</span>
+$ ls .. <span class="p">|</span> wc -l <span class="c1"># donne le nombre de fichier dans le répertoire père</span>
+<span class="m">3</span>
+$ who <span class="p">|</span> wc -l <span class="c1"># donne le nombre de personnes connectées</span>
+<span class="m">4</span>
+$ <span class="c1"># Exemple de tube avec redirection.</span>
+$ <span class="nb">echo</span> Nombre de gens connectés à la date de &gt;fich
+$ date &gt;&gt; fich
+$ <span class="nb">echo</span> -n est :  &gt;&gt;fich
+$ who <span class="p">|</span>wc -l &gt;&gt;fich
+$ cat fich
+Nombre de gens connectés à la date de
+Tue Jan <span class="m">12</span> <span class="m">18</span>:43 GMT <span class="m">1988</span>
+est <span class="m">4</span>
+$
+</pre></div>
+
+<h3 id="quelques-filtres-usuels">Quelques filtres usuels</h3>
+<h4>7.4.1 La commande "pr"</h4>
+<p>Format : <code>pr [-options] [fichier ...]</code></p>
+<p>La commande pr permet de formatter du texte sur la sortie standard. Sans option affiche avec un en-tête et une numérotation de page. C'est une commande trés puissante.</p>
+<p>Quelques options :</p>
+<table>
+<thead>
+<tr>
+<th align="center">options</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">+&lt;n&gt;</td>
+<td>Débute à la page de numéro donné.</td>
+</tr>
+<tr>
+<td align="center">-&lt;n&gt;</td>
+<td>Impression sur le nombre de colonnes donné (1 par défaut).</td>
+</tr>
+<tr>
+<td align="center">-m</td>
+<td>Imprime les fichiers à raison de 1 par colonne.</td>
+</tr>
+<tr>
+<td align="center">-d</td>
+<td>Insère une ligne blanche entre chaque ligne.</td>
+</tr>
+<tr>
+<td align="center">-w&lt;n&gt;</td>
+<td>Largeur d'une ligne (72 par défaut).</td>
+</tr>
+<tr>
+<td align="center">-l&lt;n&gt;</td>
+<td>Chaque page contient &lt;n&gt; lignes.</td>
+</tr>
+<tr>
+<td align="center">-h</td>
+<td>L'argument suivant est utilisé comme en-tête à chaque page</td>
+</tr>
+<tr>
+<td align="center">-p</td>
+<td>Interruption entre chaque page (&lt;cr&gt; pour continuer)</td>
+</tr>
+<tr>
+<td align="center">-t</td>
+<td>Les 5 premières lignes de l'entête ne sont pas imprimées</td>
+</tr>
+</tbody>
+</table>
+<h4>7.4.2 La commande "paste"</h4>
+<p>Format : <code>paste [options] [fichier ...]</code></p>
+<p>Les lignes de chaque fichier sont considérées comme des colonnes séparées par défaut par des tabulations.</p>
+<p>Exemple :</p>
+<div class="codehilite"><pre><span></span>$ cat fich1
+aa
+ab
+ac
+$ cat fich2
+ba
+bb
+bc
+$ paste fich1 fich2
+aa ba
+ab bb
+ac bc
+$
+</pre></div>
+
+<h4>7.4.3 La commande "pg"</h4>
+<p>Format : <code>pg [&lt;n&gt;] [-p &lt;chaine&gt;] [-options] [&lt;n&gt;] [files...]</code></p>
+<p>Permet l'affichage de texte avec arrêt entre chaque page et possibilité de retour arrière.</p>
+<p>&lt;n&gt; Spécifie le nombre de ligne à afficher.(par défaut 23)</p>
+<p>-p &lt;chaine&gt;&lt;chaine&gt; est utilisé comme prompt (par défaut ":")</p>
+<p>Quelques options:</p>
+<p>-c Efface l'écran avant l'affichage de chaque page.</p>
+<p>-e Enlève l'arrèt entre chaque fichiers.</p>
+<p>+&lt;n1&gt; Commence à la ligne &lt;n1&gt;</p>
+<p>Quelques commandes de "pg":</p>
+<p>&lt;cr&gt; affichage d'une nouvelle page.</p>
+<p>h Affiche une aide sur les commandes disponibles.</p>
+<p>!&lt;commande&gt; Execute une commande du shell.</p>
+<h4>7.4.4 La commande "lp"</h4>
+<p>Format : <code>lp [fichier...]</code></p>
+<p>Permet d'imprimer sur l'imprimante locale les fichiers spécifiés (ou ce qui est écrit depuis l'entrée standard,</p>
+<p>caractère fin de fichier pour terminer).</p>
+<h2 id="le-shellprogrammation-et-environnement">Le Shell,Programmation et Environnement</h2>
+<h3 id="lenvironnement">L'environnement.</h3>
+<p>Nous avons vu que lorsqu'un processus lance un autre processus, celui ci hérite de l'environnement du processus qui l'a lancé.</p>
+<p>L'éditeur vi utilise la variable TERM de l'environnement.</p>
+<p>L'environnement est constitué en grande partie de variables comme la variable TERM. Les programmes ont aussi des variables qui leur sont propres.</p>
+<p>On distingue deux types d'environnement :</p>
+<ul>
+<li>
+<p>L'environnement global commun à tous les processus.</p>
+</li>
+<li>
+<p>L'environnement local à un processus. c'est l'environnement associé au processus.</p>
+</li>
+</ul>
+<p>Certaines variables sont déjà définis et ont une utilisation spécifique.</p>
+<h4>8.1.1 La commande "set"</h4>
+<p>Permet d'avoir l'environnement local du shell en cours.</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">set</span>
+<span class="nv">PATH</span><span class="o">=</span>:/bin:/usr/bin
+<span class="nv">TERM</span><span class="o">=</span>vt100
+<span class="nv">HOME</span><span class="o">=</span>/home/daniel
+<span class="nv">PS1</span><span class="o">=</span><span class="se">\$</span>
+<span class="nv">PS2</span><span class="o">=</span>&gt;
+$
+</pre></div>
+
+<p><code>PATH</code> Spécifie les répertoires où seront cherchés les commandes. Le caractère ":" étant le séparateur sauf le premier qui spécifie le répertoire courant. dans le cas présent le shell ira chercher les programmes dans :</p>
+<ul>
+<li>
+<p>le répertoire courant</p>
+</li>
+<li>
+<p>le répertoire /bin</p>
+</li>
+<li>
+<p>le répertoire /usr/bin</p>
+</li>
+</ul>
+<p><code>TERM</code> Spécifie le terminal qui est utilisé.</p>
+<p><code>HOME</code> Le répertoire du login,c'est le répertoire qui est pris par la commande "cd".</p>
+<p><code>PS1</code> Le prompt du shell.</p>
+<p><code>PS2</code> Le deuxième prompt du shell</p>
+<h4>8.1.3 La commande "export"</h4>
+<p>Format : <code>export &lt;variable&gt; [variables ...]</code></p>
+<p>Permet de rendre une variable globale. Les variables globales sont passées aux processus fils.</p>
+<div class="codehilite"><pre><span></span>$ <span class="nv">VARIABLE_LOCALE</span><span class="o">=</span><span class="nb">local</span>
+$ <span class="nv">VARIABLE_GLOBALE</span><span class="o">=</span>global
+$ <span class="nb">set</span> <span class="p">|</span> grep VARIABLE
+$ <span class="nv">VARIABLE_LOCALE</span><span class="o">=</span><span class="nb">local</span>
+$ <span class="nv">VARIABLE_GLOBALE</span><span class="o">=</span>global
+$ <span class="nb">export</span> VARIABLE_GLOBALE
+$ sh 
+$ <span class="nb">set</span> <span class="p">|</span> grep VARIABLE
+$ <span class="nv">VARIABLE_GLOBALE</span><span class="o">=</span>global
+$
+</pre></div>
+
+<h4>8.1.2 La commande "env"</h4>
+<p>Permet d'avoir la liste des variables globales. Ces variables seront passées aux processus fils.</p>
+<p>Lorsqu'un processus fils est lancé il obtient une <strong>copie</strong> de l'environnement du père, toutes ces tâches se feront dans cette copie. C'est pourquoi un processus fils ne peut pas modifier l'environnement du père.</p>
+<blockquote>
+<p>Il est impossible de faire un "export" ascendant du fils vers le père.</p>
+</blockquote>
+<h4>8.1.4 Affectation des variables</h4>
+<p>&lt;nom_de_variable&gt;=&lt;valeur&gt;</p>
+<p>Les noms de variable commencent par une lettre et sont composés de lettres, chiffres et du caractères "_"</p>
+<p>On peut affecter à une variable la valeur d'une autre variable, pour cela il faut faire précéder cette dernière par le caractère "\$".</p>
+<p>Si les variables se trouvent au milieu d'une ligne il faut entourer le nom de la variable par deux accolades "{ }".</p>
+<p>Exemple:</p>
+<div class="codehilite"><pre><span></span>$ <span class="nv">VARL</span><span class="o">=</span>locale
+$ <span class="nb">echo</span> <span class="nv">$VARL</span>
+locale
+$ <span class="nb">echo</span> La température <span class="nv">$VARL</span> est de <span class="m">10</span> degrés
+La température locale est de <span class="m">10</span> degrés
+$ <span class="nb">echo</span> Les températures <span class="si">${</span><span class="nv">VARL</span><span class="si">}</span>s sont chaudes
+Les températures locales sont chaudes
+$
+</pre></div>
+
+<h3 id="les-caracteres-speciaux">Les caractères spéciaux</h3>
+<p>Nous avons vu déjà certains caractères spéciaux, \$ signifie que la suite est une variable d'environnement, les accolades {} permettent de délimiter le nom d'une variable, l'espace est considéré comme étant le séparateur.</p>
+<p>Il est parfois nécessaire de pouvoir outrepasser un caractère, Il existe trois moyens :</p>
+<p><code>\</code> le caractère <em>backslash</em> ou barre oblique inverse</p>
+<p><code>''</code> deux simples quotes</p>
+<p><code>""</code> deux guillemets</p>
+<p>Le <em>backslash</em> annihile le rôle d'un caractère spécial.</p>
+<p>Exemple : \\$var ne sera pas interprété comme le contenu de la variable var mais comme la chaine \$var .</p>
+<p>\\ donnera le caractère \</p>
+<p>Les simples quotes sont utilisés pour marquer plusieurs caractères.</p>
+<p>Les guillemets annulent toutes interprétation des caractères à l'exception des caractères : \'"\$ dont l'interprétation peut être annulée s'ils sont précédés de \</p>
+<h3 id="les-noms-implicites-de-fichiers">Les noms implicites de fichiers</h3>
+<p>Il existe un système de génération de fichiers. Une partie du nom d'un fichier peut être remplacée par des caractères jokers:</p>
+<table>
+<thead>
+<tr>
+<th>caractère(s)</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*</code></td>
+<td>Remplace un nombre quelconque de caractères.</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>Remplace un seul caractère.</td>
+</tr>
+<tr>
+<td>`[]</td>
+<td>Défini une classe de caractères.</td>
+</tr>
+<tr>
+<td><code>..</code></td>
+<td>Une suite de caractères.</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>négation d'une classe de caractères.</td>
+</tr>
+</tbody>
+</table>
+<p>Exemple:</p>
+<div class="codehilite"><pre><span></span>$ ls * <span class="p">;</span><span class="c1"># idem à ls tout seul</span>
+toto
+tata
+$ ls to*
+to
+$ ls t<span class="o">[</span>a-i<span class="o">]</span>t*
+tata
+$ ls t<span class="o">[</span>ao<span class="o">]</span>*
+toto
+tata
+$
+</pre></div>
+
+<p>Note : Les méta-caractères ne détectent pas les fichiers commençant par le caractère ".".</p>
+<h3 id="le-fichier-profile">Le fichier .profile</h3>
+<p>Lorsque que l'on se connecte, on se retrouve avec un certain environnement. Cet environnement peut être modifié en modifiant le fichier <code>.profile</code> qui se trouve dans le répertoire par défaut de l'utilisateur (repéré par la variable d'environnment <code>$HOME</code>). Les fichiers commençant par le caractère "."  n'apparassent pas avec la commande "ls" (il faut utiliser l'option <code>-a</code>).</p>
+<p>Lors de la connexion le fichier .profile sera exécuté par le shell.</p>
+<p>Exemple :</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;echo Bonjour Daniel&quot;</span> &gt;&gt;.profile
+$ <span class="nb">exit</span>
+login: daniel
+password: xxxxxxx
+Bonjour Daniel
+$
+</pre></div>
+
+<h3 id="introduction-a-la-programmation-en-shell">Introduction à la programmation en shell</h3>
+<p>Le shell est un langage de commande interprété. Un programme shell est donc un fichier texte contenant un ensemble de commandes, Il est rendu exécutable par la commande "chmod". Le shell est un langage puissant mais est très peu pratique pour les calculs arithmétiques.</p>
+<p>Exemple de programme shell:</p>
+<div class="codehilite"><pre><span></span>$ cat dir
+ls -a
+$ dir
+.
+..
+.profile
+dir
+$
+</pre></div>
+
+<p>De même que pour les commandes on peut passer des paramètres aux programmes shell. les variables passées en paramètres sont de la forme \$&lt;n&gt; ou &lt;n&gt; est un chiffre.</p>
+<p>\$0 est le nom du programme</p>
+<p>\$1 à \$9 sont les arguments passés en paramètres.</p>
+<p>Exemple :</p>
+<div class="codehilite"><pre><span></span>$ cat mon_echo
+<span class="nb">echo</span> <span class="nv">$0</span> <span class="nv">$1</span>
+
+<span class="nv">$mon_echo</span> mon_echo Bonjour
+Bonjour
+$
+$ cat rend_executable
+chmod +x <span class="nv">$1</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2"> est devenu un programme executable.&quot;</span>
+<span class="nv">$rend_executable</span> dir
+dir est devenu un programme executable.
+$
+</pre></div>
+
+<p>On peut programmer directement en shell depuis la ligne de commande.</p>
+<p>Exemple:</p>
+<div class="codehilite"><pre><span></span>$ <span class="k">for</span> i in <span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="p">;</span><span class="k">do</span> <span class="nb">echo</span> bonjour<span class="p">;</span><span class="k">done</span>
+bonjour
+bonjour
+bonjour
+$ <span class="k">for</span> i in <span class="m">1</span> <span class="m">2</span>
+&gt; <span class="k">do</span> <span class="nb">echo</span> bonjour
+&gt; <span class="k">done</span>
+bonjour
+bonjour
+$
+</pre></div>
+
+<p>Ici nous avons exécuté une boucle de deux manières différentes. La première fois nous avons écrit l'instruction complète, le shell l'a exécuté. La deuxième fois nous avons écrit l'instruction partiellement, le shell s'en rendant compte nous affiche le deuxième prompt (PS2) pour nous indiquer qu'il attendla suite de l'instruction pour l'exécuter.</p>
+<p>Se reporter à la documentation UNIX pour avoir une description complète de possibilités du langage shell.</p>
+<h2 id="communications-entre-utilisateurs">Communications entre utilisateurs</h2>
+<h2 id="introduction_2">Introduction</h2>
+<p>UNIX offre les possibilités suivantes:</p>
+<ul>
+<li>
+<p>Messagerie électronique : envoi,réception de messages</p>
+</li>
+<li>
+<p>Gestion d'un journal de bord.</p>
+</li>
+<li>
+<p>Conversation en temps réel.</p>
+</li>
+</ul>
+<h3 id="messagerie">Messagerie.</h3>
+<p>Au moment du login UNIX vous avertie, si vous avez du courrier</p>
+<p>par le message suivant : "You have mail"</p>
+<h4>9.2.1 La commande "mail"</h4>
+<p>Format : <code>mail [-r] [-f &lt;fichier&gt;]</code></p>
+<p>ou : mail &lt;nom&gt; [&lt;nom&gt;...]</p>
+<h5>9.2.1.1 Première forme :</h5>
+<p>Permet de lire son courrier, après l'impression de chaque message la commande "mail" affiche le rompt "?" vous invitantà taper une commande de "mail".</p>
+<p>options</p>
+<p>-r imprime les messages dans l'ordre d'arrivée (par défaut l'inverse).</p>
+<p>-f Permet de lire une boite aux lettres différentes de la sienne ( àcondition d'avoir les droits d'accès )</p>
+<p>Les commandes:</p>
+<p>&lt;cr&gt;Passage au message suivant.</p>
+<ul>
+<li>
+<p>idem.</p>
+</li>
+<li>
+<p>Passage au précédent.</p>
+</li>
+</ul>
+<p>d Suppression du message courant et passage au suivant.</p>
+<p>S &lt;fichier&gt;Sauvegarde le message dans &lt;fichier&gt;.</p>
+<p>w &lt;fichier&gt;Sauvegarde le message dans &lt;fichier&gt; sans son en-tête.</p>
+<p>m &lt;nom&gt; ...Envoi le message en cours aux utilisateurs</p>
+<p>&lt;nom&gt;...</p>
+<p>q Pour quitter la commande "mail".</p>
+<p>&lt;Ctrl-d&gt; idem.</p>
+<p>!&lt;commande&gt; Permet d'exécuter une commande du shell</p>
+<p>h Aide de la commande "mail". Affiche la liste des commandes.</p>
+<h5>9.2.1.2 Deuxième forme:</h5>
+<p>Envoi le message qui sera entréau clavier aux utilisateurs &lt;nom&gt;...Ceci même si les utilisateurs ne sont pas connectés au système UNIX.Pour terminer entrez le caractère fin de fichier (par défaut &lt;Ctrl-d&gt;) La commande "mail" peutêtre avantageusement rediriger (pour l'entréedu texte)</p>
+<h4>9.2.2 La commande "mailx"</h4>
+<p>La commande "mailx" est une manière plus agréable d'examiner son courrier.</p>
+<p>Elle donne une liste numérotée des messages que vous n'avez pas encore lus. Vous pouvez lire un message en entrant son numéro, chaque message à un sujet.</p>
+<p>Chaque message lu passe de la boite au lettres système à un fichier appelé "mbox" dans votre home directory (Le répertoire de login)</p>
+<p>Quelques options:</p>
+<p>-f &lt;fichier&gt;Lit les messages depuis &lt;fichier&gt; sinon depuis "mbox".</p>
+<p>-N n'affiche pas le sommaire.</p>
+<p>-n &lt;nom&gt;Lit les messages de &lt;nom&gt; si l'on a les droits d'accès.</p>
+<p>La commande "mailx" est plus sophistiquée que la commande "mail", se reporter à la documentation UNIX pour plus de détails.</p>
+<h3 id="le-journal-de-bord">Le journal de bord.</h3>
+<p>UNIX permet de gérer un véritable journal de bord. Les nouvelles sont stockées dans le répertoire /usr/news.</p>
+<h4>9.3.1 La commande "news"</h4>
+<p>Format : <code>news [options] [&lt;fichiers&gt;...]</code></p>
+<p>Permet de lire le journal de bord.</p>
+<p>options</p>
+<p>-a toutes les nouvelles sont supprimées qu'elles aient ou non déjà été consultées par l'utilisateur.</p>
+<p>-n Les noms des nouvelles sont seules imprimées.</p>
+<p>-s indique uniquement le nombre de nouvelles disponibles.</p>
+<h4>La conversation en temps réel</h4>
+<p>UNIX permet à deux utilisateurs connectés au système de converser en direct.</p>
+<h4>9.4.1 La commande "mesg"</h4>
+<p>Permet d'accepter ou de refuser les conversations en direct.</p>
+<p>Ceci est utile lorsque l'on travaille sous un éditeur par exemple pour éviter d'avoir des messages parasites.</p>
+<p>options:</p>
+<p>-y Accepte les messages.</p>
+<p>-n Refuse les messages.</p>
+<h4>9.4.2 La commande "write"</h4>
+<p>Format : <code>write &lt;nom&gt; [&lt;terminal&gt;]</code></p>
+<p>Permet de communiquer directement avec un autre utilisateur si celui ci est connecté et s'il accepte les messages (commande "mesg")</p>
+<p>Sur l' écran du destinataire apparaît le message suivant : "message from ..."</p>
+<p>La conversation se fait en direct jusqu'àque l'un des interlocuteurs appuie sur fin de fichier (&lt;Ctrl-d&gt;).</p>
+<h2 id="sauvegarde-et-archivage-des-fichiers">Sauvegarde et archivage des fichiers.</h2>
+<h3 id="sauvegarde-des-fichiers">Sauvegarde des fichiers</h3>
+<h4>10.1.1 La commande "find"</h4>
+<p>Format : <code>find &lt;liste de chemins&gt; &lt;expressions&gt;</code></p>
+<p>Permet une recherche automatique de fichiers dans une partie de l'arborescence (recherche récursive) du système de fichiers de UNIX.</p>
+<p>C'est une commande très gourmande en temps CPU, à utiliser avec modération.</p>
+<p>&lt;liste de chemins&gt; est la liste des répertoires de recherches</p>
+<p>&lt;expressions&gt; Défini le type de recherche.</p>
+<p>convention d' écritures:</p>
+<p>&lt;n&gt; sans signe signifie :égale valeur</p>
+<p>&lt;n&gt; avec le signe plus signifie: supérieur ou égalàn.</p>
+<p>&lt;n&gt; avec le signe moins signifie : inférieur ou égalàn.</p>
+<p>options:</p>
+<p>-name &lt;nom&gt; Vrai si le fichier a pourréférence &lt;nom&gt;</p>
+<p>-perm &lt;nombre en octal&gt; Vrai si le fichier a pour droit d'accès &lt;...&gt;</p>
+<p>-type &lt;x&gt; Vrai si le type de fichier est &lt;x&gt;.</p>
+<p>&lt;x&gt; :</p>
+<ul>
+<li>
+<p>b fichier spécial de type block</p>
+</li>
+<li>
+<p>c fichier spécial de type caractère</p>
+</li>
+<li>
+<p>d fichier de type catalogue</p>
+</li>
+<li>
+<p>f fichier de type ordinaire.</p>
+</li>
+<li>
+<p>p pour les tubes nommés.(System III etV)</p>
+</li>
+</ul>
+<p>-links &lt;n&gt; Vrai si le fichiera&lt;n&gt; liens.</p>
+<p>-user &lt;nom&gt;Vrai si le fichierapour propriétaire &lt;nom&gt;</p>
+<p>-group &lt;nom&gt; Idem pour le groupe d'utilisateur.</p>
+<p>-size &lt;n&gt;Vrai si le fichier a &lt;n&gt; blocs.</p>
+<p>-atime &lt;n&gt; Vrai si le fichier a été consulté depuis &lt;n&gt; jours</p>
+<p>-mtime &lt;n&gt; Vrai si le fichier a été modifiédepuis &lt;n&gt; jours.</p>
+<p>-inum &lt;n&gt; Vrai si le fichier a pour i-node &lt;n&gt;.</p>
+<p>-print Affiche les noms des fichiers répondant à &lt;expressions&gt;.</p>
+<p>Toutes ces primitives peuvent être composées avec l'opérateur de négation "!".</p>
+<h4>10.1.2 La commande "cpio"</h4>
+<p>C'est la commande de sauvegarde des fichiers et des répertoires. Elle s'emploie selon trois formes, par défaut la commande attend la liste des fichiers à sauvegarder depuis l'entrée standard (&lt;Ctrl-d&gt; pour terminer). Elle s'utilise le plus souvent avec la commande "find".</p>
+<h5>10.1.2.1 cpio -p &lt;directory&gt;</h5>
+<p>Format : <code>cpio -p [adlmruv] &lt;répertoire&gt;</code></p>
+<p>Lit la liste des fichiers à sauvegarder sur l'entrée standard et les sauvegarde dans &lt;répertoire&gt;.</p>
+<h5>10.1.2.2 cpio -o (output = sortie)</h5>
+<p>Format : <code>cpio -o [aBcv]</code></p>
+<p>copie les fichiers sur la sortie standard en indiquant le chemin et le statuts.</p>
+<h5>10.1.2.3 cpio -i (input = entrée)</h5>
+<p>Format : <code>cpio -i [BcdmrtuvfsSb] [patterns]</code></p>
+<p>Lit l'entrée standard et recrée la structure de l'arborescence indiquée par l'entrée.</p>
+<h5>Les options:</h5>
+<p>a Remet à 0 les temps d'accès des fichiers d'entrées.</p>
+<p>B l'entrée et la sortie se font par bloc de 5120 octets (A n'utiliser qu'avec redirection sur des devices par</p>
+<p>blocs, des lecteurs de bandes par exemple).</p>
+<p>d Les répertoires sont créés s'il y a lieu.</p>
+<p>c Ecrit l'en-tête en ASCII (pour la portabilité).</p>
+<p>r Renomme les fichiers (de manière interactive)</p>
+<p>t Affiche la liste des fichiers d'entrées (Rien n'est créé, utile pour vérifier que tout c'est bien passé).</p>
+<p>u copie inconditionnelle (normalement les fichiers plus anciens ne remplacent pas les fichiers plus jeunes).</p>
+<p>v affiche sur la sortie une liste des fichiers affichés.</p>
+<p>l Essaye de créer des liens plutôt que la recopie des fichiers.</p>
+<p>f copie tout les fichiers sauf ceux définis dans [patterns]</p>
+<p>s échange l'ordre des octets.</p>
+<p>S échange l'ordre des demi-mots.</p>
+<p>b équivalent aux options s et S.</p>
+<h3 id="archivage-des-fichiers">Archivage des fichiers</h3>
+<h4>10.2.1 La commande "tar"</h4>
+<p>Format : <code>tar [&lt;clés&gt;] [&lt;fichiers&gt; ...]</code></p>
+<p>Permet d'archiver des fichiers sur un fichier unique sur bande magnétique, ainsi que leur restitutions</p>
+<p>&lt;clés&gt; Permet de contrôler le type d'opération :</p>
+<ul>
+<li>
+<p>r Ecriture des fichiers en fin de bande.</p>
+</li>
+<li>
+<p>x Extraction des fichiers de la bande, si le nom est un répertoire il est créé et les caractéristiques des fichiers sont respectés si possibles.</p>
+</li>
+<li>
+<p>t Liste les fichiers de la bande sans extraction.</p>
+</li>
+<li>
+<p>u Sauvegarde les fichiers en fin de bande s'ils n'y sont pas déjà.</p>
+</li>
+<li>
+<p>c Création d'une nouvelle bande.(sauvegarde en début de bande.)</p>
+</li>
+</ul>
+<p>Les paramètres des clés sont les suivants:</p>
+<ul>
+<li>
+<p>0..7 Sélectionne le dérouleur de bande.</p>
+</li>
+<li>
+<p>v Le nom de chaque fichier est affiché</p>
+</li>
+<li>
+<p>w Avant chaque opération affiche le fichier en cours et demande confirmation à l'utilisateur.</p>
+</li>
+<li>
+<p>f Le nom de l'argument suivant est utilisé comme référence du fichier d'archive.(Par défaut c'est /dev/rmt0 (dérouleur de bande 0)</p>
+</li>
+</ul>
+<blockquote>
+<p>Si le nom est "-" c'est la sortie standard qui est utilisée.</p>
+</blockquote>
+<ul>
+<li>m Demande la non-restitution de la date,la date courante est alors utilisée.</li>
+</ul>
+<blockquote>
+<p>NOTE : Il n'y a pas de caractère "-" au début des options !!.</p>
+</blockquote>
+<h4>10.2.2 La commande "ar"</h4>
+<p>Format : <code>ar [options] &lt;nom de librairie&gt; [&lt;liste-de-fichiers&gt;]</code></p>
+<p>Permet d'archiver des fichiers et de créer des bibliothèques de fichiers objets (pour les compilateurs.)</p>
+<p>options:</p>
+<p>-d supprime les fichiers spécifiés de la bibliothèque.</p>
+<p>-r Remplace les fichiers spécifié dans la bibliothèque.</p>
+<p>-q Rajout des fichiers en fin de bibliothèque.</p>
+<p>-t Impression du contenu des fichiers de la bibliothèque ou de la liste des fichiers</p>
+<p>-p Impression des modules de la bibliothèque.</p>
+<p>-m déplacement des modules en fin de bibliothèque.</p>
+<p>-x Extraction des fichiers de la bibliothèque.</p>
+<p>-v option d'affichage détaillé.</p>
+<h4>10.2.3 La commande "cmp"</h4>
+<p>Format : <code>cmp [option] &lt;fichier1&gt; &lt;fichier2&gt;</code></p>
+<p>Permet de comparer deux fichiers.</p>
+<p>options :</p>
+<p>-l Toutes les différences sont signalées par le numéro du caractère en décimal et sa valeur en octal.</p>
+<p>-s aucune sortie, la commande est utilisée pour avoir un code de sortie.</p>
+<h2 id="commandes-additionnelles">Commandes additionnelles</h2>
+<h3 id="commandes-sur-les-fichiers">Commandes sur les fichiers</h3>
+<h3 id="1111-la-commande-crypt">11.1.1 La commande "crypt"</h3>
+<p>Permet de coder un fichier, affiche sur la sortie standard le fichier codé. Les fichiers sont codé par un algorithme en fonction de la clé que vous donnez.</p>
+<h4>11.1.2 La commande "od"</h4>
+<p>Format : <code>od [options] &lt;fichier&gt;</code></p>
+<p>Permet de réaliser un "dump" du fichier spécifié.(par défaut en octal.) .</p>
+<p>options:</p>
+<p>-b Les mots sont interprétés en octal</p>
+<p>-c les octets sont interprétés en ASCII</p>
+<p>-d Les mots sont interprétés en décimal</p>
+<p>-o Les mots sont interprétés en octal</p>
+<p>-x les mots sont interprétés en hexadécimal</p>
+<h4>11.1.3 La commande "touch"</h4>
+<p>Format : <code>touch [options] [date] &lt;fichier&gt; ...</code></p>
+<p>Permet de changer la date de dernière modification des fichiers spécifiés. Si aucune date n'est donnée, la date courante est utilisée.</p>
+<p>options:</p>
+<p>-a Change la date d'accès.</p>
+<p>-m Change la date de modification.</p>
+<p>-c Empêche la fonction "touch" de créer le fichier si celui-ci n'existe pas.</p>
+<h4>11.1.4 La commande "split"</h4>
+<p>Format : <code>split [-&lt;n&gt;] [&lt;fichier&gt; [&lt;nom&gt;] ]</code></p>
+<p>Permet de découper un fichier en plusieurs fichiers. Par défaut découpe le fichier toute les 1000 lignes si -&lt;n&gt; n'est pas spécifié . Les fichiers de sorties ont pour nom &lt;nom&gt; avec les lettres 'aa' à 'zz' (au maximum 676 fichiers) Si &lt;nom&gt; n'est pas spécifié "x" est pris par défaut.</p>
+<h3 id="les-commandes-dadministration-du-systeme">Les commandes d'administration du système.</h3>
+<h4>11.2.1 La commande "su"</h4>
+<p>Permet de passer en mode super-utilisateur(Plus de protection dans le système UNIX, à condition d'avoir le mot de passe. Plutôt remplacé par <code>sudo</code> qui permet de donner des accès à certaines commandes à un utilisateur donné sans que celui-ci ne connaisse le mot de passe de root.</p>
+<p>DE nos jours on évtite de passer en root directement, on passe plutôt par la commande <code>sudo</code> qui permet de donner des droits plus fin aux utilisateurs.</p>
+<h4>11.2.2 La commande "sar":</h4>
+<p>Permet d'avoir des renseignements sur l'activité du système UNIX. Se reporter à la documentation UNIX pour plus de détails.</p>
+<h4>11.2.3 La commande "sysadm":</h4>
+<p>"sysadm" est une interface pour gérer le système. (administration du système.). nécessite de connaître le mot de passe.</p>
+<p>Se reporter à la documentation pour plus de détails.</p>
+<h3 id="la-commande-de-configuration-du-terminal-stty">La commande de configuration du terminal "stty"</h3>
+<p>Format : <code>stty [-a][-g] [options]</code></p>
+<p>La commande "stty" permet de connaître l'état du paramétrage de la ligne du terminal ainsi que de le reconfigurer.</p>
+<p>Sans arguments donne l'état de la ligne.</p>
+<p>-a donne l'état complet de la ligne.</p>
+<p>-g donne l'état de la ligne dans un format permettant de configurer un autre terminal (via les tubes).</p>
+<p>Sans "-" pour actionné l'option, Avec "-" pour la désactiver.</p>
+<h4>Les modes de contrôles:</h4>
+<p>parenb autorise le contrôle de parité.</p>
+<p>parodd parité impaire</p>
+<p>cs5 cs6 cs6 cs8</p>
+<p>Nombre de bits de données.</p>
+<p>50..300...1200..9800 Vitesse de transmission de la ligne.</p>
+<p>cstopbutilise 1 bits de stop (sinon 2)</p>
+<h4>Les modes d'entrée:</h4>
+<p>ignbrk ignore le break;</p>
+<p>ignpar ignore les erreurs de parité.</p>
+<p>istrip compacte sur 7 bits les données.</p>
+<p>inclr le caractère &lt;New-line&gt; est interprété comme &lt;return&gt;</p>
+<p>icrnl le &lt;return&gt; est interprété comme &lt;new-line&gt;</p>
+<p>iuclc Interprète les majuscules comme des minuscules.</p>
+<p>ixon Autorise le contrôle de flux (&lt;Ctrl-s&gt;)</p>
+<p>ixany Tout caractère relance l'affichage (sinon uniquement &lt;Ctrl-q&gt;)</p>
+<p>ixoff Le système envoie des START/STOP suivant l'état des buffers</p>
+<h4>Les modes de sortie:</h4>
+<p>opost Les caractères en sortie doivent être traiter (par l'une des options suivantes)</p>
+<p>olcuc identifie les minuscules en majuscules</p>
+<p>onlcr &lt;new-line&gt; comme la suite &lt;return&gt; &lt;new-line&gt;</p>
+<p>onocr les &lt;return&gt; en tête de ligne sont ignorés.</p>
+<p>onlret sur le terminal &lt;new-line&gt; est interprété comme &lt;return&gt;</p>
+<h4>Les modes locaux:</h4>
+<p>echo envoie l'écho de chaque caractère</p>
+<p>echoe l'écho du caractère &lt;erase&gt; est la suite &lt;backspace&gt; &lt;espace&gt; &lt;backspace&gt;</p>
+<p>icanonles caractères sont entrés en modes lignes délimités par &lt;new-line&gt;</p>
+<p>noflshne vide pas les buffers après une interruption INTR, QUIT, ou SWTCH</p>
+<p>isig Autorise le test des caractères en entrée pour détecter les interruptions INTR,QUIT,SWTCH</p>
+<blockquote>
+<p>Se reporter à la documentation pour une information plus détaillée.
+</p>
+</blockquote>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../langC/" title="langage C" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                langage C
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.ac79c3b0.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
