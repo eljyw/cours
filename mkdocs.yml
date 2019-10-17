@@ -1,7 +1,7 @@
 site_name: Support de cours Informatique
-site_url: http://gitlab-ci-templates.pages.forge.orange-labs.fr/doc
+site_url: https://eljyw.github.io/cours/
 site_author: eljyw
-repo_url: https://gitlab.forge.orange-labs.fr/gitlab-ci-templates
+repo_url: https://github.com/eljyw/cours
 site_dir: public
 theme:
   name: material
