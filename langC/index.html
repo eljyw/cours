@@ -889,7 +889,7 @@ ici les appels à <code>bon()</code> et à <code>BON()</code> ne sont pas identi
 <li><strong>double</strong> : réels double précision.</li>
 </ul>
 <p>La taille de ces types (nombre d'octet pris en mémoire) varie suivant les versions. La seule chose qui vous est assuré est que:</p>
-<p>char &lt;= short &lt;= int &lt;= long &lt;= float &lt;= double</p>
+<p><strong>char &lt;= short &lt;= int &lt;= long &lt;= float &lt;= double</strong></p>
 <p>Tous ces types peuvent recevoir le mot clé <code>unsigned</code> pour non signé.</p>
 <div class="admonition example">
 <p class="admonition-title">Exemple :</p>
@@ -995,7 +995,7 @@ niveau peut ne pas être défini.</p>
 <div class="codehilite"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">_point</span><span class="p">{</span>
     <span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">couleur</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">Point</span><span class="p">;</span> <span class="cm">/* le type point est définit CE N&#39;EST PAS UNE VARIABLE */</span>
+<span class="p">}</span> <span class="n">Point</span><span class="p">;</span> <span class="cm">/* le type point est défini, CE N&#39;EST PAS UNE VARIABLE */</span>
 
 <span class="n">Point</span> <span class="n">pix</span><span class="p">;</span>
 
@@ -1053,12 +1053,13 @@ niveau peut ne pas être défini.</p>
 </tbody>
 </table>
 <h4>extern</h4>
-<p>Permet de faire référence à une variable déjà déclarée, IL N'Y A PAS RESERVATION DE PLACE MEMOIRE, il est indispensable que la variable soit réellement déclarée dans un autre fichier ou module du programme.</p>
+<p>Permet de faire référence à une variable déjà déclarée, IL N'Y A PAS RESERVATION DE PLACE MEMOIRE, il est indispensable que la variable soit réellement déclarée dans un autre fichier ou module du programme, sinon il y aura une erreur lors de l'édition de liens.</p>
 <p>En général, on peut se dispenser du mot clé <code>extern</code> mais certains compilateurs veulent que les variables ne soient déclarées qu'une seule fois dans tout le programme.</p>
 <h4>volatile</h4>
 <p>Permet de dire au compilateur de ne pas faire d'optimisation sur la variable. la variable peut être mise à jour à tout moment par une autre tache (thread).</p>
 <h4>const</h4>
-<p><code>const</code> permet d'éviter la modification des variables. Elles peuvent juste être initialisées à la déclaration.</p>
+<p><code>const</code> permet d'éviter la modification des variables. Elles peuvent juste être initialisées à la déclaration.
+Permet de générer des erreurs de compilation si il y a une terntative de modfication de la variable.</p>
 <div class="admonition example exemple">
 <p class="admonition-title">Example</p>
 </div>
@@ -1197,7 +1198,7 @@ $
 </div>
 <h4>Autres opérateurs:</h4>
 <p><code>(TYPE)</code> Opérateur unaire permettant de convertir une variable dans le type TYPE .</p>
-<p><code>sizeof(OBJET)</code> Taille de l'objet en octets (peut être une variable ou le type d'une variable)</p>
+<p><code>sizeof(OBJET)</code> Taille de l'objet en octets (OBJET peut être une variable ou le type d'une variable)</p>
 <p>= Affectation simple.</p>
 <p><code>e ? e1 : e2</code> Expression conditionnelle sa valeur est e1 si e est vrai e2 sinon.</p>
 <p><code>e1,e2,...,eq</code> Liste d'expressions évaluées séquentiellement de e1 puis e2 jusqu'à eq, la valeur de la liste vaut eq</p>
@@ -1209,13 +1210,13 @@ $
 <p>Le type pointeur d'un objet de type 'TYPE' est : 'TYPE *' .</p>
 <p>Exemple :</p>
 <div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="o">*</span> <span class="n">p</span><span class="p">;</span> <span class="cm">/* Pointeur sur un entier */</span>
-<span class="k">struct</span> <span class="n">_point</span> <span class="o">*</span> <span class="n">pixptr</span><span class="p">;</span><span class="cm">/* Pointeur sur un objet de TYPE _point */</span>
+<span class="k">struct</span> <span class="n">_point</span> <span class="o">*</span> <span class="n">pixptr</span><span class="p">;</span> <span class="cm">/* Pointeur sur un objet dont le type est struct _point */</span>
 </pre></div>
 
 <p>L'objet pointé par le pointeur 'p' est noté : '*p' , l'adresse d'un objet 'q' est notée ' &amp;q ';</p>
 <p>Exemple : (sur les versions actuelles peut donner un warning à la compilation, ne pas en tenir compte)</p>
 <div class="codehilite"><pre><span></span><span class="cm">/* $cat demoptr.c */</span>
-<span class="cp">##include &lt;stdio.h&gt;</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
 <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -1239,9 +1240,9 @@ $
 <span class="p">}</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="nv">$cc</span> -o demoptr.e demoptr.c
+<div class="codehilite"><pre><span></span>$ cc -o demoptr.e demoptr.c
 $
-<span class="nv">$demoptr</span>.e
+$ ./demoptr.e
 Valeur du contenu à l<span class="err">&#39;</span>adresse de p est <span class="m">10</span>
 Ceci est une chaîne.
 Ceci est une chaîne.
@@ -1249,11 +1250,23 @@ $
 </pre></div>
 
 <p>Les opérations sur les pointeurs sont :</p>
+<ul>
+<li>
 <p>L'affectation simple : <strong>=</strong></p>
+</li>
+<li>
 <p>Les opérations arithmétiques : <strong>+</strong> , <strong>-</strong> , <strong>++</strong> , <strong>--</strong></p>
+</li>
+<li>
 <p>L'indirection : <strong>*</strong> , <strong>-></strong></p>
+</li>
+<li>
 <p>Les conversions de type et le calcul de la taille.</p>
+</li>
+<li>
 <p>Les opérateurs de comparaison.</p>
+</li>
+</ul>
 <h3 id="affectation-des-pointeurs">Affectation des pointeurs.</h3>
 <p>La déclaration d'un pointeur réserve de la place pour le pointeur <strong>ET NON</strong> pour l'objet pointé.</p>
 <p>Exemple :</p>
@@ -1266,17 +1279,21 @@ $
 <span class="p">}</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="nv">$cc</span> -o faux faux.c
-<span class="nv">$faux</span>
+<div class="codehilite"><pre><span></span>$ cc -o faux faux.c
+$ ./faux
 
 Bus error <span class="o">(</span>core dumped<span class="o">)</span>
 $
 </pre></div>
 
-<p>ATTENTION la différence de type entre les deux membres lors d'une affectation n'est pas traitée comme une erreur fatale mais donne lieu à un 'warning'.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>la différence de type entre les deux membres lors d'une affectation
+n'est pas traitée comme une erreur fatale mais donne lieu à un 'warning'.</p>
+</div>
 <p>Exemple :</p>
 <div class="codehilite"><pre><span></span><span class="cm">/* $cat demoptr2.c */</span>
-<span class="cp">##include &lt;stdio.h&gt;</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
 <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
@@ -1302,14 +1319,14 @@ $
 <span class="p">}</span>
 </pre></div>
 
-<p>La règle à appliquer est de toujours écrire des expressions homogènes pour éviter les warnings, de plus l'on sait ce que l'on fait !!!! (En principe.)</p>
+<p>La règle à appliquer est de toujours écrire des expressions homogènes pour éviter les warnings, de plus l'on sait ce que l'on fait !!!! (En principe)</p>
 <h4>Les pointeurs et les chaînes de caractères.</h4>
 <p>Une chaîne de caractères en C est est une suite d'octets se terminant par le caractère de code ASCII zéro (NULL).</p>
 <p>Ainsi \"chaine\" est une constante ayant pour valeur l'adresse d'un zone mémoire dont les 7 premiers octets ont pour valeur 'c' 'h' 'a' 'i' 'n' 'e' ET '\0'.</p>
 <p>Exemple :</p>
 <div class="codehilite"><pre><span></span><span class="cm">/* $cat demoptr3.c */</span>
 
-<span class="cp">##include &lt;stdio.h&gt;</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
 <span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -1333,13 +1350,13 @@ $
 <p>On peut construire une chaîne de caractères de différentes manières:</p>
 <ul>
 <li>En utilisant les guillemets, la caractère de fin de chaîne (NULL) est automatiquement rajouté.</li>
-<li>En remplissant \"à la main\" les zones d'un tableau.</li>
-<li>En utilisant des fonctions de la bibliothèque standard du C tel que strcpy, strcat ...</li>
+<li>En remplissant <em>à la main</em> les zones d'un tableau.</li>
+<li>En utilisant des fonctions de la bibliothèque standard du C tel que <code>strcpy()</code>, <code>strcat()</code> ...</li>
 </ul>
 <p>Exemple:</p>
 <div class="codehilite"><pre><span></span><span class="cm">/* $cat chaine.c */</span>
-<span class="cp">##include &lt;stdio.h&gt;</span>
-<span class="cp">##include &lt;string.h&gt;</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
 
 <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
@@ -1366,7 +1383,8 @@ $
 </pre></div>
 
 <p>A l'exécution :</p>
-<div class="codehilite"><pre><span></span>$./a.out
+<div class="codehilite"><pre><span></span>$ cc chaine.c
+$ ./a.out
 chaine contient : ijklmn
 chh contient : cdefgh
 ch contient : abcdefgh
@@ -1378,11 +1396,15 @@ $
 <h3 id="procedures-et-fonctions">Procédures et fonctions.</h3>
 <p>En C il n'y a pas de différence entre une procédure et une fonction, par défaut une fonction retourne un entier. Une procédure étant une fonction qui ne retourne pas de valeur.</p>
 <p>Une fonction peut également retourner l'un des types de base ou un pointeur. </p>
-<p>Attention dans une fonction les variables sont de classe 'auto' c'est à dire dynamique. En fait elles sont allouées dans la pile et disparaissent après l'exécution de la fonction.</p>
-<p>En C Les paramètres d'un fonction sont TOUS passés par valeurs. Si l'on veut passer des paramètres par référence il est nécessaire de passer l'adresse de la variable.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Dans une fonction les variables sont par défaut de classe 'auto', c'est à dire dynamique.
+En fait elles sont allouées dans la pile et <strong>disparaissent</strong> après l'exécution de la fonction.</p>
+</div>
+<p>En C les paramètres d'une fonction sont <strong>tous</strong> passés par valeurs. Si l'on veut passer des paramètres par référence il est nécessaire de passer l'adresse de la variable.</p>
 <p>Exemple :</p>
 <div class="codehilite"><pre><span></span><span class="cm">/* $cat para.c*/</span>
-<span class="cp">##include &lt;stdio.h&gt;</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cm">/* La fonction swap1 ne marche pas */</span>
 <span class="kt">void</span> <span class="nf">swap1</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
 <span class="p">{</span>
@@ -1451,19 +1473,23 @@ $
 <span class="p">}</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="nv">$foncptr</span>
+<div class="codehilite"><pre><span></span>$ cc -o foncptr foncptr.c
+$ ./foncptr
 La valeur du paramètre de f0 est <span class="m">0</span>
 La valeur du paramètre de f1 est <span class="m">1</span>
 La valeur du paramètre de f2 est <span class="m">2</span>
 $
 </pre></div>
 
-<p>Remarque : On écrit tab[0] = f0; et non tab[0] = &f0; car f0 est une constante dont la valeur est l'adresse de la fonction f0() tout comme pour un tableau où t et &amp;t[0] sont équivalents.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On écrit tab[0] = f0; et non tab[0] = &f0; car f0 est une constante dont la valeur est l'adresse de la fonction f0() tout comme pour un tableau où t et &amp;t[0] sont équivalents.</p>
+</div>
 <h3 id="recuperation-des-parametres-dune-commande">Récupération des paramètres d'une commande.</h3>
 <p>La plupart des commandes UNIX demandent des paramètres pour s'exécuter. De même, il est possible de récupérer des paramètres passés sur la ligne de commande pour nos propres programmes C.</p>
 <p>Exemple:</p>
 <div class="codehilite"><pre><span></span><span class="cm">/* cat litarg.c */</span>
-<span class="cp">##include &lt;stdio.h&gt;</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span><span class="kt">char</span> <span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -1473,21 +1499,24 @@ $
 </pre></div>
 
 <div class="codehilite"><pre><span></span><span class="nv">$cc</span> -o arg litarg.c
-<span class="nv">$arg</span> bonjour cc -o argument
+$ ./arg bonjour cc -o argument
 Argument n° <span class="m">0</span> est arg
 Argument n° <span class="m">1</span> est bonjour
 Argument n° <span class="m">2</span> est cc
 Argument n° <span class="m">3</span> est -o
 Argument n° <span class="m">4</span> est argument
 $
-<span class="nv">$arg</span>
+$ ./arg
 Argument n° <span class="m">0</span> est arg
 $
 </pre></div>
 
 <p>On remarque qu'un programme possède au moins un argument : le nom du programme.</p>
-<p>NOTE : Si vous travaillez sous UNIX Essayer 'arg *' cela vous donnera la liste des fichiers sous votre directory courante.</p>
-<div class="codehilite"><pre><span></span><span class="nv">$arg</span> *.c
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si vous travaillez sous UNIX Essayer 'arg *' cela vous donnera la liste des fichiers sous votre directory courante.</p>
+</div>
+<div class="codehilite"><pre><span></span>$ ./arg *.c
 Argument n° <span class="m">0</span> est arg
 Argument n° <span class="m">1</span> est lit_arg.c
 Argument n° <span class="m">2</span> est foncptr.c
@@ -1654,58 +1683,38 @@ $
 <p>Le programme 'mauvais.c' marche sur DOS où la taille des entiers est de 2 octets; mais pas sur d'autres machines où la taille des entiers est de 4 octets (système d'exploitation 32 bits).</p>
 <h2 id="le-preprocesseur-c-cpp">Le Préprocesseur C : cpp</h2>
 <p>Le préprocesseur permet de faire de la compilation conditionnelle, de définir des macros (comme en assembleur), et de donner des directives de compilation. Toutes ces instructions commencent par le caractère #. Certains compilateurs tiennent absolument à ce que ce soit le premier caractère d'une ligne.</p>
-<p>ATTENTION toutes les directives (commençant par #) ne se terminent pas par un point-virgule.</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Toutes les directives (commençant par #) ne se terminent pas par un point-virgule.</p>
+</div>
 <h3 id="35define">#define</h3>
 <p>Permet de définir des entités des macros instructions. Une ligne trop longue peut être coupée par le caractère d'échappement <code>\</code>.</p>
 <p>Exemple :</p>
 <p><code>#define _UNIX</code> l'entité _UNIX est définie.</p>
 <p><code>#define MAX 43</code> Dans tout le programme suivant la définition MAX sera remplacé par 43</p>
-<div class="codehilite"><pre><span></span><span class="cm">/* $cat pre.c */</span>
-<span class="cp">##include &lt;stdio.h&gt;</span>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
 
-<span class="cp">##define COMMENTAIRE() { \</span>
+<span class="cp">#define COMMENTAIRE() { \</span>
 <span class="cp">    printf(&quot;Un #define trop long&quot;); \</span>
 <span class="cp">    printf(&quot; être coupé par le caractère \\&quot;); \</span>
 <span class="cp">    printf(&quot;\n&quot;); \</span>
 <span class="cp">    }</span>
 
-<span class="cp">##if 0</span>
-<span class="cp">##define STRCAT(a,b) a</span><span class="cm">/**/</span><span class="cp">b</span>
-<span class="cp">##endif</span>
+<span class="cp">#if 1</span>
+<span class="cp">#define STR(FONC) str ## FONC</span>
+<span class="cp">#define TOSTR(FONC) #FONC</span>
+<span class="cp">#endif</span>
 
-<span class="cp">##define carre(x) ((x)*(x))</span>
+<span class="cp">#define carre(x) ((x)*(x))</span>
 
-<span class="cp">##define fauxcarre(x) x*x</span>
+<span class="cp">#define fauxcarre(x) x*x</span>
 
-<span class="cp">##define MAX 43</span>
+<span class="cp">#define MAX 43</span>
 
 <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
 
 <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span><span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">stdio</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
-<span class="cp">##include &lt;string.h&gt;</span>
-
-<span class="cp">##define COMMENTAIRE() { \</span>
-<span class="cp">    printf(&quot;Un #define trop long&quot;); \</span>
-<span class="cp">    printf(&quot; peut être coupé par le caractère \\&quot;); \</span>
-<span class="cp">    printf(&quot;\n&quot;); \</span>
-<span class="cp">    }</span>
-
-<span class="cp">##if 1</span>
-<span class="cp">##define STR(FONC) str ## FONC</span>
-<span class="cp">##define TOSTR(FONC) #FONC</span>
-<span class="cp">##endif</span>
-
-<span class="cp">##define carre(x) ((x)*(x))</span>
-
-<span class="cp">##define fauxcarre(x) x*x</span>
-
-<span class="cp">##define MAX 43</span>
-
-<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="n">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
     <span class="kt">char</span> <span class="n">chaine</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;str&quot;</span><span class="p">;</span>
@@ -1715,18 +1724,9 @@ $
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Le resultat de carre(i+1) est %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">carre</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Le resultat de fauxcarre(i+1) est %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">fauxcarre</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
-<span class="cp">##if 1</span>
+<span class="cp">#if 1</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">STR</span><span class="p">(</span><span class="n">cat</span><span class="p">)(</span><span class="n">chaine</span><span class="p">,</span><span class="n">TOSTR</span><span class="p">(</span><span class="n">cat</span><span class="p">)));</span>
-<span class="cp">##endif</span>
-<span class="p">}</span>
-    <span class="n">COMMENTAIRE</span><span class="p">();</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;MAX MAXSIZE %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">MAX</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Le resultat de carre(i+1) est %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">carre</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Le resultat de fauxcarre(i+1) est %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">fauxcarre</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
-<span class="cp">##if 0</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">STRCAT</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="n">cat</span><span class="p">)(</span><span class="s">&quot;aaa&quot;</span><span class="p">,</span> <span class="s">&quot;bbb&quot;</span><span class="p">));</span>
-<span class="cp">##endif</span>
+<span class="cp">#endif</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1741,35 +1741,36 @@ strcat
 $
 </pre></div>
 
-<p>On remarque sur cet exemple tout l'intérêt d'utiliser lesparenthèses dans les pseudo-fonctions.</p>
-<p>l'expression <code>carre(i+1)</code> est remplacé AVANT génération de code par <code>(i+1)*(i+1)</code></p>
-<p>L'expression <code>fauxcarre(i+1)</code> est remplacé par : <code>i+1*i+1</code> soit par <code>i+i+1</code> ce qui n'est pas le résultat espéré</p>
-<h4>directive</h4>
+<p>On remarque sur cet exemple tout l'intérêt d'utiliser les parenthèses dans les pseudo-fonctions.</p>
+<p>l'expression <code>carre(i+1)</code> est remplacée AVANT génération de code par <code>(i+1)*(i+1)</code>.</p>
+<p>L'expression <code>fauxcarre(i+1)</code> est remplacée par : <code>i+1*i+1</code> soit par <code>i+i+1</code> ce qui n'est pas le résultat espéré.</p>
+<h4>directive #</h4>
 <p>Le # permet de changer le paramètre en chaine de caractère, comme dans la macro de l'exemple précédent <code>TOSTR()</code>.</p>
-<h4>directive</h4>
-<p>le ## permet la concaténation de 2 mots, comme la macro <code>STR()</code>de l'exemple précèdent.</p>
+<h4>directive ##</h4>
+<p>le ## permet la concaténation de 2 mots, comme la macro <code>STR()</code>de l'exemple précédent.</p>
 <p>Ces deux directives permettent de faire du pseudo objet, ou de simplifier des définitions laborieuses.</p>
 <h3 id="compilation-conditionnelle">Compilation conditionnelle.</h3>
 <p>Exemple:</p>
 <div class="codehilite"><pre><span></span><span class="cm">/* $cat cond.c */</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="cp">##define _UNIX</span>
+<span class="cp">#define _UNIX</span>
 
 <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="cp">##ifdef _UNIX</span>
+<span class="cp">#ifdef _UNIX</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Un :_UNIX est défini</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="cp">##else</span>
+<span class="cp">#else</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Un : _UNIX n&#39;est pas défini</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="cp">##endif</span>
+<span class="cp">#endif</span>
 
-<span class="cp">##undef _UNIX</span>
+<span class="cp">#undef _UNIX</span>
 
-<span class="cp">##ifdef _UNIX</span>
+<span class="cp">#ifdef _UNIX</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Deux : _UNIX est défini</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="cp">##else</span>
+<span class="cp">#else</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Deux : _UNIX n&#39;est pas défini</span><span class="se">\n\&quot;</span><span class="s">);</span>
-<span class="cp">##endif</span>
+<span class="cp">#endif</span>
 
 <span class="p">}</span>
 </pre></div>
@@ -1780,14 +1781,14 @@ Deux : _UNIX n<span class="err">&#39;</span>est pas défini
 $
 </pre></div>
 
-<p>#undef permet de supprimer une 'variable' précédemment définie.</p>
-<p>#ifdef équivalent à if</p>
-<p>#else équivalent à else</p>
+<p><code>#undef</code> permet de supprimer une 'variable' précédemment définie.</p>
+<p><code>#ifdef</code> équivalent à if</p>
+<p><code>#else</code> équivalent à else</p>
 <h3 id="directives-de-compilation">Directives de compilation.</h3>
 <p>La directive '#include' permet d'inclure des fichiers.</p>
 <p>Exemple :</p>
-<div class="codehilite"><pre><span></span><span class="cp">##include &lt;stdio.h&gt;</span>
-<span class="cp">##include &quot;myinclude.h&quot;</span>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;myinclude.h&quot;</span><span class="cp"></span>
 </pre></div>
 
 <p>Les noms de fichiers entre \&lt; et > seront cherchés dans le répertoire par défaut du système, sur UNIX dans le répertoire <code>/usr/include</code></p>
@@ -1802,9 +1803,9 @@ $
 <p>Les fonctions f... travaillent avec un pointeur sur le descripteur de fichier, les autres avec le numéro du descripteur.</p>
 <h3 id="les-entrees-sorties-par-defaut">les entrées sorties par défaut</h3>
 <p>TROIS Fichiers sont ouverts par défaut :</p>
-<p>stdin : entrée standard (clavier par défaut)</p>
-<p>stdout : sortie standard (écran par défaut)</p>
-<p>stderr : sortie standard (erreur (écran par défaut)</p>
+<p><strong>stdin</strong> : entrée standard (clavier par défaut)</p>
+<p><strong>stdout</strong> : sortie standard (écran par défaut)</p>
+<p><strong>stderr</strong> : sortie standard (erreur (écran par défaut)</p>
 <p>Ils occupent respectivement les numéros de descripteur 0,1 et 2.</p>
 <p>Ainsi les appels :</p>
 <p>printf(\".... sont équivalents à fprintf(stdout,\"...</p>
