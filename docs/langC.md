@@ -146,7 +146,7 @@ void main(void)
 
 La taille de ces types (nombre d'octet pris en mémoire) varie suivant les versions. La seule chose qui vous est assuré est que:
 
-char <= short <= int <= long <= float <= double
+**char <= short <= int <= long <= float <= double**
 
 Tous ces types peuvent recevoir le mot clé `unsigned` pour non signé.
 
@@ -271,7 +271,6 @@ struct point {
 } pix;
 
 struct point *p;
-
 ```
 
 La structure a un nom 'point' qui peut être réutiliser dans un programme.
@@ -282,7 +281,7 @@ Un autre moyen est d'utiliser le constructeur de type 'typedef'
 typedef struct _point{
 	int x,y;
 	int couleur;
-} Point; /* le type point est définit CE N'EST PAS UNE VARIABLE */
+} Point; /* le type point est défini, CE N'EST PAS UNE VARIABLE */
 
 Point pix;
 
@@ -338,7 +337,7 @@ Les classes sont : `auto`, `static`, `extern`, `const`, `volatile` et `register`
 
 #### extern
 
-Permet de faire référence à une variable déjà déclarée, IL N'Y A PAS RESERVATION DE PLACE MEMOIRE, il est indispensable que la variable soit réellement déclarée dans un autre fichier ou module du programme.
+Permet de faire référence à une variable déjà déclarée, IL N'Y A PAS RESERVATION DE PLACE MEMOIRE, il est indispensable que la variable soit réellement déclarée dans un autre fichier ou module du programme, sinon il y aura une erreur lors de l'édition de liens.
 
 En général, on peut se dispenser du mot clé `extern` mais certains compilateurs veulent que les variables ne soient déclarées qu'une seule fois dans tout le programme.
 
@@ -347,6 +346,7 @@ Permet de dire au compilateur de ne pas faire d'optimisation sur la variable. la
 
 #### const
 `const` permet d'éviter la modification des variables. Elles peuvent juste être initialisées à la déclaration.
+Permet de générer des erreurs de compilation si il y a une terntative de modfication de la variable.
 
 !!! example Exemple
 ```C
@@ -543,7 +543,7 @@ Certains opérateurs acceptent des pointeurs :
 
 `(TYPE)` Opérateur unaire permettant de convertir une variable dans le type TYPE .
 
-`sizeof(OBJET)` Taille de l'objet en octets (peut être une variable ou le type d'une variable)
+`sizeof(OBJET)` Taille de l'objet en octets (OBJET peut être une variable ou le type d'une variable)
 
 = Affectation simple.
 
@@ -567,7 +567,7 @@ Exemple :
 
 ```C
 int * p; /* Pointeur sur un entier */
-struct _point * pixptr;/* Pointeur sur un objet de TYPE _point */
+struct _point * pixptr; /* Pointeur sur un objet dont le type est struct _point */
 ```
 
 L'objet pointé par le pointeur 'p' est noté : '\*p' , l'adresse d'un objet 'q' est notée ' &q ';
@@ -577,7 +577,7 @@ Exemple : (sur les versions actuelles peut donner un warning à la compilation, 
 
 ```C
 /* $cat demoptr.c */
-##include <stdio.h>
+#include <stdio.h>
 
 void main(void){
 	int i;
@@ -602,9 +602,9 @@ void main(void){
 ```
 
 ```sh
-$cc -o demoptr.e demoptr.c
+$ cc -o demoptr.e demoptr.c
 $
-$demoptr.e
+$ ./demoptr.e
 Valeur du contenu à l'adresse de p est 10
 Ceci est une chaîne.
 Ceci est une chaîne.
@@ -613,15 +613,15 @@ $
 
 Les opérations sur les pointeurs sont :
 
-L'affectation simple : **=**
+- L'affectation simple : **=**
 
-Les opérations arithmétiques : **+** , **-** , **++** , **\--**
+- Les opérations arithmétiques : **+** , **-** , **++** , **\--**
 
-L'indirection : **\*** , **-\>**
+- L'indirection : **\*** , **-\>**
 
-Les conversions de type et le calcul de la taille.
+- Les conversions de type et le calcul de la taille.
 
-Les opérateurs de comparaison.
+- Les opérateurs de comparaison.
 
 ### Affectation des pointeurs.
 
@@ -640,21 +640,23 @@ void main(void)
 ```
 
 ```sh
-$cc -o faux faux.c
-$faux
+$ cc -o faux faux.c
+$ ./faux
 
 Bus error (core dumped)
 $
 
 ```
 
-ATTENTION la différence de type entre les deux membres lors d'une affectation n'est pas traitée comme une erreur fatale mais donne lieu à un 'warning'.
+!!! attention
+    la différence de type entre les deux membres lors d'une affectation
+    n'est pas traitée comme une erreur fatale mais donne lieu à un 'warning'.
 
 Exemple :
 
 ```C
 /* $cat demoptr2.c */
-##include <stdio.h>
+#include <stdio.h>
 
 void main(void)
 {
@@ -680,7 +682,7 @@ void main(void)
 }
 ```
 
-La règle à appliquer est de toujours écrire des expressions homogènes pour éviter les warnings, de plus l'on sait ce que l'on fait !!!! (En principe.)
+La règle à appliquer est de toujours écrire des expressions homogènes pour éviter les warnings, de plus l'on sait ce que l'on fait !!!! (En principe)
 
 #### Les pointeurs et les chaînes de caractères.
 
@@ -693,7 +695,7 @@ Exemple :
 ```C
 /* $cat demoptr3.c */
 
-##include <stdio.h>
+#include <stdio.h>
 
 char *p,c;
 int i;
@@ -721,15 +723,15 @@ Regardons la dernière expression de plus prés :
 On peut construire une chaîne de caractères de différentes manières:
 
 - En utilisant les guillemets, la caractère de fin de chaîne (NULL) est automatiquement rajouté.
-- En remplissant \"à la main\" les zones d'un tableau.
-- En utilisant des fonctions de la bibliothèque standard du C tel que strcpy, strcat \...
+- En remplissant *à la main* les zones d'un tableau.
+- En utilisant des fonctions de la bibliothèque standard du C tel que `strcpy()`, `strcat()` \...
 
 Exemple:
 
 ```C
 /* $cat chaine.c */
-##include <stdio.h>
-##include <string.h>
+#include <stdio.h>
+#include <string.h>
 
 void main(void)
 {
@@ -758,7 +760,8 @@ void main(void)
 A l'exécution :
 
 ```sh
-$./a.out
+$ cc chaine.c
+$ ./a.out
 chaine contient : ijklmn
 chh contient : cdefgh
 ch contient : abcdefgh
@@ -768,23 +771,23 @@ $
 ```
 
 
-
 ### Procédures et fonctions.
-
 
 En C il n'y a pas de différence entre une procédure et une fonction, par défaut une fonction retourne un entier. Une procédure étant une fonction qui ne retourne pas de valeur.
 
 Une fonction peut également retourner l'un des types de base ou un pointeur. 
 
-Attention dans une fonction les variables sont de classe 'auto' c'est à dire dynamique. En fait elles sont allouées dans la pile et disparaissent après l'exécution de la fonction.
+!!! attention
+    Dans une fonction les variables sont par défaut de classe 'auto', c'est à dire dynamique.
+    En fait elles sont allouées dans la pile et **disparaissent** après l'exécution de la fonction.
 
-En C Les paramètres d'un fonction sont TOUS passés par valeurs. Si l'on veut passer des paramètres par référence il est nécessaire de passer l'adresse de la variable.
+En C les paramètres d'une fonction sont **tous** passés par valeurs. Si l'on veut passer des paramètres par référence il est nécessaire de passer l'adresse de la variable.
 
 Exemple :
 
 ```C
 /* $cat para.c*/
-##include <stdio.h>
+#include <stdio.h>
 /* La fonction swap1 ne marche pas */
 void swap1(int a,int b)
 {
@@ -862,7 +865,8 @@ void main(void)
 
 
 ```sh
-$foncptr
+$ cc -o foncptr foncptr.c
+$ ./foncptr
 La valeur du paramètre de f0 est 0
 La valeur du paramètre de f1 est 1
 La valeur du paramètre de f2 est 2
@@ -871,7 +875,8 @@ $
 
 
 
-Remarque : On écrit tab\[0\] = f0; et non tab\[0\] = &f0; car f0 est une constante dont la valeur est l'adresse de la fonction f0() tout comme pour un tableau où t et &t\[0\] sont équivalents.
+!!! note
+    On écrit tab\[0\] = f0; et non tab\[0\] = &f0; car f0 est une constante dont la valeur est l'adresse de la fonction f0() tout comme pour un tableau où t et &t\[0\] sont équivalents.
 
 ### Récupération des paramètres d'une commande.
 
@@ -881,7 +886,7 @@ Exemple:
 
 ```C
 /* cat litarg.c */
-##include <stdio.h>
+#include <stdio.h>
 void main(int argc,char ** argv)
 {
 	int i;
@@ -892,24 +897,25 @@ void main(int argc,char ** argv)
 
 ```sh
 $cc -o arg litarg.c
-$arg bonjour cc -o argument
+$ ./arg bonjour cc -o argument
 Argument n° 0 est arg
 Argument n° 1 est bonjour
 Argument n° 2 est cc
 Argument n° 3 est -o
 Argument n° 4 est argument
 $
-$arg
+$ ./arg
 Argument n° 0 est arg
 $
 ```
 
 On remarque qu'un programme possède au moins un argument : le nom du programme.
 
-NOTE : Si vous travaillez sous UNIX Essayer 'arg \*' cela vous donnera la liste des fichiers sous votre directory courante.
+!!! note
+    Si vous travaillez sous UNIX Essayer 'arg \*' cela vous donnera la liste des fichiers sous votre directory courante.
 
 ```sh
-$arg *.c
+$ ./arg *.c
 Argument n° 0 est arg
 Argument n° 1 est lit_arg.c
 Argument n° 2 est foncptr.c
@@ -1095,7 +1101,8 @@ Le programme 'mauvais.c' marche sur DOS où la taille des entiers est de 2 octet
 
 Le préprocesseur permet de faire de la compilation conditionnelle, de définir des macros (comme en assembleur), et de donner des directives de compilation. Toutes ces instructions commencent par le caractère \#. Certains compilateurs tiennent absolument à ce que ce soit le premier caractère d'une ligne.
 
-ATTENTION toutes les directives (commençant par \#) ne se terminent pas par un point-virgule.
+!!! warning "Attention"
+    Toutes les directives (commençant par \#) ne se terminent pas par un point-virgule.
 
 ### \#define
 
@@ -1108,73 +1115,42 @@ Exemple :
 `#define MAX 43` Dans tout le programme suivant la définition MAX sera remplacé par 43
 
 ```C
-/* $cat pre.c */
-##include <stdio.h>
 
-##define COMMENTAIRE() { \
+#include <stdio.h>
+#include <string.h>
+
+#define COMMENTAIRE() { \
     printf("Un #define trop long"); \
     printf(" être coupé par le caractère \\"); \
     printf("\n"); \
     }
 
-##if 0
-##define STRCAT(a,b) a/**/b
-##endif
+#if 1
+#define STR(FONC) str ## FONC
+#define TOSTR(FONC) #FONC
+#endif
 
-##define carre(x) ((x)*(x))
+#define carre(x) ((x)*(x))
 
-##define fauxcarre(x) x*x
+#define fauxcarre(x) x*x
 
-##define MAX 43
-
-int i;
-
-void main(void)
-{
-	i = 4;#include <stdio.h>
-##include <string.h>
-
-##define COMMENTAIRE() { \
-    printf("Un #define trop long"); \
-    printf(" peut être coupé par le caractère \\"); \
-    printf("\n"); \
-    }
-
-##if 1
-##define STR(FONC) str ## FONC
-##define TOSTR(FONC) #FONC
-##endif
-
-##define carre(x) ((x)*(x))
-
-##define fauxcarre(x) x*x
-
-##define MAX 43
+#define MAX 43
 
 int i;
 
 void main(void)
 {
 	i = 4;
-    char chaine[32] = "str";
+	char chaine[32] = "str";
 
 	COMMENTAIRE();
 	printf("MAX MAXSIZE %d\n",MAX);
-    printf("i vaut %d\n", i);
+	printf("i vaut %d\n", i);
 	printf("Le resultat de carre(i+1) est %d\n",carre(i+1));
 	printf("Le resultat de fauxcarre(i+1) est %d\n",fauxcarre(i+1));
-##if 1
-    printf("%s\n", STR(cat)(chaine,TOSTR(cat)));
-##endif
-}
-	COMMENTAIRE();
-	printf("MAX MAXSIZE %d\n",MAX);
-    printf("i vaut %d\n", i);
-	printf("Le resultat de carre(i+1) est %d\n",carre(i+1));
-	printf("Le resultat de fauxcarre(i+1) est %d\n",fauxcarre(i+1));
-##if 0
-    printf("%s\n", STRCAT(str,cat)("aaa", "bbb"));
-##endif
+#if 1
+	printf("%s\n", STR(cat)(chaine,TOSTR(cat)));
+#endif
 }
 ```
 
@@ -1190,19 +1166,19 @@ strcat
 $
 ```
 
-On remarque sur cet exemple tout l'intérêt d'utiliser lesparenthèses dans les pseudo-fonctions.
+On remarque sur cet exemple tout l'intérêt d'utiliser les parenthèses dans les pseudo-fonctions.
 
-l'expression `carre(i+1)` est remplacé AVANT génération de code par `(i+1)*(i+1)`
+l'expression `carre(i+1)` est remplacée AVANT génération de code par `(i+1)*(i+1)`.
 
-L'expression `fauxcarre(i+1)` est remplacé par : `i+1*i+1` soit par `i+i+1` ce qui n'est pas le résultat espéré
+L'expression `fauxcarre(i+1)` est remplacée par : `i+1*i+1` soit par `i+i+1` ce qui n'est pas le résultat espéré.
 
-#### directive #
+#### directive \#
 
 Le # permet de changer le paramètre en chaine de caractère, comme dans la macro de l'exemple précédent `TOSTR()`.
 
-#### directive ##
+#### directive \#\#
 
-le ## permet la concaténation de 2 mots, comme la macro `STR()`de l'exemple précèdent.
+le ## permet la concaténation de 2 mots, comme la macro `STR()`de l'exemple précédent.
 
 Ces deux directives permettent de faire du pseudo objet, ou de simplifier des définitions laborieuses.
 
@@ -1212,24 +1188,25 @@ Exemple:
 
 ```C
 /* $cat cond.c */
+#include <stdio.h>
 
-##define _UNIX
+#define _UNIX
 
 void main(void)
 {
-##ifdef _UNIX
+#ifdef _UNIX
 	printf("Un :_UNIX est défini\n");
-##else
+#else
 	printf("Un : _UNIX n'est pas défini\n");
-##endif
+#endif
     
-##undef _UNIX
+#undef _UNIX
 
-##ifdef _UNIX
+#ifdef _UNIX
 	printf("Deux : _UNIX est défini\n");
-##else
+#else
 	printf("Deux : _UNIX n'est pas défini\n\");
-##endif
+#endif
            
 }
 ```
@@ -1241,11 +1218,11 @@ Deux : _UNIX n'est pas défini
 $
 ```
 
-\#undef permet de supprimer une 'variable' précédemment définie.
+`#undef` permet de supprimer une 'variable' précédemment définie.
 
-\#ifdef équivalent à if
+`#ifdef` équivalent à if
 
-\#else équivalent à else
+`#else` équivalent à else
 
 ### Directives de compilation.
 
@@ -1254,8 +1231,8 @@ La directive '\#include' permet d'inclure des fichiers.
 Exemple :
 
 ```C
-##include <stdio.h>
-##include "myinclude.h"
+#include <stdio.h>
+#include "myinclude.h"
 ```
 
 Les noms de fichiers entre \< et \> seront cherchés dans le répertoire par défaut du système, sur UNIX dans le répertoire `/usr/include`
@@ -1283,11 +1260,12 @@ Les fonctions f\... travaillent avec un pointeur sur le descripteur de fichier, 
 
 TROIS Fichiers sont ouverts par défaut :
 
-stdin : entrée standard (clavier par défaut)
+**stdin** : entrée standard (clavier par défaut)
 
-stdout : sortie standard (écran par défaut)
+**stdout** : sortie standard (écran par défaut)
 
-stderr : sortie standard (erreur (écran par défaut)
+**stderr** : sortie standard (erreur (écran par défaut)
+
 
 Ils occupent respectivement les numéros de descripteur 0,1 et 2.
 
