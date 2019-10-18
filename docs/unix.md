@@ -29,7 +29,7 @@ Les noms des fichiers seront mis entre guillemets.
 
 ### Avertissement.
 
-Ce cours ne constitue pas un manuel UNIX, nous ne présenterons pas toutes les commandes UNIX, mais uniquement les plus utilisées .
+Ce cours ne constitue pas un manuel UNIX, nous ne présenterons pas toutes les commandes UNIX, mais uniquement les principales pour démarrer.
 
 Nous ne ferons pas une description exhaustive des commandes, mais donnerons uniquement la syntaxe et les options les plus couramment utilisées.
 
@@ -89,7 +89,7 @@ Pourquoi toutes ces versions ?
 
 Il convient d'aborder ce point selon deux axes: historique et commercial.
 
-#### Historique
+### Avant *Linux*
 
 De nos jours, Unix est plutôt connu via Linux et ses multiples distributions.
 
@@ -106,8 +106,9 @@ UNIX est apparu en 1969. UNIX a évolué dans le temps et les différentes versi
 -   Système V (1983)
 
 Chacune de ces versions techniques au-delà de la "Version 7" a donné naissance à des versions commerciales.
-
+<p align="justify">
 AT&T, qui est propriétaire de la marque UNIX (UNIX est une marque déposée) passe des contrats avec des constructeurs, des sociétés de développement, qui adaptent AT&T UNIX, en y intégrant souvent tout ou partie des utilitaires développés par l'université de BEKELEY, aux caractéristiques des matériels. Les versions ainsi adaptées doivent obligatoirement avoir un nom commercial différent d'UNIX, d'ou les nombreuses appellations. En voici une liste non exhaustive:
+</p>
 
 -   XENIX de MICROSOFT (1)
 
@@ -217,19 +218,17 @@ cmd \[arg ...\] &lt;cr&gt;
 
 **cmd** est le nom de la commande.
 
-**arg** représente les paramètres optionnels de la commandes. Chaque paramètre étant séparé par un espace.
+**arg** représente les paramètres optionnels de la commande. Chaque paramètre étant séparé par un espace.
 
-#### 3.3.1 La commande "date"
+!!! example "Exemple avec la commande 'date"
+    La commande date permet d'afficher la date et l'heure du système sur lequel vous êtes connectés.
+    Il y a une option pour date permettant de changer la date du système mais elle n'est accessible que pour le super-utilisateur.
 
-La commande date permet d'afficher la date et l'heure du système sur lequel vous êtes connectés.
-
-Il y a une option pour date permettant de changer la date du système mais elle n'est accessible que pour le super-utilisateur.
-
-```sh
-$ date
-Mon Jan 11 14:55:15 GMT 1988
-$
-```
+    ```sh
+    $ date
+    Mon Jan 11 14:55:15 GMT 1988
+    $
+    ```
 
 ### Procédure d'arrêt d'une commande
 
@@ -257,25 +256,27 @@ login :
 
 ### Premières Commandes.
 
-#### 3.6.1 La commande "banner"
+#### La commande "banner"
 
 Imprime ses arguments en gros caractères. Elle est utilisée pour l'étiquetage, ou le titrage en sortie.
 
 ```sh
-$ banner h
-##     #
-##     #
-########
-##     #
-##     #
+$ banner Hello
+#     #
+#     #  ######  #       #        ####
+#     #  #       #       #       #    #
+#######  #####   #       #       #    #
+#     #  #       #       #       #    #
+#     #  #       #       #       #    #
+#     #  ######  ######  ######   ####
 $
 ```
 
-#### 3.6.2 La commande "logname"
+#### La commande "logname"
 
 La commande `logname` vous donne votre nom d'utilisateur.
 
-#### 3.6.3 La commande "who"
+#### La commande "who"
 
 La commande who permet de savoir qui est connecté sur le système.
 
@@ -286,11 +287,11 @@ $ who am i
 daniel tty Tue 17:44
 ```
 
-#### 3.6.4 La commande "passwd"
+#### La commande "passwd"
 
 Permet de changer son mot de passe. Entrer la commande `passwd`, elle vous demandera votre nouveau mot de passe et de le confirmer; si tout se passe bien votre nouveau mot de passe sera valide pour votre prochaine session.
 
-#### 3.6.5 La commande "echo"
+#### La commande "echo"
 
 Ecrit ses arguments et passe a la ligne suivante. Passe à la ligne si elle n'a aucun argument.
 
@@ -308,7 +309,7 @@ La commande reconnaît quelques caractères spéciaux:
 
 Sur les versions de linux il faut activer les caractères spéciaux via l'option `-e`.
 
-#### 3.6.6 La commande "man"
+#### La commande "man"
 
 Si l'on n'a pas le manuel sous la main. `man` permet de savoir ce que fait tel ou tel commande, ainsi que les options de la commande.
 
@@ -320,9 +321,9 @@ Pour savoir comment marche la commande `man` entrer :
 $ man man
 ```
 
-#### 3.6.7 Le shell
+#### Le shell
 
-Le shell est l'interpréteur de commandes. Il existe plusiseurs interpréteur de commandes : `sh`, `ksh`, `csh`, `bash`, `bash`étant le plus répandu de jours. Il interprète ce que vous tapez au clavier pour l'exécuter. Lorsque vous tapez un retour-chariot il interprète le texte que vous avez écrit et exécute la commande dont le nom est le premier mot de la ligne. C'est lui qui vous affiche le prompt (par défaut "\$") vous invitant à taper quelque chose.
+Le shell est l'interpréteur de commandes. Il existe plusiseurs interpréteur de commandes : `sh`, `ksh`, `csh`, `bash`, `bash`étant le plus répandu de nos jours. Il interprète ce que vous tapez au clavier pour l'exécuter. Lorsque vous tapez un retour-chariot il interprète le texte que vous avez écrit et exécute la commande dont le nom est le premier mot de la ligne. C'est lui qui vous affiche le prompt (par défaut "\$") vous invitant à taper quelque chose.
 
 ## Le système de fichiers
 
@@ -455,7 +456,7 @@ Il existe aussi trois autres bits de contrôles sur les fichiers qui ont un rôl
 
 Nous allons voir ici les principales commandes permettant de manipuler les fichiers et les répertoires.
 
-#### 4.5.1 La commande "pwd"
+#### La commande "pwd"
 
 Affiche le nom du repertoire courant à partir de la racine.
 
@@ -465,7 +466,7 @@ $ pwd
 $
 ```
 
-#### 4.5.2 La commande "cd"
+#### La commande "cd"
 
 Permet de changer de répertoire de travail courant. Sans paramétre permet de revenir au répertoire par défaut du login (attention, celui-ci peut être changé).
 
@@ -485,7 +486,7 @@ $ cd # Sans paramètre retour au pwd : HOME directory
 $
 ```
 
-#### 4.5.3 La commande "ls"
+#### La commande "ls"
 
 Format : `ls [-options] [arg]`
 
@@ -560,13 +561,13 @@ type de fichiers
 
 -   Si le sticky-bit est positionné le caractère "`t`" sera écrit au lieu de "`x`" dans les droits d'exécution des autres.
 
-#### 4.5.4 La commande "cat"
+#### La commande "cat"
 
 Format : `cat \[arg ...\]`
 
 Permet d'afficher à l'écran le contenu des fichiers passés en arguments.
 
-#### 4.5.5 La commande "cp"
+#### La commande "cp"
 
 Format : `cp fichier-source fichier-dest`
 
@@ -590,7 +591,7 @@ tutu
 $
 ```
 
-#### 4.5.6 La commande "ln"
+#### La commande "ln"
 
 Format : `ln fichier-source fichier-dest`
 
@@ -607,21 +608,21 @@ $ ls -il
 8122435 -rw------- 1	daniel	daniel	27	Janv 13 18:04 toto
 $ ln tata tatalinked
 $ ls -il
-8122489 -rw------- 1	daniel	daniel	27	Janv 13 18:14 tata
-8122489 -rw------- 1	daniel	daniel	27	Janv 13 18:14 tatalinked
+8122489 -rw------- 2	daniel	daniel	27	Janv 13 18:14 tata
+8122489 -rw------- 2	daniel	daniel	27	Janv 13 18:14 tatalinked
 8122435 -rw------- 1	daniel	daniel	27	Janv 13 18:04 toto
 $ # le fichier tatalinked est une référence au fichier tata,
 $ # il n'y a pas duplication de données
 $
 ```
 
-#### 4.5.7 La commande "mv"
+#### La commande "mv"
 
-Format : `mv fichier-source fichier-dest`
+Format : `mv fichier-source fichier-destination`
 
 Change le nom d'un lien. il n'y a pas recopie physique mais uniquement modification du nom.
 
-#### 4.5.8 La commande "rm"
+#### La commande "rm"
 
 Format : `rm [-options] arg [arg...]`
 
@@ -635,13 +636,13 @@ Les options :
 
 > On ne peut pas effacer un répertoire avec la commande "rm" sans l'option `-r`.
 
-#### 4.5.9 La commande "mkdir"
+#### La commande "mkdir"
 
 Format : `mkdir arg [arg...]`
 
 Permet de créer des répertoires.
 
-#### 4.5.10 La commande "rmdir"
+#### La commande "rmdir"
 
 Format : `rmdir arg [arg...]`
 
@@ -679,43 +680,43 @@ Le propriétaire d'un fichier peut modifier le nom du propriétaire, du groupe, 
 
 Les commandes sont : chmod, chown, chgrp.
 
-#### 4.6.1 La commande "chgrp"
+#### La commande "chgrp"
 
 Format : `chgrp group file [file...]`
 
 Change le groupe pour les fichiers spécifiés. le groupe peut être donné par son numéro ou par son nom.
 
-#### 4.6.2 La commande "chown"
+#### La commande "chown"
 
 Format : `chown nom file [file...]`
 
 Change le propiétaire des fichiers spécifiés.le nom peut être donné par son numéro ou par son nom litéral.
 
-#### 4.6.3 La commande "chmod"
+#### La commande "chmod"
 
 Format : `chmod mod file [file...]`
 
 Permet de modifier les bits de protection des fichiers. Les modes peuvent être décrits en octal ou en symbolique.
 
-format de mode en symbolique: `[<qui>] <perm> <op>`&gt;
+format de mode en symbolique: `[<qui>] <perm> <op>`
 
 &lt;qui&gt;
 
--   u propriétaire (user)
+-   `u` propriétaire (user)
 
--   g groupe
+-   `g` groupe
 
--   o autres (other)
+-   `o` autres (other)
 
--   a pour tous (all)
+-   `a` pour tous (all)
 
 &lt;perm&gt;
 
--   \+ rajoute la permision
+-   `+` rajoute la permision
 
--   \- enleve la permission
+-   `-` enleve la permission
 
--   = impose les permission (absolu)
+-   `=` impose les permission (absolu)
 
 &lt;op&gt;
 
@@ -753,7 +754,7 @@ Les commandes de redirection, *file* désignant le nom d'un fichier :
 | `<<`TOTO  |   stdin          |     lit depuis l'entrée standard courante jusqu'à trouver la chaîne TOTO, TOTO pouvant être remplacé par les caractères de votre choix. |
 | cmd1 `|`cmd2 |    stdout vers stdin |  Permet d'enchainer 2 commandes, la sortie standard de la commande cmd1 devenant l'entrée standard de cmd2 |
 
-#### 4.7.1 La commande "wc"
+#### La commande "wc"
 
 Format : `wc [option]`
 
@@ -801,7 +802,7 @@ Par exemple vous lancez la commande "rm", votre shell génère un nouveau proces
 
 Chaque processus est identifié par son "process-id" (PID) le numéro du processus père étant identifié par le PPID. La différence entre le processus père et le fils est que l'âge a effet sur sa priorité; en particulier la destruction du processus père entraîne la destruction de tous ses processus fils (par défaut).
 
-#### 5.1.1 La commande "ps"
+#### La commande "ps"
 
 Format : `ps [options]`
 
@@ -924,7 +925,7 @@ Attention un processus lancé en arrière-plan (background) est quand même dét
 
 De plus un processus en arrière plan a les mêmes entrées-sorties que le processus père, il est donc conseillé de rediriger les sorties, sinon les messages apparaîtront au fur et à mesure sur le terminal.
 
-#### 5.3.1 La Commande "nohup"
+#### La Commande "nohup"
 
 Format : `nohup commande [args]`
 
@@ -943,17 +944,17 @@ PID TTY TIMECOMMAND
 $
 ```
 
-#### 5.3.2 La commande "wait"
+#### La commande "wait"
 
 La commande wait attend la fin des processus lancés en arrière plan.
 
-#### 5.3.3 La commande "nice"
+#### La commande "nice"
 
 Format : `nice [-increment] & commande & [args...]`
 
 Permet de changer artificiellement la priorité d'un processus. On ne peut pas augmenter sa priorité, mais seulement la baisser (sauf le super-utilisateur). Cela permet d'effectuer des travaux non-urgents en arrière-plan. La priorité par défaut est 10. La valeur d'incrément est comprise entre 1 et 19 (plus faible).
 
-#### 5.3.4 La commande "at"
+#### La commande "at"
 
 Format : `at <heure> <jour> [<fichier>]`
 
@@ -981,7 +982,7 @@ $
 
 Le fait de se déconnecter tue tous les processus attachés au terminal. Autrement il faut utiliser la commande `kill`. Si l'on n'a plus la main sur son terminal pour une raison ou une autre on peut toujours se connecter par l'intermédiaire d'un autre terminal.
 
-#### 5.4.1 La commande "kill"
+#### La commande "kill"
 
 Format : `kill [-numéro] PID [PID...]`
 
@@ -1042,17 +1043,17 @@ L'éditeur possède deux modes de travail :
 
 -   le mode insertion : tout ce qui entré au clavier est écrit dans le tampon en mémoire associé au fichier.
 -   Le mode commande : dans lequel tout ce qui est entré au clavier est interprété comme une commande de l'éditeur.
--   mode commande étendue (commandes commençant par ':'
+-   le mode commande étendue (commandes commençant par ':')
 
-#### 6.3.1 La touche `Esc` 
+#### La touche `Esc` 
 
 Permet de sortir du mode insertion et de passer en mode commande.
 
-#### 6.3.2 Pour sortir de l'éditeur 
+#### Pour sortir de l'éditeur 
 
 `ZZ` sort de l'éditeur et sauvegarde les modifications (deux fois la touche  <Shift+Z> )
 
-#### 6.3.3 Commandes Générales
+#### Commandes Générales
 
 on commence toujours par appyer sur `<Esc>`, cela ne fait pas de mal et on est sur de sortir du mode insertion.
 
@@ -1072,11 +1073,11 @@ on commence toujours par appyer sur `<Esc>`, cela ne fait pas de mal et on est s
 | :r! &lt;commande&gt;                 | introduit le résultat de la commande shell &lt;commande&gt; après la ligne courante. |
 | :!&lt;commande&gt;                   | Exécute la commande du shell &lt;commande>                   |
 | &lt;Ctrl-l&gt;                       | Rafraîchissement de l'écran. Utile lorsque le résultat d'opération provoque des affichages parasites. |
-| :se nu                               | Affiche les numéro de ligne en début de chaque... ligne (:se nonu pour les enlever) |
+| :se nu                               | Affiche les numéros de ligne en début de chaque... ligne (:se nonu pour les enlever) |
 
 ​                      
 
-#### 6.3.4 Déplacement du curseur
+#### Déplacement du curseur
 
 Dans les commandes qui suivent `<n>` désigne un facteur de répétition il peut être omis (de nos jours les flêches fonctionnent très bien).
 
@@ -1094,7 +1095,7 @@ Dans les commandes qui suivent `<n>` désigne un facteur de répétition il peut
 |  &lt;n&gt; &lt;Ctrl-u&gt;      |            remonte de &lt;n&gt; lignes.(par défaut à une demi-page)|
 |  &lt;n&gt; &lt;Ctrl-e&gt;        |          descend de &lt;n&gt; lignes.(par défaut à une demi-page)|
 
-#### 6.3.5 Commandes de suppression de texte.
+#### Commandes de suppression de texte.
 
 Dans les commandes qui suivent `<n>` désigne un facteur de répétition il peut être omis.
 
@@ -1106,7 +1107,7 @@ Dans les commandes qui suivent `<n>` désigne un facteur de répétition il peut
 | &lt;n&gt; d w  | supprime le mot.|
 | &lt;n&gt; d d |  supprime la ligne.|
 
-#### 6.3.6 Commandes de recherche (chaîne de caractères)
+#### Commandes de recherche (chaîne de caractères)
 
 |commande     |                             description|
 |:----------:|-----------------------------------------------------------------------|
@@ -1121,7 +1122,7 @@ Dans les commandes qui suivent `<n>` désigne un facteur de répétition il peut
 |  n            |                              répétition d'une opération /ou ? dans le sens courant|
 |  N              |                            répétition d'une opération ?ou / dans le sens opposé|
 
-#### 6.3.7 Commandes d'insertion
+#### Commandes d'insertion
 
 Le caractère &lt;Escape&gt; permet de repasser en mode commande.
 
@@ -1142,7 +1143,7 @@ En mode insertion les caractères suivant ont un rôle privilégié
 |  &lt;Ctrl-h&gt; |  effacement du caractère précédent. (même si la visualisation n'est pas |immédiate.)|
 |  &lt;Ctrl-v&gt; |  Permet d'introduire dans le fichier tous les caractères.|
 
-#### 6.3.8 Commandes de modification
+#### Commandes de modification
 
 |commande     |                             description|
 |:----------:|-----------------------------------------------------------------------|
@@ -1153,7 +1154,7 @@ En mode insertion les caractères suivant ont un rôle privilégié
 |  R          |                   Substitution d'une chaine jusqu'à &lt;Escape&gt;|
 |  r         |                    Substitution du caractère courant.|
 
-#### 6.3.9 Commandes de récupération
+#### Commandes de récupération
 
 Chaque opération de suppression ou de modification est stocké dans un buffer spécial qu'il est possible de récupérer. Il existe plus de 26 buffers numérotés de a à z qu'il est possible d'utiliser. Ils sont notés <lettre> dans le tableau ci-dessous.
 
@@ -1167,7 +1168,7 @@ Chaque opération de suppression ou de modification est stocké dans un buffer s
 |  P            |                   insère le buffer spécial avant le curseur.|
 |  u           |                    annulation de la commande précédente.|
 
-#### 6.3.10 Quelques commandes particulières
+#### Quelques commandes particulières
 
 |commande     |                             description|
 |:----------:|-----------------------------------------------------------------------|
@@ -1226,7 +1227,7 @@ Les commandes se situant aprés le caractère '|' doivent être des filtres, c'e
 
 Les commandes "`cp`", "`mv`", "`who`", "`date`" ne sont pas des filtres, elles ne peuvent donc être utilisées en bout de tubes. Par contre la commande "`wc`" est un filtre.
 
-#### 7.2.1 La commande sort
+#### La commande sort
 
 Format : `sort [-options] [ [<n1> [<n2>] [<fich1>..] [<fich2>]`
 
@@ -1266,7 +1267,7 @@ gilbert:611:bureau de développement
 $
 ```
 
-#### 7.2.2 La commande "grep"
+#### La commande "grep"
 
 Format : `grep [-options] '<motif>' [fich ...]`
 
@@ -1314,7 +1315,7 @@ $
 
 ### Quelques filtres usuels
 
-#### 7.4.1 La commande "pr"
+#### La commande "pr"
 
 Format : `pr [-options] [fichier ...]`
 
@@ -1334,7 +1335,7 @@ Quelques options :
 |  -p     |       Interruption entre chaque page (&lt;cr&gt; pour continuer)|
 |  -t     |       Les 5 premières lignes de l'entête ne sont pas imprimées|
 
-#### 7.4.2 La commande "paste"
+#### La commande "paste"
 
 Format : `paste [options] [fichier ...]`
 
@@ -1358,7 +1359,7 @@ ac bc
 $
 ```
 
-#### 7.4.3 La commande "pg"
+#### La commande "pg"
 
 Format : `pg [<n>] [-p <chaine>] [-options] [<n>] [files...]`
 
@@ -1384,7 +1385,7 @@ h Affiche une aide sur les commandes disponibles.
 
 !&lt;commande&gt; Execute une commande du shell.
 
-#### 7.4.4 La commande "lp"
+#### La commande "lp"
 
 Format : `lp [fichier...]`
 
@@ -1410,7 +1411,7 @@ On distingue deux types d'environnement :
 
 Certaines variables sont déjà définis et ont une utilisation spécifique.
 
-#### 8.1.1 La commande "set"
+#### La commande "set"
 
 Permet d'avoir l'environnement local du shell en cours.
 
@@ -1440,7 +1441,7 @@ $
 
 `PS2` Le deuxième prompt du shell
 
-#### 8.1.3 La commande "export"
+#### La commande "export"
 
 Format : `export <variable> [variables ...]`
 
@@ -1459,7 +1460,7 @@ $ VARIABLE_GLOBALE=global
 $
 ```
 
-#### 8.1.2 La commande "env"
+#### La commande "env"
 
 Permet d'avoir la liste des variables globales. Ces variables seront passées aux processus fils.
 
@@ -1467,7 +1468,7 @@ Lorsqu'un processus fils est lancé il obtient une **copie** de l'environnement 
 
 > Il est impossible de faire un "export" ascendant du fils vers le père.
 
-#### 8.1.4 Affectation des variables
+#### Affectation des variables
 
 &lt;nom\_de\_variable&gt;=&lt;valeur&gt;
 
@@ -1639,7 +1640,7 @@ Au moment du login UNIX vous avertie, si vous avez du courrier
 
 par le message suivant : "You have mail"
 
-#### 9.2.1 La commande "mail"
+#### La commande "mail"
 
 Format : `mail [-r] [-f <fichier>]`
 
@@ -1685,7 +1686,7 @@ h Aide de la commande "mail". Affiche la liste des commandes.
 
 Envoi le message qui sera entréau clavier aux utilisateurs &lt;nom&gt;...Ceci même si les utilisateurs ne sont pas connectés au système UNIX.Pour terminer entrez le caractère fin de fichier (par défaut &lt;Ctrl-d&gt;) La commande "mail" peutêtre avantageusement rediriger (pour l'entréedu texte)
 
-#### 9.2.2 La commande "mailx"
+#### La commande "mailx"
 
 La commande "mailx" est une manière plus agréable d'examiner son courrier.
 
@@ -1707,7 +1708,7 @@ La commande "mailx" est plus sophistiquée que la commande "mail", se reporter �
 
 UNIX permet de gérer un véritable journal de bord. Les nouvelles sont stockées dans le répertoire /usr/news.
 
-#### 9.3.1 La commande "news"
+#### La commande "news"
 
 Format : `news [options] [<fichiers>...]`
 
@@ -1725,7 +1726,7 @@ options
 
 UNIX permet à deux utilisateurs connectés au système de converser en direct.
 
-#### 9.4.1 La commande "mesg"
+#### La commande "mesg"
 
 Permet d'accepter ou de refuser les conversations en direct.
 
@@ -1737,7 +1738,7 @@ options:
 
 -n Refuse les messages.
 
-#### 9.4.2 La commande "write"
+#### La commande "write"
 
 Format : `write <nom> [<terminal>]`
 
@@ -1749,9 +1750,7 @@ La conversation se fait en direct jusqu'àque l'un des interlocuteurs appuie sur
 
 ## Sauvegarde et archivage des fichiers.
 
-### Sauvegarde des fichiers
-
-#### 10.1.1 La commande "find"
+### La commande "find"
 
 Format : `find <liste de chemins> <expressions>`
 
@@ -1809,29 +1808,29 @@ options:
 
 Toutes ces primitives peuvent être composées avec l'opérateur de négation "!".
 
-#### 10.1.2 La commande "cpio"
+### La commande "cpio"
 
 C'est la commande de sauvegarde des fichiers et des répertoires. Elle s'emploie selon trois formes, par défaut la commande attend la liste des fichiers à sauvegarder depuis l'entrée standard (&lt;Ctrl-d&gt; pour terminer). Elle s'utilise le plus souvent avec la commande "find".
 
-##### 10.1.2.1 cpio -p &lt;directory&gt;
+#### cpio -p &lt;directory&gt;
 
 Format : `cpio -p [adlmruv] <répertoire>`
 
 Lit la liste des fichiers à sauvegarder sur l'entrée standard et les sauvegarde dans &lt;répertoire&gt;.
 
-##### 10.1.2.2 cpio -o (output = sortie)
+#### cpio -o (output = sortie)
 
 Format : `cpio -o [aBcv]`
 
 copie les fichiers sur la sortie standard en indiquant le chemin et le statuts.
 
-##### 10.1.2.3 cpio -i (input = entrée)
+#### cpio -i (input = entrée)
 
 Format : `cpio -i [BcdmrtuvfsSb] [patterns]`
 
 Lit l'entrée standard et recrée la structure de l'arborescence indiquée par l'entrée.
 
-##### Les options:
+#### Les options:
 
 a Remet à 0 les temps d'accès des fichiers d'entrées.
 
@@ -1861,9 +1860,7 @@ S échange l'ordre des demi-mots.
 
 b équivalent aux options s et S.
 
-### Archivage des fichiers
-
-#### 10.2.1 La commande "tar"
+### La commande "tar"
 
 Format : `tar [<clés>] [<fichiers> ...]`
 
@@ -1879,7 +1876,8 @@ Permet d'archiver des fichiers sur un fichier unique sur bande magnétique, ains
 
 -   u Sauvegarde les fichiers en fin de bande s'ils n'y sont pas déjà.
 
--   c Création d'une nouvelle bande.(sauvegarde en début de bande.)
+-   c Création d'une nouvelle bande.(sauvegarde en début de bande)
+
 
 Les paramètres des clés sont les suivants:
 
@@ -1891,13 +1889,23 @@ Les paramètres des clés sont les suivants:
 
 -   f Le nom de l'argument suivant est utilisé comme référence du fichier d'archive.(Par défaut c'est /dev/rmt0 (dérouleur de bande 0)
 
-> Si le nom est "-" c'est la sortie standard qui est utilisée.
 
 -   m Demande la non-restitution de la date,la date courante est alors utilisée.
 
-> NOTE : Il n'y a pas de caractère "-" au début des options !!.
+-   z Compresse ou décompresse les données suivant les cas
 
-#### 10.2.2 La commande "ar"
+!!! note
+    Il n'y a pas de caractère "-" au début des options !!.
+
+    Si le nom du fichier avec l'option `f` est "-" c'est la sortie standard qui est utilisée.
+
+!!! example "Exemple:"
+    récopie du répertoire courant vers un autre endroit
+    ```bash
+    $ tar cf - . | ( cd /tmp; tar xvf - )
+    ```
+
+### La commande "ar"
 
 Format : `ar [options] <nom de librairie> [<liste-de-fichiers>]`
 
@@ -1921,7 +1929,7 @@ options:
 
 -v option d'affichage détaillé.
 
-#### 10.2.3 La commande "cmp"
+### La commande "cmp"
 
 Format : `cmp [option] <fichier1> <fichier2>`
 
@@ -1935,13 +1943,11 @@ options :
 
 ## Commandes additionnelles
 
-### Commandes sur les fichiers
-
-### 11.1.1 La commande "crypt"
+### La commande "crypt"
 
 Permet de coder un fichier, affiche sur la sortie standard le fichier codé. Les fichiers sont codé par un algorithme en fonction de la clé que vous donnez.
 
-#### 11.1.2 La commande "od"
+### La commande "od"
 
 Format : `od [options] <fichier>`
 
@@ -1959,7 +1965,7 @@ options:
 
 -x les mots sont interprétés en hexadécimal
 
-#### 11.1.3 La commande "touch"
+### La commande "touch"
 
 Format : `touch [options] [date] <fichier> ...`
 
@@ -1973,33 +1979,33 @@ options:
 
 -c Empêche la fonction "touch" de créer le fichier si celui-ci n'existe pas.
 
-#### 11.1.4 La commande "split"
+### La commande "split"
 
 Format : `split [-<n>] [<fichier> [<nom>] ]`
 
 Permet de découper un fichier en plusieurs fichiers. Par défaut découpe le fichier toute les 1000 lignes si -&lt;n&gt; n'est pas spécifié . Les fichiers de sorties ont pour nom &lt;nom&gt; avec les lettres 'aa' à 'zz' (au maximum 676 fichiers) Si &lt;nom&gt; n'est pas spécifié "x" est pris par défaut.
 
-### Les commandes d'administration du système.
+## Les commandes d'administration du système.
 
-#### 11.2.1 La commande "su"
+### La commande "su"
 
 Permet de passer en mode super-utilisateur(Plus de protection dans le système UNIX, à condition d'avoir le mot de passe. Plutôt remplacé par `sudo` qui permet de donner des accès à certaines commandes à un utilisateur donné sans que celui-ci ne connaisse le mot de passe de root.
 
 DE nos jours on évtite de passer en root directement, on passe plutôt par la commande `sudo` qui permet de donner des droits plus fin aux utilisateurs.
 
-#### 11.2.2 La commande "sar":
+### La commande "sar":
 
 Permet d'avoir des renseignements sur l'activité du système UNIX. Se reporter à la documentation UNIX pour plus de détails.
 
 
 
-#### 11.2.3 La commande "sysadm":
+### La commande "sysadm"
 
 "sysadm" est une interface pour gérer le système. (administration du système.). nécessite de connaître le mot de passe.
 
 Se reporter à la documentation pour plus de détails.
 
-### La commande de configuration du terminal "stty"
+## La commande de configuration du terminal "stty"
 
 Format : `stty [-a][-g] [options]`
 
@@ -2013,7 +2019,7 @@ Sans arguments donne l'état de la ligne.
 
 Sans "-" pour actionné l'option, Avec "-" pour la désactiver.
 
-#### Les modes de contrôles:
+### Les modes de contrôles
 
 parenb autorise le contrôle de parité.
 
@@ -2027,7 +2033,7 @@ Nombre de bits de données.
 
 cstopbutilise 1 bits de stop (sinon 2)
 
-#### Les modes d'entrée:
+### Les modes d'entrée
 
 ignbrk ignore le break;
 
@@ -2047,7 +2053,7 @@ ixany Tout caractère relance l'affichage (sinon uniquement &lt;Ctrl-q&gt;)
 
 ixoff Le système envoie des START/STOP suivant l'état des buffers
 
-#### Les modes de sortie:
+### Les modes de sortie
 
 opost Les caractères en sortie doivent être traiter (par l'une des options suivantes)
 
@@ -2059,7 +2065,7 @@ onocr les &lt;return&gt; en tête de ligne sont ignorés.
 
 onlret sur le terminal &lt;new-line&gt; est interprété comme &lt;return&gt;
 
-#### Les modes locaux:
+### Les modes locaux
 
 echo envoie l'écho de chaque caractère
 

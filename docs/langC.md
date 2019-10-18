@@ -157,7 +157,9 @@ Tous ces types peuvent recevoir le mot clé `unsigned` pour non signé.
     long j;
     ```
 
+### Les booléens.
 
+Il n'y a pas de variables booléennes (au contraire du Pascal) les expressions sont évaluées numériquement, un 0 correspond à FAUX, tout autre valeur correspond à VRAI.
 
 ### Construction de types.
 
@@ -171,7 +173,7 @@ Tous ces types peuvent recevoir le mot clé `unsigned` pour non signé.
 
 `*`pour les pointeurs.
 
-#### Les tableaux:
+### Les tableaux:
 
 ```C
 int tab[32]; 		/* défini un tableau de 32 entiers */
@@ -242,7 +244,7 @@ void main(int argc, char ** argv)
 	}	
 }
 ```
-#### Les structures:
+### Les structures:
 
 Il existe deux manières de définir des structures.
 
@@ -553,10 +555,6 @@ Certains opérateurs acceptent des pointeurs :
 
 Exemple : `(i=2,j=i++,5*j-i)` a pour valeur 7, de plus i vaut 3 et j vaut 2
 
-### Booléens.
-
-Il n'y a pas de variables booléennes (au contraire du Pascal) les expressions sont évalués numériquement, un 0 correspond à FAUX, tout autre valeur correspond à VRAI.
-
 ## Les Pointeurs
 
 Une variable de type pointeur est une variable contenant une adresse. On peut définir des pointeurs sur des variables de type de base ou sur des variables construites à partir des types de bases.
@@ -684,7 +682,7 @@ void main(void)
 
 La règle à appliquer est de toujours écrire des expressions homogènes pour éviter les warnings, de plus l'on sait ce que l'on fait !!!! (En principe)
 
-#### Les pointeurs et les chaînes de caractères.
+### Les pointeurs et les chaînes de caractères.
 
 Une chaîne de caractères en C est est une suite d'octets se terminant par le caractère de code ASCII zéro (NULL).
 
@@ -1172,11 +1170,11 @@ l'expression `carre(i+1)` est remplacée AVANT génération de code par `(i+1)*(
 
 L'expression `fauxcarre(i+1)` est remplacée par : `i+1*i+1` soit par `i+i+1` ce qui n'est pas le résultat espéré.
 
-#### directive \#
+### directive \#
 
 Le # permet de changer le paramètre en chaine de caractère, comme dans la macro de l'exemple précédent `TOSTR()`.
 
-#### directive \#\#
+### directive \#\#
 
 le ## permet la concaténation de 2 mots, comme la macro `STR()`de l'exemple précédent.
 
