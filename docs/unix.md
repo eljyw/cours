@@ -897,12 +897,12 @@ $ pwd
 $
 ```
 
-## Lancement d'un processus en arrière plan
+### Lancement d'un processus en arrière plan
 
 Le shell qui crée un processus en arrière plan reprend la main sans attendre que celui-ci soit terminé.
 
 ```sh
-$ps
+$ ps
 PID TTY TIMECOMMAND
 745 4500:06 sh
 850 4500:01 ps
@@ -925,7 +925,7 @@ Attention un processus lancé en arrière-plan (background) est quand même dét
 
 De plus un processus en arrière plan a les mêmes entrées-sorties que le processus père, il est donc conseillé de rediriger les sorties, sinon les messages apparaîtront au fur et à mesure sur le terminal.
 
-#### La Commande "nohup"
+#### La commande "nohup"
 
 Format : `nohup commande [args]`
 
@@ -1227,7 +1227,7 @@ Les commandes se situant aprés le caractère '|' doivent être des filtres, c'e
 
 Les commandes "`cp`", "`mv`", "`who`", "`date`" ne sont pas des filtres, elles ne peuvent donc être utilisées en bout de tubes. Par contre la commande "`wc`" est un filtre.
 
-#### La commande sort
+#### La commande "sort"
 
 Format : `sort [-options] [ [<n1> [<n2>] [<fich1>..] [<fich2>]`
 
@@ -1622,132 +1622,6 @@ Ici nous avons exécuté une boucle de deux manières différentes. La première
 
 Se reporter à la documentation UNIX pour avoir une description complète de possibilités du langage shell.
 
-## Communications entre utilisateurs
-
-## Introduction
-
-UNIX offre les possibilités suivantes:
-
--   Messagerie électronique : envoi,réception de messages
-
--   Gestion d'un journal de bord.
-
--   Conversation en temps réel.
-
-### Messagerie.
-
-Au moment du login UNIX vous avertie, si vous avez du courrier
-
-par le message suivant : "You have mail"
-
-#### La commande "mail"
-
-Format : `mail [-r] [-f <fichier>]`
-
-ou : mail &lt;nom&gt; \[&lt;nom&gt;...\]
-
-##### 9.2.1.1 Première forme :
-
-Permet de lire son courrier, après l'impression de chaque message la commande "mail" affiche le rompt "?" vous invitantà taper une commande de "mail".
-
-options
-
--r imprime les messages dans l'ordre d'arrivée (par défaut l'inverse).
-
--f Permet de lire une boite aux lettres différentes de la sienne ( àcondition d'avoir les droits d'accès )
-
-Les commandes:
-
-&lt;cr&gt;Passage au message suivant.
-
--   idem.
-
-- Passage au précédent.
-
-d Suppression du message courant et passage au suivant.
-
-S &lt;fichier&gt;Sauvegarde le message dans &lt;fichier&gt;.
-
-w &lt;fichier&gt;Sauvegarde le message dans &lt;fichier&gt; sans son en-tête.
-
-m &lt;nom&gt; ...Envoi le message en cours aux utilisateurs
-
-&lt;nom&gt;...
-
-q Pour quitter la commande "mail".
-
-&lt;Ctrl-d&gt; idem.
-
-!&lt;commande&gt; Permet d'exécuter une commande du shell
-
-h Aide de la commande "mail". Affiche la liste des commandes.
-
-##### 9.2.1.2 Deuxième forme:
-
-Envoi le message qui sera entréau clavier aux utilisateurs &lt;nom&gt;...Ceci même si les utilisateurs ne sont pas connectés au système UNIX.Pour terminer entrez le caractère fin de fichier (par défaut &lt;Ctrl-d&gt;) La commande "mail" peutêtre avantageusement rediriger (pour l'entréedu texte)
-
-#### La commande "mailx"
-
-La commande "mailx" est une manière plus agréable d'examiner son courrier.
-
-Elle donne une liste numérotée des messages que vous n'avez pas encore lus. Vous pouvez lire un message en entrant son numéro, chaque message à un sujet.
-
-Chaque message lu passe de la boite au lettres système à un fichier appelé "mbox" dans votre home directory (Le répertoire de login)
-
-Quelques options:
-
--f &lt;fichier&gt;Lit les messages depuis &lt;fichier&gt; sinon depuis "mbox".
-
--N n'affiche pas le sommaire.
-
--n &lt;nom&gt;Lit les messages de &lt;nom&gt; si l'on a les droits d'accès.
-
-La commande "mailx" est plus sophistiquée que la commande "mail", se reporter à la documentation UNIX pour plus de détails.
-
-### Le journal de bord.
-
-UNIX permet de gérer un véritable journal de bord. Les nouvelles sont stockées dans le répertoire /usr/news.
-
-#### La commande "news"
-
-Format : `news [options] [<fichiers>...]`
-
-Permet de lire le journal de bord.
-
-options
-
--a toutes les nouvelles sont supprimées qu'elles aient ou non déjà été consultées par l'utilisateur.
-
--n Les noms des nouvelles sont seules imprimées.
-
--s indique uniquement le nombre de nouvelles disponibles.
-
-#### La conversation en temps réel
-
-UNIX permet à deux utilisateurs connectés au système de converser en direct.
-
-#### La commande "mesg"
-
-Permet d'accepter ou de refuser les conversations en direct.
-
-Ceci est utile lorsque l'on travaille sous un éditeur par exemple pour éviter d'avoir des messages parasites.
-
-options:
-
--y Accepte les messages.
-
--n Refuse les messages.
-
-#### La commande "write"
-
-Format : `write <nom> [<terminal>]`
-
-Permet de communiquer directement avec un autre utilisateur si celui ci est connecté et s'il accepte les messages (commande "mesg")
-
-Sur l' écran du destinataire apparaît le message suivant : "message from ..."
-
-La conversation se fait en direct jusqu'àque l'un des interlocuteurs appuie sur fin de fichier (&lt;Ctrl-d&gt;).
-
 ## Sauvegarde et archivage des fichiers.
 
 ### La commande "find"
@@ -1864,7 +1738,7 @@ b équivalent aux options s et S.
 
 Format : `tar [<clés>] [<fichiers> ...]`
 
-Permet d'archiver des fichiers sur un fichier unique sur bande magnétique, ainsi que leur restitutions
+Permet d'archiver des fichiers sur un fichier unique sur bande magnétique, ainsi que leur restitutions. A l'origine pour l'usage des lecteurs des bandes ( tar : pour **t**ape **ar**chive ) cet outil est encore d'usage courant.
 
 &lt;clés&gt; Permet de contrôler le type d'opération :
 
@@ -1985,25 +1859,20 @@ Format : `split [-<n>] [<fichier> [<nom>] ]`
 
 Permet de découper un fichier en plusieurs fichiers. Par défaut découpe le fichier toute les 1000 lignes si -&lt;n&gt; n'est pas spécifié . Les fichiers de sorties ont pour nom &lt;nom&gt; avec les lettres 'aa' à 'zz' (au maximum 676 fichiers) Si &lt;nom&gt; n'est pas spécifié "x" est pris par défaut.
 
-## Les commandes d'administration du système.
+## Les commandes d'administration du système
 
 ### La commande "su"
 
 Permet de passer en mode super-utilisateur(Plus de protection dans le système UNIX, à condition d'avoir le mot de passe. Plutôt remplacé par `sudo` qui permet de donner des accès à certaines commandes à un utilisateur donné sans que celui-ci ne connaisse le mot de passe de root.
 
-DE nos jours on évtite de passer en root directement, on passe plutôt par la commande `sudo` qui permet de donner des droits plus fin aux utilisateurs.
+### La commande "sudo"
 
-### La commande "sar":
+De nos jours on évite de passer en root directement, on passe plutôt par la commande `sudo` qui permet de donner des droits plus fin aux utilisateurs.
+
+### La commande "sar"
 
 Permet d'avoir des renseignements sur l'activité du système UNIX. Se reporter à la documentation UNIX pour plus de détails.
 
-
-
-### La commande "sysadm"
-
-"sysadm" est une interface pour gérer le système. (administration du système.). nécessite de connaître le mot de passe.
-
-Se reporter à la documentation pour plus de détails.
 
 ## La commande de configuration du terminal "stty"
 
@@ -2033,7 +1902,7 @@ Nombre de bits de données.
 
 cstopbutilise 1 bits de stop (sinon 2)
 
-### Les modes d'entrée
+### Les modes d'entrées
 
 ignbrk ignore le break;
 
@@ -2053,7 +1922,7 @@ ixany Tout caractère relance l'affichage (sinon uniquement &lt;Ctrl-q&gt;)
 
 ixoff Le système envoie des START/STOP suivant l'état des buffers
 
-### Les modes de sortie
+### Les modes de sorties
 
 opost Les caractères en sortie doivent être traiter (par l'une des options suivantes)
 
@@ -2079,3 +1948,53 @@ isig Autorise le test des caractères en entrée pour détecter les interruption
 
 > Se reporter à la documentation pour une information plus détaillée.
 >
+
+## Index des commandes
+
+[ar](#la-commande-ar), 
+[at](#la-commande-at), 
+[banner](#la-commande-banner), 
+[cat](#la-commande-cat), 
+[cd](#la-commande-cd), 
+[chgrp](#la-commande-chgrp), 
+[chmod](#la-commande-chmod), 
+[chown](#la-commande-chown), 
+[cmp](#la-commande-cmp), 
+[cp](#la-commande-cp), 
+[cpio](#la-commande-cpio), 
+[crypt](#la-commande-crypt), 
+[echo](#la-commande-echo), 
+[env](#la-commande-env), 
+[export](#la-commande-export), 
+[find](#la-commande-find), 
+[grep](#la-commande-grep), 
+[kill](#la-commande-kill), 
+[ln](#la-commande-ln), 
+[logname](#la-commande-logname), 
+[lp](#la-commande-lp), 
+[ls](#la-commande-ls), 
+[man](#la-commande-man), 
+[mkdir](#la-commande-mkdir), 
+[mv](#la-commande-mv), 
+[nice](#la-commande-nice), 
+[nohup](#la-commande-nohup), 
+[od](#la-commande-od), 
+[passwd](#la-commande-passwd), 
+[paste](#la-commande-paste), 
+[pg](#la-commande-pg), 
+[pr](#la-commande-pr), 
+[ps](#la-commande-ps), 
+[pwd](#la-commande-pwd), 
+[rm](#la-commande-rm), 
+[rmdir](#la-commande-rmdir), 
+[sar](#la-commande-sar), 
+[set](#la-commande-set), 
+[sort](#la-commande-sort), 
+[split](#la-commande-split), 
+[su](#la-commande-su), 
+[sudo](#la-commande-sudo), 
+[tar](#la-commande-tar), 
+[touch](#la-commande-touch), 
+[wait](#la-commande-wait), 
+[wc](#la-commande-wc), 
+[who](#la-commande-who), 
