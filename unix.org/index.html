@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://eljyw.github.io/cours/unix/">
+        <link rel="canonical" href="https://eljyw.github.io/cours/unix.org/">
       
       
         <meta name="author" content="eljyw">
@@ -40,7 +40,7 @@
     
     
       
-        <title>Unix - Support de cours Informatique</title>
+        <title>Système UNIX niveau 1 - Support de cours Informatique</title>
       
     
     
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Unix
+                Système UNIX niveau 1
               
             </span>
           
@@ -236,12 +236,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Domaines
@@ -269,1012 +267,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Unix
-      </label>
-    
-    <a href="./" title="Unix" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../unix/" title="Unix" class="md-nav__link">
       Unix
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#preface" class="md-nav__link">
-    Préface
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#notations" class="md-nav__link">
-    Notations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#avertissement" class="md-nav__link">
-    Avertissement.
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#quest-ce-que-unix" class="md-nav__link">
-    Qu'est ce que UNIX
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#historique" class="md-nav__link">
-    Historique
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#avant-linux" class="md-nav__link">
-    Avant Linux
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#description-generale" class="md-nav__link">
-    Description générale
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#principales-caracteristiques-du-systeme-unix" class="md-nav__link">
-    Principales caractéristiques du système UNIX
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#portabilite" class="md-nav__link">
-    Portabilité
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#premier-contact-avec-unix" class="md-nav__link">
-    Premier contact avec UNIX
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#session-utilisateur" class="md-nav__link">
-    Session utilisateur
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#procedure-dentree-sous-unix" class="md-nav__link">
-    Procédure d'entrée sous UNIX
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#manipulations-des-commandes-unix" class="md-nav__link">
-    Manipulations des commandes UNIX
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#procedure-darret-dune-commande" class="md-nav__link">
-    Procédure d'arrêt d'une commande
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#procedure-de-sortie-dunix" class="md-nav__link">
-    Procédure de sortie d'UNIX
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#premieres-commandes" class="md-nav__link">
-    Premières Commandes.
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-banner" class="md-nav__link">
-    La commande "banner"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-logname" class="md-nav__link">
-    La commande "logname"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-who" class="md-nav__link">
-    La commande "who"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-passwd" class="md-nav__link">
-    La commande "passwd"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-echo" class="md-nav__link">
-    La commande "echo"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-man" class="md-nav__link">
-    La commande "man"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#le-shell" class="md-nav__link">
-    Le shell
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#le-systeme-de-fichiers" class="md-nav__link">
-    Le système de fichiers
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#quest-ce-quun-fichier" class="md-nav__link">
-    Qu'est ce qu'un fichier
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#presentation-generale" class="md-nav__link">
-    Présentation générale
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reference-des-fichiers-et-repertoire-de-travail" class="md-nav__link">
-    Référence des fichiers et répertoire de travail
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-protection-des-fichiers" class="md-nav__link">
-    La protection des fichiers
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#les-commandes-de-manipulations-de-fichiers" class="md-nav__link">
-    Les commandes de manipulations de fichiers.
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-pwd" class="md-nav__link">
-    La commande "pwd"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-cd" class="md-nav__link">
-    La commande "cd"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-ls" class="md-nav__link">
-    La commande "ls"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-cat" class="md-nav__link">
-    La commande "cat"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-cp" class="md-nav__link">
-    La commande "cp"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-ln" class="md-nav__link">
-    La commande "ln"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-mv" class="md-nav__link">
-    La commande "mv"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-rm" class="md-nav__link">
-    La commande "rm"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-mkdir" class="md-nav__link">
-    La commande "mkdir"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-rmdir" class="md-nav__link">
-    La commande "rmdir"
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modification-des-caracteristiques-dun-i-node" class="md-nav__link">
-    Modification des caractéristiques d'un i-node
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-chgrp" class="md-nav__link">
-    La commande "chgrp"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-chown" class="md-nav__link">
-    La commande "chown"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-chmod" class="md-nav__link">
-    La commande "chmod"
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#les-entrees-sorties-mecanismes-de-redirection" class="md-nav__link">
-    Les entrées-sorties, Mécanismes de redirection
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-wc" class="md-nav__link">
-    La commande "wc"
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fichiers-et-processus" class="md-nav__link">
-    Fichiers et processus
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#generalites-et-presentation" class="md-nav__link">
-    Généralités et présentation
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-ps" class="md-nav__link">
-    La commande "ps"
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#le-shell_1" class="md-nav__link">
-    Le Shell
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lancement-dun-processus-en-arriere-plan" class="md-nav__link">
-    Lancement d'un processus en arrière plan
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-nohup" class="md-nav__link">
-    La commande "nohup"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-wait" class="md-nav__link">
-    La commande "wait"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-nice" class="md-nav__link">
-    La commande "nice"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-at" class="md-nav__link">
-    La commande "at"
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#destruction-dun-processus" class="md-nav__link">
-    Destruction d'un processus
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-kill" class="md-nav__link">
-    La commande "kill"
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#editeur-de-texte-vi" class="md-nav__link">
-    Editeur de texte vi
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#introduction-a-vi" class="md-nav__link">
-    Introduction à vi
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#appel-de-lediteur" class="md-nav__link">
-    Appel de l'éditeur.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#les-commandes-de-vi" class="md-nav__link">
-    Les commandes de vi
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-touche-esc" class="md-nav__link">
-    La touche Esc
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pour-sortir-de-lediteur" class="md-nav__link">
-    Pour sortir de l'éditeur
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#commandes-generales" class="md-nav__link">
-    Commandes Générales
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deplacement-du-curseur" class="md-nav__link">
-    Déplacement du curseur
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#commandes-de-suppression-de-texte" class="md-nav__link">
-    Commandes de suppression de texte.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#commandes-de-recherche-chaine-de-caracteres" class="md-nav__link">
-    Commandes de recherche (chaîne de caractères)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#commandes-dinsertion" class="md-nav__link">
-    Commandes d'insertion
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#commandes-de-modification" class="md-nav__link">
-    Commandes de modification
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#commandes-de-recuperation" class="md-nav__link">
-    Commandes de récupération
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#quelques-commandes-particulieres" class="md-nav__link">
-    Quelques commandes particulières
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conclusions" class="md-nav__link">
-    Conclusions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pipelines-tubes" class="md-nav__link">
-    Pipelines (tubes)
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#introduction_1" class="md-nav__link">
-    Introduction
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#les-filtres" class="md-nav__link">
-    Les filtres.
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-sort" class="md-nav__link">
-    La commande "sort"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-grep" class="md-nav__link">
-    La commande "grep"
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tubes-et-redirections-dio" class="md-nav__link">
-    tubes et redirections d'I/O
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#quelques-filtres-usuels" class="md-nav__link">
-    Quelques filtres usuels
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-pr" class="md-nav__link">
-    La commande "pr"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-paste" class="md-nav__link">
-    La commande "paste"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-pg" class="md-nav__link">
-    La commande "pg"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-lp" class="md-nav__link">
-    La commande "lp"
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#le-shellprogrammation-et-environnement" class="md-nav__link">
-    Le Shell,Programmation et Environnement
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lenvironnement" class="md-nav__link">
-    L'environnement.
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-set" class="md-nav__link">
-    La commande "set"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-export" class="md-nav__link">
-    La commande "export"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-env" class="md-nav__link">
-    La commande "env"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#affectation-des-variables" class="md-nav__link">
-    Affectation des variables
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#les-caracteres-speciaux" class="md-nav__link">
-    Les caractères spéciaux
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#les-noms-implicites-de-fichiers" class="md-nav__link">
-    Les noms implicites de fichiers
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#le-fichier-profile" class="md-nav__link">
-    Le fichier .profile
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#introduction-a-la-programmation-en-shell" class="md-nav__link">
-    Introduction à la programmation en shell
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sauvegarde-et-archivage-des-fichiers" class="md-nav__link">
-    Sauvegarde et archivage des fichiers.
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-find" class="md-nav__link">
-    La commande "find"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-cpio" class="md-nav__link">
-    La commande "cpio"
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cpio-p-directory" class="md-nav__link">
-    cpio -p &lt;directory&gt;
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cpio-o-output-sortie" class="md-nav__link">
-    cpio -o (output = sortie)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cpio-i-input-entree" class="md-nav__link">
-    cpio -i (input = entrée)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#les-options" class="md-nav__link">
-    Les options:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-tar" class="md-nav__link">
-    La commande "tar"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-ar" class="md-nav__link">
-    La commande "ar"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-cmp" class="md-nav__link">
-    La commande "cmp"
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#commandes-additionnelles" class="md-nav__link">
-    Commandes additionnelles
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-crypt" class="md-nav__link">
-    La commande "crypt"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-od" class="md-nav__link">
-    La commande "od"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-touch" class="md-nav__link">
-    La commande "touch"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-split" class="md-nav__link">
-    La commande "split"
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#les-commandes-dadministration-du-systeme" class="md-nav__link">
-    Les commandes d'administration du système
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-su" class="md-nav__link">
-    La commande "su"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-sudo" class="md-nav__link">
-    La commande "sudo"
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-commande-sar" class="md-nav__link">
-    La commande "sar"
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#la-commande-de-configuration-du-terminal-stty" class="md-nav__link">
-    La commande de configuration du terminal "stty"
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#les-modes-de-controles" class="md-nav__link">
-    Les modes de contrôles
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#les-modes-dentrees" class="md-nav__link">
-    Les modes d'entrées
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#les-modes-de-sorties" class="md-nav__link">
-    Les modes de sorties
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#les-modes-locaux" class="md-nav__link">
-    Les modes locaux
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#index-des-commandes" class="md-nav__link">
-    Index des commandes
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1708,7 +705,12 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lancement-dun-processus-en-arriere-plan" class="md-nav__link">
     Lancement d'un processus en arrière plan
   </a>
@@ -1718,7 +720,7 @@
         
           <li class="md-nav__item">
   <a href="#la-commande-nohup" class="md-nav__link">
-    La commande "nohup"
+    La Commande "nohup"
   </a>
   
 </li>
@@ -1741,11 +743,6 @@
   <a href="#la-commande-at" class="md-nav__link">
     La commande "at"
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1916,7 +913,7 @@
         
           <li class="md-nav__item">
   <a href="#la-commande-sort" class="md-nav__link">
-    La commande "sort"
+    La commande sort
   </a>
   
 </li>
@@ -2069,6 +1066,94 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#communications-entre-utilisateurs" class="md-nav__link">
+    Communications entre utilisateurs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction_2" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#messagerie" class="md-nav__link">
+    Messagerie.
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-commande-mail" class="md-nav__link">
+    La commande "mail"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-commande-mailx" class="md-nav__link">
+    La commande "mailx"
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-journal-de-bord" class="md-nav__link">
+    Le journal de bord.
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-commande-news" class="md-nav__link">
+    La commande "news"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-conversation-en-temps-reel" class="md-nav__link">
+    La conversation en temps réel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-commande-mesg" class="md-nav__link">
+    La commande "mesg"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-commande-write" class="md-nav__link">
+    La commande "write"
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sauvegarde-et-archivage-des-fichiers" class="md-nav__link">
     Sauvegarde et archivage des fichiers.
   </a>
@@ -2193,7 +1278,7 @@
       
         <li class="md-nav__item">
   <a href="#les-commandes-dadministration-du-systeme" class="md-nav__link">
-    Les commandes d'administration du système
+    Les commandes d'administration du système.
   </a>
   
     <nav class="md-nav">
@@ -2207,15 +1292,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#la-commande-sudo" class="md-nav__link">
-    La commande "sudo"
+  <a href="#la-commande-sar" class="md-nav__link">
+    La commande "sar":
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#la-commande-sar" class="md-nav__link">
-    La commande "sar"
+  <a href="#la-commande-sysadm" class="md-nav__link">
+    La commande "sysadm"
   </a>
   
 </li>
@@ -2241,15 +1326,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#les-modes-dentrees" class="md-nav__link">
-    Les modes d'entrées
+  <a href="#les-modes-dentree" class="md-nav__link">
+    Les modes d'entrée
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#les-modes-de-sorties" class="md-nav__link">
-    Les modes de sorties
+  <a href="#les-modes-de-sortie" class="md-nav__link">
+    Les modes de sortie
   </a>
   
 </li>
@@ -2263,13 +1348,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#index-des-commandes" class="md-nav__link">
-    Index des commandes
-  </a>
   
 </li>
       
@@ -2289,7 +1367,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/eljyw/cours/edit/master/docs/unix.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/eljyw/cours/edit/master/docs/unix.org.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="systeme-unix-niveau-1">Système UNIX niveau 1<a class="headerlink" href="#systeme-unix-niveau-1" title="Permanent link">&para;</a></h1>
@@ -2371,13 +1449,13 @@
 </ul>
 </li>
 <li><a href="#le-shell_1">Le Shell</a></li>
+</ul>
+</li>
 <li><a href="#lancement-dun-processus-en-arriere-plan">Lancement d'un processus en arrière plan</a><ul>
-<li><a href="#la-commande-nohup">La commande "nohup"</a></li>
+<li><a href="#la-commande-nohup">La Commande "nohup"</a></li>
 <li><a href="#la-commande-wait">La commande "wait"</a></li>
 <li><a href="#la-commande-nice">La commande "nice"</a></li>
 <li><a href="#la-commande-at">La commande "at"</a></li>
-</ul>
-</li>
 <li><a href="#destruction-dun-processus">Destruction d'un processus</a><ul>
 <li><a href="#la-commande-kill">La commande "kill"</a></li>
 </ul>
@@ -2406,7 +1484,7 @@
 <li><a href="#pipelines-tubes">Pipelines (tubes)</a><ul>
 <li><a href="#introduction_1">Introduction</a></li>
 <li><a href="#les-filtres">Les filtres.</a><ul>
-<li><a href="#la-commande-sort">La commande "sort"</a></li>
+<li><a href="#la-commande-sort">La commande sort</a></li>
 <li><a href="#la-commande-grep">La commande "grep"</a></li>
 </ul>
 </li>
@@ -2434,6 +1512,22 @@
 <li><a href="#introduction-a-la-programmation-en-shell">Introduction à la programmation en shell</a></li>
 </ul>
 </li>
+<li><a href="#communications-entre-utilisateurs">Communications entre utilisateurs</a></li>
+<li><a href="#introduction_2">Introduction</a><ul>
+<li><a href="#messagerie">Messagerie.</a><ul>
+<li><a href="#la-commande-mail">La commande "mail"</a></li>
+<li><a href="#la-commande-mailx">La commande "mailx"</a></li>
+</ul>
+</li>
+<li><a href="#le-journal-de-bord">Le journal de bord.</a><ul>
+<li><a href="#la-commande-news">La commande "news"</a></li>
+<li><a href="#la-conversation-en-temps-reel">La conversation en temps réel</a></li>
+<li><a href="#la-commande-mesg">La commande "mesg"</a></li>
+<li><a href="#la-commande-write">La commande "write"</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#sauvegarde-et-archivage-des-fichiers">Sauvegarde et archivage des fichiers.</a><ul>
 <li><a href="#la-commande-find">La commande "find"</a></li>
 <li><a href="#la-commande-cpio">La commande "cpio"</a><ul>
@@ -2455,20 +1549,19 @@
 <li><a href="#la-commande-split">La commande "split"</a></li>
 </ul>
 </li>
-<li><a href="#les-commandes-dadministration-du-systeme">Les commandes d'administration du système</a><ul>
+<li><a href="#les-commandes-dadministration-du-systeme">Les commandes d'administration du système.</a><ul>
 <li><a href="#la-commande-su">La commande "su"</a></li>
-<li><a href="#la-commande-sudo">La commande "sudo"</a></li>
-<li><a href="#la-commande-sar">La commande "sar"</a></li>
+<li><a href="#la-commande-sar">La commande "sar":</a></li>
+<li><a href="#la-commande-sysadm">La commande "sysadm"</a></li>
 </ul>
 </li>
 <li><a href="#la-commande-de-configuration-du-terminal-stty">La commande de configuration du terminal "stty"</a><ul>
 <li><a href="#les-modes-de-controles">Les modes de contrôles</a></li>
-<li><a href="#les-modes-dentrees">Les modes d'entrées</a></li>
-<li><a href="#les-modes-de-sorties">Les modes de sorties</a></li>
+<li><a href="#les-modes-dentree">Les modes d'entrée</a></li>
+<li><a href="#les-modes-de-sortie">Les modes de sortie</a></li>
 <li><a href="#les-modes-locaux">Les modes locaux</a></li>
 </ul>
 </li>
-<li><a href="#index-des-commandes">Index des commandes</a></li>
 </ul>
 </li>
 </ul>
@@ -3381,9 +2474,9 @@ $ <span class="nb">pwd</span>
 $
 </pre></div>
 
-<h3 id="lancement-dun-processus-en-arriere-plan">Lancement d'un processus en arrière plan<a class="headerlink" href="#lancement-dun-processus-en-arriere-plan" title="Permanent link">&para;</a></h3>
+<h2 id="lancement-dun-processus-en-arriere-plan">Lancement d'un processus en arrière plan<a class="headerlink" href="#lancement-dun-processus-en-arriere-plan" title="Permanent link">&para;</a></h2>
 <p>Le shell qui crée un processus en arrière plan reprend la main sans attendre que celui-ci soit terminé.</p>
-<div class="codehilite"><pre><span></span>$ ps
+<div class="codehilite"><pre><span></span><span class="nv">$ps</span>
 PID TTY TIMECOMMAND
 <span class="m">745</span> <span class="m">4500</span>:06 sh
 <span class="m">850</span> <span class="m">4500</span>:01 ps
@@ -3403,7 +2496,7 @@ $
 <p>C'est le caractère "&amp;" qui permet de lancer des processus en arrière plan. Quand un processus est lancé en arrière plan le shell renvoie le numéro de process qui lui a été attribué.</p>
 <p>Attention un processus lancé en arrière-plan (background) est quand même détruit en cas de déconnexion car il reste attaché au terminal d'où il a été lancé.</p>
 <p>De plus un processus en arrière plan a les mêmes entrées-sorties que le processus père, il est donc conseillé de rediriger les sorties, sinon les messages apparaîtront au fur et à mesure sur le terminal.</p>
-<h4 id="la-commande-nohup">La commande "nohup"<a class="headerlink" href="#la-commande-nohup" title="Permanent link">&para;</a></h4>
+<h4 id="la-commande-nohup">La Commande "nohup"<a class="headerlink" href="#la-commande-nohup" title="Permanent link">&para;</a></h4>
 <p>Format : <code>nohup commande [args]</code></p>
 <p>La commande "<code>nohup</code>" permet de détacher un processus du terminal.On pourra donc lancer de longs travaux sans monopoliser le terminal puisque les processus lancés par l'intermédiaire de la commande "nohup" seront détachés du terminal, on pourra se déconnecter, nos processus continuerons à tourner. Si l'on ne redirige pas les sorties la commande les redirigera vers un fichier nommé "nohup.out".</p>
 <div class="codehilite"><pre><span></span>$ nohup ps -efl &gt;fich1 <span class="p">&amp;</span>
@@ -3923,7 +3016,7 @@ $
 <p>Toutes les commandes ne sont pas des filtres.</p>
 </blockquote>
 <p>Les commandes "<code>cp</code>", "<code>mv</code>", "<code>who</code>", "<code>date</code>" ne sont pas des filtres, elles ne peuvent donc être utilisées en bout de tubes. Par contre la commande "<code>wc</code>" est un filtre.</p>
-<h4 id="la-commande-sort">La commande "sort"<a class="headerlink" href="#la-commande-sort" title="Permanent link">&para;</a></h4>
+<h4 id="la-commande-sort">La commande sort<a class="headerlink" href="#la-commande-sort" title="Permanent link">&para;</a></h4>
 <p>Format : <code>sort [-options] [ [&lt;n1&gt; [&lt;n2&gt;] [&lt;fich1&gt;..] [&lt;fich2&gt;]</code></p>
 <p>Tri les lignes sur l'entrée standard (ou &lt;fich1&gt;) et écrit le résultat sur la sortie standard (ou &lt;fich2&gt;). le tri est lexicographique sur l'ensemble des fichiers.</p>
 <table>
@@ -4331,6 +3424,83 @@ $
 
 <p>Ici nous avons exécuté une boucle de deux manières différentes. La première fois nous avons écrit l'instruction complète, le shell l'a exécuté. La deuxième fois nous avons écrit l'instruction partiellement, le shell s'en rendant compte nous affiche le deuxième prompt (PS2) pour nous indiquer qu'il attendla suite de l'instruction pour l'exécuter.</p>
 <p>Se reporter à la documentation UNIX pour avoir une description complète de possibilités du langage shell.</p>
+<h2 id="communications-entre-utilisateurs">Communications entre utilisateurs<a class="headerlink" href="#communications-entre-utilisateurs" title="Permanent link">&para;</a></h2>
+<h2 id="introduction_2">Introduction<a class="headerlink" href="#introduction_2" title="Permanent link">&para;</a></h2>
+<p>UNIX offre les possibilités suivantes:</p>
+<ul>
+<li>
+<p>Messagerie électronique : envoi,réception de messages</p>
+</li>
+<li>
+<p>Gestion d'un journal de bord.</p>
+</li>
+<li>
+<p>Conversation en temps réel.</p>
+</li>
+</ul>
+<h3 id="messagerie">Messagerie.<a class="headerlink" href="#messagerie" title="Permanent link">&para;</a></h3>
+<p>Au moment du login UNIX vous avertie, si vous avez du courrier</p>
+<p>par le message suivant : "You have mail"</p>
+<h4 id="la-commande-mail">La commande "mail"<a class="headerlink" href="#la-commande-mail" title="Permanent link">&para;</a></h4>
+<p>Format : <code>mail [-r] [-f &lt;fichier&gt;]</code></p>
+<p>ou : mail &lt;nom&gt; [&lt;nom&gt;...]</p>
+<h5>9.2.1.1 Première forme :</h5>
+<p>Permet de lire son courrier, après l'impression de chaque message la commande "mail" affiche le rompt "?" vous invitantà taper une commande de "mail".</p>
+<p>options</p>
+<p>-r imprime les messages dans l'ordre d'arrivée (par défaut l'inverse).</p>
+<p>-f Permet de lire une boite aux lettres différentes de la sienne ( àcondition d'avoir les droits d'accès )</p>
+<p>Les commandes:</p>
+<p>&lt;cr&gt;Passage au message suivant.</p>
+<ul>
+<li>
+<p>idem.</p>
+</li>
+<li>
+<p>Passage au précédent.</p>
+</li>
+</ul>
+<p>d Suppression du message courant et passage au suivant.</p>
+<p>S &lt;fichier&gt;Sauvegarde le message dans &lt;fichier&gt;.</p>
+<p>w &lt;fichier&gt;Sauvegarde le message dans &lt;fichier&gt; sans son en-tête.</p>
+<p>m &lt;nom&gt; ...Envoi le message en cours aux utilisateurs</p>
+<p>&lt;nom&gt;...</p>
+<p>q Pour quitter la commande "mail".</p>
+<p>&lt;Ctrl-d&gt; idem.</p>
+<p>!&lt;commande&gt; Permet d'exécuter une commande du shell</p>
+<p>h Aide de la commande "mail". Affiche la liste des commandes.</p>
+<h5>9.2.1.2 Deuxième forme:</h5>
+<p>Envoi le message qui sera entréau clavier aux utilisateurs &lt;nom&gt;...Ceci même si les utilisateurs ne sont pas connectés au système UNIX.Pour terminer entrez le caractère fin de fichier (par défaut &lt;Ctrl-d&gt;) La commande "mail" peutêtre avantageusement rediriger (pour l'entréedu texte)</p>
+<h4 id="la-commande-mailx">La commande "mailx"<a class="headerlink" href="#la-commande-mailx" title="Permanent link">&para;</a></h4>
+<p>La commande "mailx" est une manière plus agréable d'examiner son courrier.</p>
+<p>Elle donne une liste numérotée des messages que vous n'avez pas encore lus. Vous pouvez lire un message en entrant son numéro, chaque message à un sujet.</p>
+<p>Chaque message lu passe de la boite au lettres système à un fichier appelé "mbox" dans votre home directory (Le répertoire de login)</p>
+<p>Quelques options:</p>
+<p>-f &lt;fichier&gt;Lit les messages depuis &lt;fichier&gt; sinon depuis "mbox".</p>
+<p>-N n'affiche pas le sommaire.</p>
+<p>-n &lt;nom&gt;Lit les messages de &lt;nom&gt; si l'on a les droits d'accès.</p>
+<p>La commande "mailx" est plus sophistiquée que la commande "mail", se reporter à la documentation UNIX pour plus de détails.</p>
+<h3 id="le-journal-de-bord">Le journal de bord.<a class="headerlink" href="#le-journal-de-bord" title="Permanent link">&para;</a></h3>
+<p>UNIX permet de gérer un véritable journal de bord. Les nouvelles sont stockées dans le répertoire /usr/news.</p>
+<h4 id="la-commande-news">La commande "news"<a class="headerlink" href="#la-commande-news" title="Permanent link">&para;</a></h4>
+<p>Format : <code>news [options] [&lt;fichiers&gt;...]</code></p>
+<p>Permet de lire le journal de bord.</p>
+<p>options</p>
+<p>-a toutes les nouvelles sont supprimées qu'elles aient ou non déjà été consultées par l'utilisateur.</p>
+<p>-n Les noms des nouvelles sont seules imprimées.</p>
+<p>-s indique uniquement le nombre de nouvelles disponibles.</p>
+<h4 id="la-conversation-en-temps-reel">La conversation en temps réel<a class="headerlink" href="#la-conversation-en-temps-reel" title="Permanent link">&para;</a></h4>
+<p>UNIX permet à deux utilisateurs connectés au système de converser en direct.</p>
+<h4 id="la-commande-mesg">La commande "mesg"<a class="headerlink" href="#la-commande-mesg" title="Permanent link">&para;</a></h4>
+<p>Permet d'accepter ou de refuser les conversations en direct.</p>
+<p>Ceci est utile lorsque l'on travaille sous un éditeur par exemple pour éviter d'avoir des messages parasites.</p>
+<p>options:</p>
+<p>-y Accepte les messages.</p>
+<p>-n Refuse les messages.</p>
+<h4 id="la-commande-write">La commande "write"<a class="headerlink" href="#la-commande-write" title="Permanent link">&para;</a></h4>
+<p>Format : <code>write &lt;nom&gt; [&lt;terminal&gt;]</code></p>
+<p>Permet de communiquer directement avec un autre utilisateur si celui ci est connecté et s'il accepte les messages (commande "mesg")</p>
+<p>Sur l' écran du destinataire apparaît le message suivant : "message from ..."</p>
+<p>La conversation se fait en direct jusqu'àque l'un des interlocuteurs appuie sur fin de fichier (&lt;Ctrl-d&gt;).</p>
 <h2 id="sauvegarde-et-archivage-des-fichiers">Sauvegarde et archivage des fichiers.<a class="headerlink" href="#sauvegarde-et-archivage-des-fichiers" title="Permanent link">&para;</a></h2>
 <h3 id="la-commande-find">La commande "find"<a class="headerlink" href="#la-commande-find" title="Permanent link">&para;</a></h3>
 <p>Format : <code>find &lt;liste de chemins&gt; &lt;expressions&gt;</code></p>
@@ -4401,7 +3571,7 @@ $
 <p>b équivalent aux options s et S.</p>
 <h3 id="la-commande-tar">La commande "tar"<a class="headerlink" href="#la-commande-tar" title="Permanent link">&para;</a></h3>
 <p>Format : <code>tar [&lt;clés&gt;] [&lt;fichiers&gt; ...]</code></p>
-<p>Permet d'archiver des fichiers sur un fichier unique sur bande magnétique, ainsi que leur restitutions. A l'origine pour l'usage des lecteurs des bandes ( tar : pour <strong>t</strong>ape <strong>ar</strong>chive ) cet outil est encore d'usage courant.</p>
+<p>Permet d'archiver des fichiers sur un fichier unique sur bande magnétique, ainsi que leur restitutions</p>
 <p>&lt;clés&gt; Permet de contrôler le type d'opération :</p>
 <ul>
 <li>
@@ -4492,13 +3662,15 @@ $
 <h3 id="la-commande-split">La commande "split"<a class="headerlink" href="#la-commande-split" title="Permanent link">&para;</a></h3>
 <p>Format : <code>split [-&lt;n&gt;] [&lt;fichier&gt; [&lt;nom&gt;] ]</code></p>
 <p>Permet de découper un fichier en plusieurs fichiers. Par défaut découpe le fichier toute les 1000 lignes si -&lt;n&gt; n'est pas spécifié . Les fichiers de sorties ont pour nom &lt;nom&gt; avec les lettres 'aa' à 'zz' (au maximum 676 fichiers) Si &lt;nom&gt; n'est pas spécifié "x" est pris par défaut.</p>
-<h2 id="les-commandes-dadministration-du-systeme">Les commandes d'administration du système<a class="headerlink" href="#les-commandes-dadministration-du-systeme" title="Permanent link">&para;</a></h2>
+<h2 id="les-commandes-dadministration-du-systeme">Les commandes d'administration du système.<a class="headerlink" href="#les-commandes-dadministration-du-systeme" title="Permanent link">&para;</a></h2>
 <h3 id="la-commande-su">La commande "su"<a class="headerlink" href="#la-commande-su" title="Permanent link">&para;</a></h3>
 <p>Permet de passer en mode super-utilisateur(Plus de protection dans le système UNIX, à condition d'avoir le mot de passe. Plutôt remplacé par <code>sudo</code> qui permet de donner des accès à certaines commandes à un utilisateur donné sans que celui-ci ne connaisse le mot de passe de root.</p>
-<h3 id="la-commande-sudo">La commande "sudo"<a class="headerlink" href="#la-commande-sudo" title="Permanent link">&para;</a></h3>
-<p>De nos jours on évite de passer en root directement, on passe plutôt par la commande <code>sudo</code> qui permet de donner des droits plus fin aux utilisateurs.</p>
-<h3 id="la-commande-sar">La commande "sar"<a class="headerlink" href="#la-commande-sar" title="Permanent link">&para;</a></h3>
+<p>DE nos jours on évtite de passer en root directement, on passe plutôt par la commande <code>sudo</code> qui permet de donner des droits plus fin aux utilisateurs.</p>
+<h3 id="la-commande-sar">La commande "sar":<a class="headerlink" href="#la-commande-sar" title="Permanent link">&para;</a></h3>
 <p>Permet d'avoir des renseignements sur l'activité du système UNIX. Se reporter à la documentation UNIX pour plus de détails.</p>
+<h3 id="la-commande-sysadm">La commande "sysadm"<a class="headerlink" href="#la-commande-sysadm" title="Permanent link">&para;</a></h3>
+<p>"sysadm" est une interface pour gérer le système. (administration du système.). nécessite de connaître le mot de passe.</p>
+<p>Se reporter à la documentation pour plus de détails.</p>
 <h2 id="la-commande-de-configuration-du-terminal-stty">La commande de configuration du terminal "stty"<a class="headerlink" href="#la-commande-de-configuration-du-terminal-stty" title="Permanent link">&para;</a></h2>
 <p>Format : <code>stty [-a][-g] [options]</code></p>
 <p>La commande "stty" permet de connaître l'état du paramétrage de la ligne du terminal ainsi que de le reconfigurer.</p>
@@ -4513,7 +3685,7 @@ $
 <p>Nombre de bits de données.</p>
 <p>50..300...1200..9800 Vitesse de transmission de la ligne.</p>
 <p>cstopbutilise 1 bits de stop (sinon 2)</p>
-<h3 id="les-modes-dentrees">Les modes d'entrées<a class="headerlink" href="#les-modes-dentrees" title="Permanent link">&para;</a></h3>
+<h3 id="les-modes-dentree">Les modes d'entrée<a class="headerlink" href="#les-modes-dentree" title="Permanent link">&para;</a></h3>
 <p>ignbrk ignore le break;</p>
 <p>ignpar ignore les erreurs de parité.</p>
 <p>istrip compacte sur 7 bits les données.</p>
@@ -4523,7 +3695,7 @@ $
 <p>ixon Autorise le contrôle de flux (&lt;Ctrl-s&gt;)</p>
 <p>ixany Tout caractère relance l'affichage (sinon uniquement &lt;Ctrl-q&gt;)</p>
 <p>ixoff Le système envoie des START/STOP suivant l'état des buffers</p>
-<h3 id="les-modes-de-sorties">Les modes de sorties<a class="headerlink" href="#les-modes-de-sorties" title="Permanent link">&para;</a></h3>
+<h3 id="les-modes-de-sortie">Les modes de sortie<a class="headerlink" href="#les-modes-de-sortie" title="Permanent link">&para;</a></h3>
 <p>opost Les caractères en sortie doivent être traiter (par l'une des options suivantes)</p>
 <p>olcuc identifie les minuscules en majuscules</p>
 <p>onlcr &lt;new-line&gt; comme la suite &lt;return&gt; &lt;new-line&gt;</p>
@@ -4539,54 +3711,6 @@ $
 <p>Se reporter à la documentation pour une information plus détaillée.
 </p>
 </blockquote>
-<h2 id="index-des-commandes">Index des commandes<a class="headerlink" href="#index-des-commandes" title="Permanent link">&para;</a></h2>
-<p><a href="#la-commande-ar">ar</a>, 
-<a href="#la-commande-at">at</a>, 
-<a href="#la-commande-banner">banner</a>, 
-<a href="#la-commande-cat">cat</a>, 
-<a href="#la-commande-cd">cd</a>, 
-<a href="#la-commande-chgrp">chgrp</a>, 
-<a href="#la-commande-chmod">chmod</a>, 
-<a href="#la-commande-chown">chown</a>, 
-<a href="#la-commande-cmp">cmp</a>, 
-<a href="#la-commande-cp">cp</a>, 
-<a href="#la-commande-cpio">cpio</a>, 
-<a href="#la-commande-crypt">crypt</a>, 
-<a href="#la-commande-echo">echo</a>, 
-<a href="#la-commande-env">env</a>, 
-<a href="#la-commande-export">export</a>, 
-<a href="#la-commande-find">find</a>, 
-<a href="#la-commande-grep">grep</a>, 
-<a href="#la-commande-kill">kill</a>, 
-<a href="#la-commande-ln">ln</a>, 
-<a href="#la-commande-logname">logname</a>, 
-<a href="#la-commande-lp">lp</a>, 
-<a href="#la-commande-ls">ls</a>, 
-<a href="#la-commande-man">man</a>, 
-<a href="#la-commande-mkdir">mkdir</a>, 
-<a href="#la-commande-mv">mv</a>, 
-<a href="#la-commande-nice">nice</a>, 
-<a href="#la-commande-nohup">nohup</a>, 
-<a href="#la-commande-od">od</a>, 
-<a href="#la-commande-passwd">passwd</a>, 
-<a href="#la-commande-paste">paste</a>, 
-<a href="#la-commande-pg">pg</a>, 
-<a href="#la-commande-pr">pr</a>, 
-<a href="#la-commande-ps">ps</a>, 
-<a href="#la-commande-pwd">pwd</a>, 
-<a href="#la-commande-rm">rm</a>, 
-<a href="#la-commande-rmdir">rmdir</a>, 
-<a href="#la-commande-sar">sar</a>, 
-<a href="#la-commande-set">set</a>, 
-<a href="#la-commande-sort">sort</a>, 
-<a href="#la-commande-split">split</a>, 
-<a href="#la-commande-su">su</a>, 
-<a href="#la-commande-sudo">sudo</a>, 
-<a href="#la-commande-tar">tar</a>, 
-<a href="#la-commande-touch">touch</a>, 
-<a href="#la-commande-wait">wait</a>, 
-<a href="#la-commande-wc">wc</a>, 
-<a href="#la-commande-who">who</a>, </p>
                 
                   
                 
@@ -4603,27 +3727,6 @@ $
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../langC/" title="langage C" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                langage C
-              </span>
-            </div>
-          </a>
-        
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
