@@ -323,6 +323,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#statefulsets" class="md-nav__link">
     StatefulSets
   </a>
@@ -395,7 +402,8 @@
                 
                 
                 <h1 id="introduction-kubernetes">Introduction Kubernetes<a class="headerlink" href="#introduction-kubernetes" title="Permanent link">&para;</a></h1>
-<p><i class="md-icon">&#xE87C;</i><i class="md-icon">face</i>
+<p><i class="md-icon">&#xE87C;</i>
+<i class="md-icon">face</i>
 <i class="md-icon">shopping_cart</i></p>
 <h2 id="traduction">traduction<a class="headerlink" href="#traduction" title="Permanent link">&para;</a></h2>
 <ul>
@@ -409,61 +417,69 @@
 </ul>
 <h2 id="glossaire">Glossaire<a class="headerlink" href="#glossaire" title="Permanent link">&para;</a></h2>
 <ul>
-<li>cluster : ensemble de machines (VM, physique,) , formant un ou plusieurs masters et une collection de nodes</li>
-<li>masters ou control plane : forment les éléments de pilotage du cluster k8s</li>
-<li>nodes ou data plane : forment l'ensemble des machines sur lesquelles vont s'éxécuter les déploiements.</li>
-<li>controleurs : le déploiement des pods via des controleurs : Deployments, DaemonSets, StatefulSets, CronJobs,etc.<ul>
-<li>CronJobs : comme son nom l'indique</li>
-<li>DeamonSets : sera lancé sur tous les noeuds</li>
-<li>StatefulSets : pour les besoins de persistance</li>
-<li>Deployments: le truc classique permettant de beneficier de la scalabité et des rolling update</li>
+<li><strong>cluster</strong> : ensemble de machines (VM, physique,) , formant un ou plusieurs masters et une collection de nodes</li>
+<li><strong>masters ou control plane</strong> : forment les éléments de pilotage du cluster k8s</li>
+<li><strong>nodes ou data plane</strong> : forment l'ensemble des machines sur lesquelles vont s'éxécuter les déploiements.</li>
+<li><strong>controleurs</strong> : le déploiement des pods via des controleurs : Deployments, DaemonSets, StatefulSets, CronJobs,etc.<ul>
+<li><strong>CronJobs</strong> : comme son nom l'indique</li>
+<li><strong>DeamonSets</strong> : sera lancé sur tous les noeuds</li>
+<li><strong>StatefulSets</strong> : pour les besoins de persistance</li>
+<li><strong>Deployments</strong> : le truc classique permettant de beneficier de la scalabilité et des rolling update</li>
 </ul>
 </li>
-<li>pod : unité atomique de déploiement, peut contenir plusieurs containers</li>
-<li>service : fait le lien entre plusieurs pod pour leur donner un point d'attache vis à vis de l'exterieur.</li>
+<li><strong>pod</strong> : unité atomique de déploiement, peut contenir plusieurs containers</li>
+<li><strong>service</strong> : fait le lien entre plusieurs pod pour leur donner un point d'attache vis à vis de l'exterieur.</li>
 </ul>
 <h2 id="presentation-generale">Présentation générale<a class="headerlink" href="#presentation-generale" title="Permanent link">&para;</a></h2>
-<p>les configurations les plus simples exécutent tous les services principaux formant le master sur un seul hôte.
+<p>les configurations les plus simples peuvent exécuter tous les services principaux formant le master sur un seul hôte.
 C'est bien pour une configuration de aboratoire ou d'environnement de test, mais pour 
 les environnements de production, la haute disponibilité multi-master est un élément indispensable. 
-C’est pourquoi les principaux fournisseurs de cloud metten en œuvre des masters HA (High Availability) 
+C’est pourquoi les principaux fournisseurs de cloud mettent en œuvre des masters HA (High Availability) 
 dans le cadre de leurs solutions.
 Entre 3 et 5 masters répliqués sont un bon début pour la production.</p>
-<p>Des offres de providers KaaS (Kubernetes-as-a-Service) :
-- Azure Kubernetes Service (AKS),
-- AWS Elastic Kubernetes Service (EKS),
-- Google Kubernetes Engine (GKE).</p>
+<p>Des offres de providers KaaS (Kubernetes-as-a-Service) :</p>
+<ul>
+<li>Azure Kubernetes Service (AKS),</li>
+<li>AWS Elastic Kubernetes Service (EKS),</li>
+<li>Google Kubernetes Engine (GKE).</li>
+</ul>
 <p>kubernetes DNS : une adresse IP statique hard codéee dans tous les pods !!!
 basé sur CoreDNS</p>
-<p>Pour le master
-api-server
-Cluster Store -&gt; etcd
-Cloud Controller manager
-scheduler
-Controller Manager</p>
-<p>sur un node
-kubelet
-cri-containerd
-kube-proxy</p>
-<p>Les pods : vient de l'expression groupe de baleines, et le symbole de docker est une baleine : cqfd.
-la plupart du temps un pod contien un seul container, mais il y a des cas (avancée) où il faut plusieurs containers dans un pod, c'est le cas pour:
-service meshes (service de maillage de micro-services)</p>
-<p>serveur web, avec des systèmes de ise à jour</p>
-<p>les containers dans n pod se partagent tout:
-ipc, méméoire, stockage, même adresse IP
-si 2 containers dans un pod ont besoin de discuter, ils passent par locahost et des nuémros de ports.</p>
-<p>l'unité de croissance n'est pas le containers, mais le pod
-Le déploiement d'un pod est une opération atomique : Un pod est soit déployé, soit ne l'est pas, mais jamais partiellement.
-L’ensemble du pod démarre et est mis en service, ou bien ne l'est pas.
+<p>Pour le master :</p>
+<ul>
+<li>api-server</li>
+<li>Cluster Store -&gt; etcd</li>
+<li>bCloud Controller manager</li>
+<li>scheduler</li>
+<li>Controller Manager</li>
+</ul>
+<p>Sur un node :</p>
+<ul>
+<li>kubelet</li>
+<li>cri-containerd</li>
+<li>kube-proxy</li>
+</ul>
+<p>Les pods : vient de l'expression <em>groupe de baleines</em>, le symbole de docker est une baleine : cqfd.
+la plupart du temps un pod contient un seul container, mais il y a des cas (avancée) où il faut plusieurs containers dans un pod, c'est le cas pour:</p>
+<ul>
+<li>service meshes (service de maillage de micro-services)</li>
+<li>serveur web, avec des systèmes de mise à jour</li>
+<li>...</li>
+</ul>
+<p>les containers dans un pod se partagent tout:
+ipc, mémoire, stockage, même adresse IP
+si 2 containers dans un pod ont besoin de discuter, ils passent par locahost et des numéros de ports.</p>
+<p>l'unité de croissance n'est pas le container, mais le pod.
+Le déploiement d'un pod est une opération atomique : Un pod est soit déployé, soit ne l'est pas, <strong>mais jamais partiellement</strong>.
+L’ensemble du pod démarre et est mis en service ou ne l'est pas.
 Un seul pod ne peut être planifié que sur un seul nœud. 
-Pour un pod multi-conteneur : tous les conteneurs d'un même pod s'exécutent sur le même nœud
-Quand un pod meurt, il n'est pas réanimé, c'est un nouveau pod qui est démarré avec toutes les conséquences : nouvelle adresse IP, nouvel ID, etc...</p>
+Tous les conteneurs d'un même pod s'exécutent sur le même node.</p>
+<p>Quand un pod meurt, il n'est pas réanimé, c'est un nouveau pod qui est démarré avec toutes les conséquences : nouvelle adresse IP, nouvel ID, etc...</p>
 <p>Les pods ne sont pas déployés directement, mais passent par un Deployments, DaemonSets, StatefulSets, CronJobs </p>
-<p>Pour la gestion dynamiques des IPs, on passe par la définition d'un service, qui fera le lien en les pdifférentes instances d'un pod et le monde externe.</p>
-<p>services
-permet de fédérer un ensemble de pods, par un nom, une adresse IP, un numéro de port, un nom dns
-un service est un objet de k8s à part entière.
-un service n'opère qu'au niveau IP (TCP ou UDP) et n'a pas d'inteligence applicative
+<p>Pour la gestion dynamiques des IPs, on passe par la définition d'un service, qui fera le lien en les différentes instances d'un pod et le monde externe.</p>
+<h3 id="services">services<a class="headerlink" href="#services" title="Permanent link">&para;</a></h3>
+<p>Permet de fédérer un ensemble de pods, par un nom, une adresse IP, un numéro de port, un nom dns. Un service est un objet de k8s à part entière.</p>
+<p>Un service n'opère qu'au niveau IP (TCP ou UDP) et n'a pas d'intelligence applicative.
 Le lien entre les pods et un service est fait au travers d'étiquettes (label)</p>
 <h3 id="statefulsets">StatefulSets<a class="headerlink" href="#statefulsets" title="Permanent link">&para;</a></h3>
 <p>Comme son nom l'indique permet d'avoir des pods gérent des états.
@@ -495,8 +511,8 @@ il est remplacé par un autre pod portant le même nom, le même identifiant et 
 <li>Elevation of privilege</li>
 </ul>
 <p>Protecting the Cluster Store against DoS Attacks
-Cluster configuration is stored in etcd, making it vital that etcd be available and secure.
-The following recommendations will help accomplish this:</p>
+La configuration d'un Cluster k8s est stockée dans etcd, il est donc primordial que celui-ci soit disponible et sécurisé.</p>
+<p>Il est donc important de suivre les recommendations suivantes:</p>
 <ul>
 <li>Configurer un cluster etcd en avec trois ou cinq noeud.</li>
 <li>Configurer la supervision et les alarmes (monitoring and alerting) pour les requétes à l'etcd.</li>
@@ -504,10 +520,12 @@ The following recommendations will help accomplish this:</p>
 </ul>
 <p>l'etcd est le point d'engorgement le plus fréquent sur des grandes configurations kubernetes.</p>
 <p><strong>Kubernetes ne supportent pas les clusters multi-tenant. La frontière de la sécurité au niveau du cluster kubernetes est le cluster lui-même</strong></p>
-<p>Le seul moyen de garantir l'isolation en terme de charge entre différents workload est de les faire exécuter sur des clusters différents. Il existe un <em>Multitenancy Working Group</em> qui travaille sur le sujet de manière active et qui peut laisser espérer que cela change, mais pour le moment:
- - Isoler la production du non-production dans des clusters différents
- - Isoler différents clients dans des clusters différents
- - Isoler les fonctions business et les projets sensibles dans des clusters séparés.</p>
+<p>Le seul moyen de garantir l'isolation en terme de charge entre différents workload est de les faire exécuter sur des clusters différents. Il existe un <em>Multitenancy Working Group</em> qui travaille sur le sujet de manière active et qui peut laisser espérer que cela change, mais pour le moment:</p>
+<ul>
+<li>Isoler la production du non-production dans des clusters différents</li>
+<li>Isoler différents clients dans des clusters différents</li>
+<li>Isoler les fonctions business et les projets sensibles dans des clusters séparés.</li>
+</ul>
 <h3 id="micro-vm-renforcer-lisolation">micro VM : renforcer l'isolation<a class="headerlink" href="#micro-vm-renforcer-lisolation" title="Permanent link">&para;</a></h3>
 <p>Pour renforcer l'isolation des containers , 2 projets : gVisor et Kata Containers voir l'article <a href="https://www.lemagit.fr/actualites/252455620/Comment-Kata-Containers-et-gVisor-permettent-de-renforcer-la-securite-des-conteneurs">LeMagIT</a>. Ces 2 projets créent des 'micros VM'. Kata se base sur des extensions Intel (ça marche sur AMD ?), gVisor de google est plus un container <em>bac à sable</em> avec uniquement un sous-noyau qui ne comprend pas tous les appels systèmes Unix.</p>
 <h3 id="kubernetes-et-reseau-doverlay">Kubernetes et réseau d'Overlay<a class="headerlink" href="#kubernetes-et-reseau-doverlay" title="Permanent link">&para;</a></h3>
