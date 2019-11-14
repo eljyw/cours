@@ -24,7 +24,14 @@ markdown_extensions:
   - footnotes
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - attr_list
+
 nav:
   - Introduction: intro.md
   - Domaines:
@@ -32,3 +39,4 @@ nav:
     - Unix: unix.md
 #  - Other:
 #    - GitLab CI template validation: gitlab-ci-template-validation.md
+
