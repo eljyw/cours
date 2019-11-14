@@ -5,7 +5,8 @@ date: 31/10/2019
 
 
 # Introduction Kubernetes
-<i class="md-icon">&#xE87C;</i><i class="md-icon">face</i>
+<i class="md-icon">&#xE87C;</i>
+<i class="md-icon">face</i>
 <i class="md-icon">shopping_cart</i>
 ## traduction
 - fully-fledged : à part entière
@@ -17,27 +18,28 @@ date: 31/10/2019
 - sprawl : étalement
  
 ## Glossaire
-- cluster : ensemble de machines (VM, physique,) , formant un ou plusieurs masters et une collection de nodes
-- masters ou control plane : forment les éléments de pilotage du cluster k8s
-- nodes ou data plane : forment l'ensemble des machines sur lesquelles vont s'éxécuter les déploiements.
-- controleurs : le déploiement des pods via des controleurs : Deployments, DaemonSets, StatefulSets, CronJobs,etc.
-    - CronJobs : comme son nom l'indique
-    - DeamonSets : sera lancé sur tous les noeuds
-    - StatefulSets : pour les besoins de persistance
-    - Deployments: le truc classique permettant de beneficier de la scalabité et des rolling update
-- pod : unité atomique de déploiement, peut contenir plusieurs containers
-- service : fait le lien entre plusieurs pod pour leur donner un point d'attache vis à vis de l'exterieur.
+- **cluster** : ensemble de machines (VM, physique,) , formant un ou plusieurs masters et une collection de nodes
+- **masters ou control plane** : forment les éléments de pilotage du cluster k8s
+- **nodes ou data plane** : forment l'ensemble des machines sur lesquelles vont s'éxécuter les déploiements.
+- **controleurs** : le déploiement des pods via des controleurs : Deployments, DaemonSets, StatefulSets, CronJobs,etc.
+    - **CronJobs** : comme son nom l'indique
+    - **DeamonSets** : sera lancé sur tous les noeuds
+    - **StatefulSets** : pour les besoins de persistance
+    - **Deployments** : le truc classique permettant de beneficier de la scalabilité et des rolling update
+- **pod** : unité atomique de déploiement, peut contenir plusieurs containers
+- **service** : fait le lien entre plusieurs pod pour leur donner un point d'attache vis à vis de l'exterieur.
 
 
 ## Présentation générale
-les configurations les plus simples exécutent tous les services principaux formant le master sur un seul hôte.
+les configurations les plus simples peuvent exécuter tous les services principaux formant le master sur un seul hôte.
 C'est bien pour une configuration de aboratoire ou d'environnement de test, mais pour 
 les environnements de production, la haute disponibilité multi-master est un élément indispensable. 
-C’est pourquoi les principaux fournisseurs de cloud metten en œuvre des masters HA (High Availability) 
+C’est pourquoi les principaux fournisseurs de cloud mettent en œuvre des masters HA (High Availability) 
 dans le cadre de leurs solutions.
 Entre 3 et 5 masters répliqués sont un bon début pour la production.
 
 Des offres de providers KaaS (Kubernetes-as-a-Service) :
+
 - Azure Kubernetes Service (AKS),
 - AWS Elastic Kubernetes Service (EKS),
 - Google Kubernetes Engine (GKE).
@@ -45,43 +47,47 @@ Des offres de providers KaaS (Kubernetes-as-a-Service) :
 kubernetes DNS : une adresse IP statique hard codéee dans tous les pods !!!
 basé sur CoreDNS
 
-Pour le master
-api-server
-Cluster Store -> etcd
-Cloud Controller manager
-scheduler
-Controller Manager
+Pour le master :
 
-sur un node
-kubelet
-cri-containerd
-kube-proxy
+- api-server
+- Cluster Store -> etcd
+- bCloud Controller manager
+- scheduler
+- Controller Manager
 
-Les pods : vient de l'expression groupe de baleines, et le symbole de docker est une baleine : cqfd.
-la plupart du temps un pod contien un seul container, mais il y a des cas (avancée) où il faut plusieurs containers dans un pod, c'est le cas pour:
-service meshes (service de maillage de micro-services)
+Sur un node :
 
-serveur web, avec des systèmes de ise à jour
+- kubelet
+- cri-containerd
+- kube-proxy
 
-les containers dans n pod se partagent tout:
-ipc, méméoire, stockage, même adresse IP
-si 2 containers dans un pod ont besoin de discuter, ils passent par locahost et des nuémros de ports.
+Les pods : vient de l'expression *groupe de baleines*, le symbole de docker est une baleine : cqfd.
+la plupart du temps un pod contient un seul container, mais il y a des cas (avancée) où il faut plusieurs containers dans un pod, c'est le cas pour:
 
-l'unité de croissance n'est pas le containers, mais le pod
-Le déploiement d'un pod est une opération atomique : Un pod est soit déployé, soit ne l'est pas, mais jamais partiellement.
-L’ensemble du pod démarre et est mis en service, ou bien ne l'est pas.
+- service meshes (service de maillage de micro-services)
+- serveur web, avec des systèmes de mise à jour
+- ...
+
+les containers dans un pod se partagent tout:
+ipc, mémoire, stockage, même adresse IP
+si 2 containers dans un pod ont besoin de discuter, ils passent par locahost et des numéros de ports.
+
+l'unité de croissance n'est pas le container, mais le pod.
+Le déploiement d'un pod est une opération atomique : Un pod est soit déployé, soit ne l'est pas, **mais jamais partiellement**.
+L’ensemble du pod démarre et est mis en service ou ne l'est pas.
 Un seul pod ne peut être planifié que sur un seul nœud. 
-Pour un pod multi-conteneur : tous les conteneurs d'un même pod s'exécutent sur le même nœud
+Tous les conteneurs d'un même pod s'exécutent sur le même node.
+
 Quand un pod meurt, il n'est pas réanimé, c'est un nouveau pod qui est démarré avec toutes les conséquences : nouvelle adresse IP, nouvel ID, etc...
 
 Les pods ne sont pas déployés directement, mais passent par un Deployments, DaemonSets, StatefulSets, CronJobs 
 
-Pour la gestion dynamiques des IPs, on passe par la définition d'un service, qui fera le lien en les pdifférentes instances d'un pod et le monde externe.
+Pour la gestion dynamiques des IPs, on passe par la définition d'un service, qui fera le lien en les différentes instances d'un pod et le monde externe.
 
-services
-permet de fédérer un ensemble de pods, par un nom, une adresse IP, un numéro de port, un nom dns
-un service est un objet de k8s à part entière.
-un service n'opère qu'au niveau IP (TCP ou UDP) et n'a pas d'inteligence applicative
+### services
+Permet de fédérer un ensemble de pods, par un nom, une adresse IP, un numéro de port, un nom dns. Un service est un objet de k8s à part entière.
+
+Un service n'opère qu'au niveau IP (TCP ou UDP) et n'a pas d'intelligence applicative.
 Le lien entre les pods et un service est fait au travers d'étiquettes (label)
 
 
@@ -117,8 +123,9 @@ le modèle STRIDE:
 - Elevation of privilege
 
 Protecting the Cluster Store against DoS Attacks
-Cluster configuration is stored in etcd, making it vital that etcd be available and secure.
-The following recommendations will help accomplish this:
+La configuration d'un Cluster k8s est stockée dans etcd, il est donc primordial que celui-ci soit disponible et sécurisé.
+
+Il est donc important de suivre les recommendations suivantes:
 
 - Configurer un cluster etcd en avec trois ou cinq noeud.
 - Configurer la supervision et les alarmes (monitoring and alerting) pour les requétes à l'etcd.
@@ -129,6 +136,7 @@ l'etcd est le point d'engorgement le plus fréquent sur des grandes configuratio
  **Kubernetes ne supportent pas les clusters multi-tenant. La frontière de la sécurité au niveau du cluster kubernetes est le cluster lui-même**
 
  Le seul moyen de garantir l'isolation en terme de charge entre différents workload est de les faire exécuter sur des clusters différents. Il existe un *Multitenancy Working Group* qui travaille sur le sujet de manière active et qui peut laisser espérer que cela change, mais pour le moment:
+ 
  - Isoler la production du non-production dans des clusters différents
  - Isoler différents clients dans des clusters différents
  - Isoler les fonctions business et les projets sensibles dans des clusters séparés.
