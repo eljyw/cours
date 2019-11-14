@@ -1,0 +1,558 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://eljyw.github.io/cours/k8s/">
+      
+      
+        <meta name="author" content="eljyw">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>Introduction à Kubernetes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2196f3">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#introduction-kubernetes" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://eljyw.github.io/cours/" title="Support de cours Informatique" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Support de cours Informatique
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Introduction à Kubernetes
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/eljyw/cours/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://eljyw.github.io/cours/" title="Support de cours Informatique" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Support de cours Informatique
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/eljyw/cours/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Domaines
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Domaines
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../langC/" title="langage C" class="md-nav__link">
+      langage C
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../unix/" title="Unix" class="md-nav__link">
+      Unix
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#traduction" class="md-nav__link">
+    traduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossaire" class="md-nav__link">
+    Glossaire
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presentation-generale" class="md-nav__link">
+    Présentation générale
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#statefulsets" class="md-nav__link">
+    StatefulSets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoscaling" class="md-nav__link">
+    Autoscaling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#securite-dans-k8s" class="md-nav__link">
+    Sécurité dans k8s
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#micro-vm-renforcer-lisolation" class="md-nav__link">
+    micro VM : renforcer l'isolation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-et-reseau-doverlay" class="md-nav__link">
+    Kubernetes et réseau d'Overlay
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-pour-les-nuls" class="md-nav__link">
+    CI/CD Pour les nuls
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/eljyw/cours/edit/master/docs/k8s.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="introduction-kubernetes">Introduction Kubernetes<a class="headerlink" href="#introduction-kubernetes" title="Permanent link">&para;</a></h1>
+<p><i class="md-icon">&#xE87C;</i><i class="md-icon">face</i>
+<i class="md-icon">shopping_cart</i></p>
+<h2 id="traduction">traduction<a class="headerlink" href="#traduction" title="Permanent link">&para;</a></h2>
+<ul>
+<li>fully-fledged : à part entière</li>
+<li>meshes : mailles </li>
+<li>discrepancy: contradiction</li>
+<li>ingress : entrée</li>
+<li>claim :   demande, revendication ( PVC : Persistant Volume Claims, demande de volume persistant)</li>
+<li>worth it: ça vaut le coup</li>
+<li>sprawl : étalement</li>
+</ul>
+<h2 id="glossaire">Glossaire<a class="headerlink" href="#glossaire" title="Permanent link">&para;</a></h2>
+<ul>
+<li>cluster : ensemble de machines (VM, physique,) , formant un ou plusieurs masters et une collection de nodes</li>
+<li>masters ou control plane : forment les éléments de pilotage du cluster k8s</li>
+<li>nodes ou data plane : forment l'ensemble des machines sur lesquelles vont s'éxécuter les déploiements.</li>
+<li>controleurs : le déploiement des pods via des controleurs : Deployments, DaemonSets, StatefulSets, CronJobs,etc.<ul>
+<li>CronJobs : comme son nom l'indique</li>
+<li>DeamonSets : sera lancé sur tous les noeuds</li>
+<li>StatefulSets : pour les besoins de persistance</li>
+<li>Deployments: le truc classique permettant de beneficier de la scalabité et des rolling update</li>
+</ul>
+</li>
+<li>pod : unité atomique de déploiement, peut contenir plusieurs containers</li>
+<li>service : fait le lien entre plusieurs pod pour leur donner un point d'attache vis à vis de l'exterieur.</li>
+</ul>
+<h2 id="presentation-generale">Présentation générale<a class="headerlink" href="#presentation-generale" title="Permanent link">&para;</a></h2>
+<p>les configurations les plus simples exécutent tous les services principaux formant le master sur un seul hôte.
+C'est bien pour une configuration de aboratoire ou d'environnement de test, mais pour 
+les environnements de production, la haute disponibilité multi-master est un élément indispensable. 
+C’est pourquoi les principaux fournisseurs de cloud metten en œuvre des masters HA (High Availability) 
+dans le cadre de leurs solutions.
+Entre 3 et 5 masters répliqués sont un bon début pour la production.</p>
+<p>Des offres de providers KaaS (Kubernetes-as-a-Service) :
+- Azure Kubernetes Service (AKS),
+- AWS Elastic Kubernetes Service (EKS),
+- Google Kubernetes Engine (GKE).</p>
+<p>kubernetes DNS : une adresse IP statique hard codéee dans tous les pods !!!
+basé sur CoreDNS</p>
+<p>Pour le master
+api-server
+Cluster Store -&gt; etcd
+Cloud Controller manager
+scheduler
+Controller Manager</p>
+<p>sur un node
+kubelet
+cri-containerd
+kube-proxy</p>
+<p>Les pods : vient de l'expression groupe de baleines, et le symbole de docker est une baleine : cqfd.
+la plupart du temps un pod contien un seul container, mais il y a des cas (avancée) où il faut plusieurs containers dans un pod, c'est le cas pour:
+service meshes (service de maillage de micro-services)</p>
+<p>serveur web, avec des systèmes de ise à jour</p>
+<p>les containers dans n pod se partagent tout:
+ipc, méméoire, stockage, même adresse IP
+si 2 containers dans un pod ont besoin de discuter, ils passent par locahost et des nuémros de ports.</p>
+<p>l'unité de croissance n'est pas le containers, mais le pod
+Le déploiement d'un pod est une opération atomique : Un pod est soit déployé, soit ne l'est pas, mais jamais partiellement.
+L’ensemble du pod démarre et est mis en service, ou bien ne l'est pas.
+Un seul pod ne peut être planifié que sur un seul nœud. 
+Pour un pod multi-conteneur : tous les conteneurs d'un même pod s'exécutent sur le même nœud
+Quand un pod meurt, il n'est pas réanimé, c'est un nouveau pod qui est démarré avec toutes les conséquences : nouvelle adresse IP, nouvel ID, etc...</p>
+<p>Les pods ne sont pas déployés directement, mais passent par un Deployments, DaemonSets, StatefulSets, CronJobs </p>
+<p>Pour la gestion dynamiques des IPs, on passe par la définition d'un service, qui fera le lien en les pdifférentes instances d'un pod et le monde externe.</p>
+<p>services
+permet de fédérer un ensemble de pods, par un nom, une adresse IP, un numéro de port, un nom dns
+un service est un objet de k8s à part entière.
+un service n'opère qu'au niveau IP (TCP ou UDP) et n'a pas d'inteligence applicative
+Le lien entre les pods et un service est fait au travers d'étiquettes (label)</p>
+<h3 id="statefulsets">StatefulSets<a class="headerlink" href="#statefulsets" title="Permanent link">&para;</a></h3>
+<p>Comme son nom l'indique permet d'avoir des pods gérent des états.
+A la différence de <code>Deployments</code> les informations associés au pod sont permanentes : adresse IP, noms predictibles, gestion de l'ordre de lancement.</p>
+<p>Les PODs d'un <code>StatefulSet</code> ne sont pas interchangeable à la différence de ceux d'un <code>Deployments</code>.
+Lorsqu'un pod géré par un <code>StatefulSet</code> échoue,
+il est remplacé par un autre pod portant le même nom, le même identifiant et la même adresse IP.</p>
+<p>Les pods <code>StatefulSets</code> sont tous les services  qui conservent un  état. Ceux-ci peuvent inclure:</p>
+<ul>
+<li>Pods nécessitant un accès à des volumes nommés spécifiques</li>
+<li>Pods nécessitant une identité réseau persistante</li>
+<li>Les pods qui doivent être mis en ligne dans un ordre particulier.</li>
+</ul>
+<h3 id="autoscaling">Autoscaling<a class="headerlink" href="#autoscaling" title="Permanent link">&para;</a></h3>
+<p>Certains fonctionnatilités sont encore en alpha ou beta. Plutôt que de faire le scaling à la main, il est possible de l'automatiser.</p>
+<ul>
+<li><strong>Horizontal Pod Autoscaler (HPA)</strong> : Augmente ou diminue automatiquement le nombre de <em>pods</em> en fonction de règles données.</li>
+<li><strong>Cluster Autoscaler (CA)</strong> : Augmente ou diminue automatiquement le nombre de <em>nodes</em> en fonction de règles données. CE point nécessite un intégration avec la couche infrastructure sous-jacente.</li>
+<li><strong>Vertical Pod Autoscaler (VPA)</strong> : Encore en <em>alpha</em>, pour la croissance verticale d'un pod (typiquement le nombre de CPUs).</li>
+</ul>
+<h2 id="securite-dans-k8s">Sécurité dans k8s<a class="headerlink" href="#securite-dans-k8s" title="Permanent link">&para;</a></h2>
+<p>le modèle STRIDE:</p>
+<ul>
+<li>Spoofing</li>
+<li>Tampering</li>
+<li>Repudiation</li>
+<li>Information disclosure</li>
+<li>Denial of service</li>
+<li>Elevation of privilege</li>
+</ul>
+<p>Protecting the Cluster Store against DoS Attacks
+Cluster configuration is stored in etcd, making it vital that etcd be available and secure.
+The following recommendations will help accomplish this:</p>
+<ul>
+<li>Configurer un cluster etcd en avec trois ou cinq noeud.</li>
+<li>Configurer la supervision et les alarmes (monitoring and alerting) pour les requétes à l'etcd.</li>
+<li>Isoler l'etcd au niveau réseau pour que seuls les membres du <em>control plane</em> puissent interagir avec lui.</li>
+</ul>
+<p>l'etcd est le point d'engorgement le plus fréquent sur des grandes configurations kubernetes.</p>
+<p><strong>Kubernetes ne supportent pas les clusters multi-tenant. La frontière de la sécurité au niveau du cluster kubernetes est le cluster lui-même</strong></p>
+<p>Le seul moyen de garantir l'isolation en terme de charge entre différents workload est de les faire exécuter sur des clusters différents. Il existe un <em>Multitenancy Working Group</em> qui travaille sur le sujet de manière active et qui peut laisser espérer que cela change, mais pour le moment:
+ - Isoler la production du non-production dans des clusters différents
+ - Isoler différents clients dans des clusters différents
+ - Isoler les fonctions business et les projets sensibles dans des clusters séparés.</p>
+<h3 id="micro-vm-renforcer-lisolation">micro VM : renforcer l'isolation<a class="headerlink" href="#micro-vm-renforcer-lisolation" title="Permanent link">&para;</a></h3>
+<p>Pour renforcer l'isolation des containers , 2 projets : gVisor et Kata Containers voir l'article <a href="https://www.lemagit.fr/actualites/252455620/Comment-Kata-Containers-et-gVisor-permettent-de-renforcer-la-securite-des-conteneurs">LeMagIT</a>. Ces 2 projets créent des 'micros VM'. Kata se base sur des extensions Intel (ça marche sur AMD ?), gVisor de google est plus un container <em>bac à sable</em> avec uniquement un sous-noyau qui ne comprend pas tous les appels systèmes Unix.</p>
+<h3 id="kubernetes-et-reseau-doverlay">Kubernetes et réseau d'Overlay<a class="headerlink" href="#kubernetes-et-reseau-doverlay" title="Permanent link">&para;</a></h3>
+<p><img alt="réseau virtuel à plat" src="../img/nodes-and-network.png" /></p>
+<p>En règle générale, les réseaux overlays encapsulent des paquets pour la transmission sur des tunnels VXLAN. Dans ce modèle, le réseau en overlays est un réseau virtuel de couche 2 fonctionnant au-dessus d'une infrastructure de couche 3 existante. Le trafic est encapsulé afin de pouvoir circuler entre les pods situés sur des nœuds différents. Cela simplifie la mise en œuvre, mais l’encapsulation pose des problèmes pour certains pare-feu.</p>
+<h3 id="cicd-pour-les-nuls">CI/CD Pour les nuls<a class="headerlink" href="#cicd-pour-les-nuls" title="Permanent link">&para;</a></h3>
+<p><img alt="CI/CD en une image" src="../img/CICD-for-dummies.png" /></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.ac79c3b0.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
